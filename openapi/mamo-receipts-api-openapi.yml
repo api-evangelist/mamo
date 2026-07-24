@@ -1,0 +1,253 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details Receipts API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Receipts
+paths:
+  /expenses/receipts/{identifier}:
+    get:
+      tags:
+      - Receipts
+      summary: Fetch Expense Receipt Details
+      description: Fetches detailed information for a specific expense receipt<br><br>
+      parameters:
+      - name: identifier
+        in: path
+        schema:
+          type: string
+          default: EXP-432E5A53FE
+        required: true
+        description: Expense identifier
+        example: EXP-432E5A53FE
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  expense_id:
+                    type: string
+                    description: Expense identifier
+                  transaction_id:
+                    type: string
+                    description: Transaction identifier
+                  receipt_files:
+                    type: array
+                    items:
+                      type: string
+                    description: Array of receipt file URLs
+                example:
+                  expense_id: EXP-432E5A53FE
+                  transaction_id: CTX-6BF99C98C4
+                  receipt_files:
+                  - /rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMUJ5QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--8b92071abcd8386e94f79de23a9bd14c255860db/image%20(4).png?disposition=attachment
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Expense receipt not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: string
+                example:
+                  status: 500
+                  error: Internal Server Error
+      operationId: getExpensesReceiptsIdentifier
+  /expenses/receipts:
+    get:
+      tags:
+      - Receipts
+      summary: Fetching Expense Receipts
+      description: Fetches all expense receipts for a given business<br><br>
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - in: query
+        name: page
+        schema:
+          type: integer
+        example: 1
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+        example: 10
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        expense_id:
+                          type: string
+                          description: Expense identifier
+                        transaction_id:
+                          type: string
+                          description: Transaction identifier
+                        receipt_files:
+                          type: array
+                          items:
+                            type: string
+                          description: Array of receipt file URLs
+                  pagination_meta:
+                    type: object
+                    properties:
+                      page:
+                        type: integer
+                        description: Current page number
+                      per_page:
+                        type: integer
+                        description: Items per page
+                      total_pages:
+                        type: integer
+                        description: Total number of pages
+                      next_page:
+                        type: integer
+                        nullable: true
+                        description: Next page number
+                      prev_page:
+                        type: integer
+                        nullable: true
+                        description: Previous page number
+                      from:
+                        type: integer
+                        description: Starting item number
+                      to:
+                        type: integer
+                        description: Ending item number
+                      total_count:
+                        type: integer
+                        description: Total number of items
+                example:
+                  data:
+                  - expense_id: EXP-432E5A53FE
+                    transaction_id: CTX-6BF99C98C4
+                    receipt_files:
+                    - /rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMUJ5QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--8b92071abcd8386e94f79de23a9bd14c255860db/image%20(4).png?disposition=attachment
+                  - expense_id: EXP-6475E0EC10
+                    transaction_id: CTX-F882355779
+                    receipt_files:
+                    - /rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMFJ5QXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--59cd235c835eb6dfcba3d40d899eebf7e60a502d/IMG_2444.png?disposition=attachment
+                  pagination_meta:
+                    page: 1
+                    per_page: 10
+                    total_pages: 1
+                    next_page: null
+                    prev_page: null
+                    from: 1
+                    to: 4
+                    total_count: 4
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: string
+                example:
+                  status: 500
+                  error: Internal Server Error
+      operationId: getExpensesReceipts
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'

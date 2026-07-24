@@ -1,0 +1,1608 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details Payment Links API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Payment Links
+paths:
+  /links/{linkId}:
+    delete:
+      tags:
+      - Payment Links
+      summary: Delete Payment Link
+      description: Allows a user to delete payment link<br><br>
+      parameters:
+      - in: path
+        name: linkId
+        schema:
+          type: string
+          default: MB-LINK-6BB7CA8DC7
+        required: true
+        description: Payment link ID
+        example: MB-LINK-6BB7CA8DC7
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                example:
+                  success: true
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Invalid request
+        '500':
+          description: Unexpected error
+      operationId: deleteLinksLinkid
+    get:
+      tags:
+      - Payment Links
+      summary: Fetch Payment Link Info
+      description: Allows a user to fetch payment link details<br><br>
+      parameters:
+      - in: path
+        name: linkId
+        schema:
+          type: string
+          default: MB-LINK-6BB7CA8DC7
+        required: true
+        description: Payment link ID
+        example: MB-LINK-6BB7CA8DC7
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                    maxLength: 75
+                    description: The title of the payment link
+                    default: Chocolate Box - Small
+                  description:
+                    type: string
+                    maxLength: 75
+                    description: Payment description. This will appear on the payment checkout page.
+                    default: 12pcs Chocolate Box
+                  capacity:
+                    type: integer
+                    description: The number of times a payment link can be used. The capacity will be ignored when the subscription params exist.
+                    default: 1
+                  active:
+                    type: boolean
+                    default: true
+                  return_url:
+                    type: string
+                    format: uri
+                    description: The URL which the customer will be redirected to after a successful payment.
+                    default: https://myawesomewebsite.com/paymentSuccess
+                  terms_and_conditions_url:
+                    type: string
+                    format: uri
+                    description: The URL to the terms and conditions page, if provided, the customer will be required to accept the terms before proceeding to payment.
+                  processing_fee_percentage:
+                    type: number
+                    minimum: 2
+                    default: 3
+                  amount:
+                    type: number
+                    minimum: 2
+                    default: 119.99
+                  amount_currency:
+                    type: string
+                    enum:
+                    - AED
+                    - USD
+                    - EUR
+                    - GBP
+                    - SAR
+                    default: AED
+                  link_type:
+                    type: string
+                    enum:
+                    - standalone
+                    - modal
+                    - inline
+                    description: Type of link to be created.
+                    default: standalone
+                  enable_tabby:
+                    type: boolean
+                    description: Enables the ability for customers to buy now and pay later.
+                    default: false
+                  enable_message:
+                    type: boolean
+                    description: Enables the ability for customers to add a message during the checkout process.
+                    default: false
+                  enable_tips:
+                    type: boolean
+                    description: Enables the tips option. This will be displayed on the first screen.
+                    default: false
+                  enable_customer_details:
+                    type: boolean
+                    description: Enables adding customer details such as the name, email, and phone number. This screen will be displayed before the payment details screen.
+                    default: false
+                  enable_quantity:
+                    type: boolean
+                    description: When enabled, customers can specify the number of items they intend to purchase. This quantity will serve as a multiplier for the base amount.
+                    default: false
+                  enable_qr_code:
+                    type: boolean
+                    description: Adds the ability to verify a payment through a QR code.
+                    default: false
+                  send_customer_receipt:
+                    type: boolean
+                    description: Enables the sending of customer receipts.
+                    default: false
+                  save_card:
+                    type: string
+                    enum:
+                    - 'off'
+                    - optional
+                    - required
+                    description: Allows the merchant to enable the option to store card details to be used later on for Merchant Initiated Transactions.
+                    default: 'off'
+                  payment_methods:
+                    type: array
+                    description: 'An array of accepted payment methods, card always apart of default option. Example: [''card'', ''wallet'']'
+                  rules:
+                    type: object
+                    description: Setting the rule for payment link
+                    properties:
+                      allowed:
+                        type: array
+                        description: An array of one or more rules
+                        items:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                              enum:
+                              - bins
+                              description: name of rules
+                            list:
+                              type: array
+                              description: value of bins
+                            decline_message:
+                              type: string
+                              description: Custom decline message for this rule
+                  subscription:
+                    type: object
+                    description: to be populated if this payment link is for a subscription. Otherwise, this property can be left out.
+                    properties:
+                      frequency:
+                        type: string
+                        enum:
+                        - annually
+                        - monthly
+                        - weekly
+                        description: defines the interval that this subscription will be run on.
+                      frequency_interval:
+                        type: integer
+                        minimum: 1
+                        description: defines how often this subscription will run. This will be based on the frequency property defined above.
+                      end_date:
+                        type: string
+                        pattern: \d{4}\/\d{2}\/\d{2}
+                        description: the last date this subscription could run on.
+                      payment_quantity:
+                        type: integer
+                        description: number of times this subscription will occur. If end_date defined, end_date takes precedence.
+                  first_name:
+                    type: string
+                    description: The first name of customer which will pre-populate in card info step.
+                  last_name:
+                    type: string
+                    description: The last name of customer which will pre-populate in card info step.
+                  email:
+                    type: string
+                    description: The email of customer which will pre-populate in card info step.
+                  payouts_share:
+                    type: object
+                    properties:
+                      recipient_id:
+                        type: string
+                        description: The ID of an already added recipient that the transaction amount will be shared with.
+                      percentage_to_recipient:
+                        type: number
+                        description: The percentage of the transaction amount that will be sent to the recipient.
+                      recipient_pays_fees:
+                        type: boolean
+                        description: Whether Mamo fees for a given transaction will be passed on to the recipient.
+                  custom_data:
+                    type: object
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  platform:
+                    type: string
+                  prefilled_customer:
+                    type: object
+                  external_id:
+                    type: string
+                  hold_and_charge_later:
+                    type: boolean
+                  internal_note:
+                    type: string
+                  lang:
+                    type: string
+                  expiration_date:
+                    type: string
+                  is_widget:
+                    type: boolean
+                  max_amount:
+                    type: number
+                  processing_fee_amount:
+                    type: number
+                  payment_url:
+                    type: string
+                  charges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        status:
+                          type: string
+                          enum:
+                          - confirmation_required
+                          - captured
+                          - refund_initiated
+                          - processing
+                          - failed
+                          - refunded
+                        id:
+                          type: string
+                        amount:
+                          type: number
+                        refund_amount:
+                          type: number
+                        refund_status:
+                          type: string
+                        billing_descriptor:
+                          type: string
+                        custom_data:
+                          type: object
+                        created_date:
+                          type: string
+                        subscription_id:
+                          type: string
+                        settlement_amount:
+                          type: number
+                        settlement_currency:
+                          type: string
+                        settlement_date:
+                          type: string
+                        customer_details:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            email:
+                              type: string
+                            phone_number:
+                              type: string
+                            comment:
+                              type: string
+                        payment_method:
+                          type: object
+                          properties:
+                            type:
+                              type: string
+                            card_holder_name:
+                              type: string
+                            card_last4:
+                              type: string
+                            origin:
+                              type: string
+                example:
+                  id: MB-LINK-37D90AAF51
+                  title: Test Payment Link
+                  name: Test Payment Link
+                  description: Test description
+                  capacity: 1
+                  active: true
+                  return_url: https://myawesomewebsite.com/paymentSuccess
+                  processing_fee_percentage: 0
+                  amount: 10
+                  amount_currency: AED
+                  platform: client
+                  prefilled_customer: {}
+                  external_id: null
+                  hold_and_charge_later: false
+                  internal_note: null
+                  lang: en
+                  expiration_date: null
+                  enable_message: false
+                  enable_tips: false
+                  enable_tabby: false
+                  link_type: standalone
+                  enable_customer_details: false
+                  save_card: 'off'
+                  is_widget: false
+                  max_amount: null
+                  processing_fee_amount: null
+                  enable_quantity: false
+                  payment_methods:
+                  - card
+                  - wallet
+                  rules:
+                    allowed: []
+                  subscription: null
+                  first_name: null
+                  last_name: null
+                  email: null
+                  payouts_share: null
+                  custom_data: {}
+                  payment_url: https://sandbox.dev.business.mamopay.com/pay/mamo-c1f890
+                  send_customer_receipt: true
+                  terms_and_conditions_url: null
+                  charges:
+                  - status: captured
+                    id: MPB-CHRG-E0CE93E071
+                    amount: 100
+                    refund_amount: 0
+                    refund_status: No refund
+                    billing_descriptor: Mamo*Merchant
+                    custom_data:
+                      internal_customer_id: 0114120d-c394-4cce-9cdb-4ccbae605748
+                      val1: true
+                      val2: custom value
+                    created_date: 2023-05-31-11-18-57
+                    subscription_id: MPB-SUB-B764EDCBA2
+                    settlement_amount: 356.42
+                    settlement_currency: AED
+                    settlement_date: 05/06/2023
+                    customer_details:
+                      name: Mamo User
+                      email: email@mamopay.com
+                      phone_number: '+971551234567'
+                      comment: Dolore voluptate possimus et.
+                    payment_method:
+                      type: CREDIT VISA
+                      card_holder_name: Mamo User
+                      card_last4: •••• 4242
+                      origin: UAE card
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Merchant::Link record was not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+      operationId: getLinksLinkid
+    patch:
+      tags:
+      - Payment Links
+      summary: Update Payment Link
+      description: Allows a user to update payment link details<br><br>
+      parameters:
+      - in: path
+        name: linkId
+        schema:
+          type: string
+          default: MB-LINK-6BB7CA8DC7
+        required: true
+        description: Payment link ID
+        example: MB-LINK-6BB7CA8DC7
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 75
+                  description: The title of the payment link
+                  default: Chocolate Box - Small
+                description:
+                  type: string
+                  maxLength: 75
+                  description: Payment description. This will appear on the payment checkout page.
+                  default: 12pcs Chocolate Box
+                capacity:
+                  type: integer
+                  description: The number of times a payment link can be used. The capacity will be ignored when the subscription params exist.
+                  default: 1
+                active:
+                  type: boolean
+                  default: true
+                return_url:
+                  type: string
+                  format: uri
+                  description: The URL which the customer will be redirected to after a successful payment.
+                  default: https://myawesomewebsite.com/paymentSuccess
+                failure_return_url:
+                  type: string
+                  format: uri
+                  description: The URL which the customer will be redirected to after a failure payment.
+                  default: https://failureurl.com/paymentFailure
+                terms_and_conditions_url:
+                  type: string
+                  format: uri
+                  description: The URL to the terms and conditions page, if provided, the customer will be required to accept the terms before proceeding to payment.
+                processing_fee_percentage:
+                  type: number
+                  minimum: 2
+                  default: 3
+                amount:
+                  type: number
+                  minimum: 2
+                  description: amount could be 0 with save_card 'required' option for card verification
+                  default: 119.99
+                amount_currency:
+                  type: string
+                  enum:
+                  - AED
+                  - USD
+                  - EUR
+                  - GBP
+                  - SAR
+                  default: AED
+                link_type:
+                  type: string
+                  enum:
+                  - standalone
+                  - modal
+                  - inline
+                  description: Type of link to be created.
+                  default: standalone
+                enable_tabby:
+                  type: boolean
+                  description: Enables the ability for customers to buy now and pay later.
+                  default: false
+                enable_message:
+                  type: boolean
+                  description: Enables the ability for customers to add a message during the checkout process.
+                  default: false
+                enable_tips:
+                  type: boolean
+                  description: Enables the tips option. This will be displayed on the first screen.
+                  default: false
+                save_card:
+                  type: string
+                  enum:
+                  - 'off'
+                  - optional
+                  - required
+                  default: 'off'
+                  description: Allows the merchant to enable the option to store card details to be used later on for Merchant Initiated Transactions.
+                enable_customer_details:
+                  type: boolean
+                  description: Enables adding customer details such as the name, email, and phone number. This screen will be displayed before the payment details screen.
+                  default: false
+                enable_quantity:
+                  type: boolean
+                  description: When enabled, customers can specify the number of items they intend to purchase. This quantity will serve as a multiplier for the base amount.
+                  default: false
+                enable_qr_code:
+                  type: boolean
+                  description: Adds the ability to verify a payment through a QR code.
+                  default: false
+                send_customer_receipt:
+                  type: boolean
+                  description: Enables the sending of customer receipts.
+                  default: false
+                payment_methods:
+                  type: array
+                  description: 'An array of accepted payment methods, card always apart of default option. Example: [''card'', ''wallet'']'
+                rules:
+                  type: object
+                  description: Setting the rule for payment link
+                  properties:
+                    allowed:
+                      type: array
+                      description: An array of one or more rules
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - bins
+                            description: name of rules
+                          list:
+                            type: array
+                            description: value of bins
+                          decline_message:
+                            type: string
+                            description: Custom decline message for this rule
+                subscription_id:
+                  type: string
+                  description: The identifier of an existing subscription (created via the [Create Subscription](/reference/post_subscriptions) API) to attach to this payment link. This is the recommended way to create a subscription payment link — create the subscription first, then pass its identifier here. Requires `link_type` to be `inline`.
+                subscription:
+                  type: object
+                  description: Legacy, backwards-compatible way to configure a subscription inline, to be populated if this payment link is for a subscription. Otherwise, this property can be left out. New integrations should use the `subscription_id` field instead, together with the Create Subscription API.
+                  properties:
+                    frequency:
+                      type: string
+                      enum:
+                      - annually
+                      - monthly
+                      - weekly
+                      description: defines the interval that this subscription will be run on.
+                    frequency_interval:
+                      type: integer
+                      minimum: 1
+                      description: defines how often this subscription will run. This will be based on the frequency property defined above.
+                    start_date:
+                      type: string
+                      pattern: \d{4}\/\d{2}\/\d{2}
+                      description: the first date this subscription will run on.
+                    end_date:
+                      type: string
+                      pattern: \d{4}\/\d{2}\/\d{2}
+                      description: the last date this subscription could run on.
+                    payment_quantity:
+                      type: integer
+                      description: number of times this subscription will occur. If end_date defined, end_date takes precedence.
+                first_name:
+                  type: string
+                  description: The first name of customer which will pre-populate in card info step.
+                last_name:
+                  type: string
+                  description: The last name of customer which will pre-populate in card info step.
+                email:
+                  type: string
+                  description: The email of customer which will pre-populate in card info step.
+                external_id:
+                  type: string
+                hold_and_charge_later:
+                  type: boolean
+                  default: false
+                  description: Indicates whether to place the payment on hold and charge it later using the "captures" API.
+                custom_data:
+                  type: object
+                payouts_share:
+                  type: object
+                  properties:
+                    recipient_id:
+                      type: string
+                      description: The ID of an already added recipient that the transaction amount will be shared with.
+                    percentage_to_recipient:
+                      type: number
+                      description: The percentage of the transaction amount that will be sent to the recipient.
+                    recipient_pays_fees:
+                      type: boolean
+                      description: Whether Mamo fees for a given transaction will be passed on to the recipient.
+              example:
+                name: Chocolate Box - Small
+                description: 12pcs Chocolate Box
+                capacity: 15
+                active: true
+                return_url: https://myawesomewebsite.com/paymentSuccess
+                failure_return_url: https://failurewebsite.com/paymentFailure
+                processing_fee_percentage: 3
+                amount: 219.99
+                amount_currency: AED
+                enable_message: true
+                enable_tips: true
+                save_card: string
+                enable_tabby: true
+                link_type: modal
+                enable_customer_details: true
+                payment_methods:
+                - card
+                - wallet
+                rules:
+                  allowed:
+                  - type: bins
+                  - list:
+                    - '424242'
+                  - decline_message: Custom decline message for this rule
+                subscription:
+                  frequency: monthly
+                  frequency_interval: 1
+                  start_date: 2023/01/01
+                  end_date: 2023/01/31
+                  payment_quantity: 5
+                first_name: first name
+                last_name: last name
+                email: email@mamopay.com
+                external_id: external_id_1
+                custom_data:
+                  val1: true
+                  val2: custom value
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  capacity:
+                    type: integer
+                  active:
+                    type: boolean
+                  return_url:
+                    type: string
+                  failure_return_url:
+                    type: string
+                  processing_fee_percentage:
+                    type: number
+                  link_type:
+                    type: string
+                  amount:
+                    type: number
+                  amount_currency:
+                    type: string
+                  send_customer_receipt:
+                    type: boolean
+                  enable_tabby:
+                    type: boolean
+                  enable_message:
+                    type: boolean
+                  enable_tips:
+                    type: boolean
+                  save_card:
+                    type: string
+                  enable_quantity:
+                    type: boolean
+                  enable_customer_details:
+                    type: boolean
+                  payment_url:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  external_id:
+                    type: string
+                  custom_data:
+                    type: object
+                  payment_methods:
+                    type: array
+                  rules:
+                    type: object
+                    properties:
+                      allowed:
+                        type: array
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - bins
+                          list:
+                            type: array
+                          decline_message:
+                            type: string
+                  subscription:
+                    type: object
+                    properties:
+                      identifier:
+                        type: string
+                      repeats_every:
+                        type: string
+                      frequency_interval:
+                        type: integer
+                      start_date:
+                        type: string
+                      end_date:
+                        type: string
+                      payment_quantity:
+                        type: integer
+                      frequency:
+                        type: string
+                example:
+                  id: MB-LINK-D8B07FB8C7
+                  name: Chocolate Box - Small
+                  description: 12pcs Chocolate Box
+                  capacity: 15
+                  active: true
+                  return_url: https://myawesomewebsite.com/paymentSuccess
+                  failure_return_url: https://failurewebsite.com/paymentFailure
+                  amount: 219.99
+                  send_customer_receipt: true
+                  payment_url: https://staging.business.mamopay.com/pay/dong22-579f10
+                  external_id: exteral_id_1
+                  payment_methods:
+                  - card
+                  - wallet
+                  hold_and_charge_later: false
+                  rules:
+                    allowed:
+                    - type: bins
+                    - list:
+                      - '424242'
+                    - decline_message: Custom decline message for this rule
+                  subscription:
+                    identifier: MPB-SUB-2162171A86
+                    frequency: monthly
+                    frequency_interval: 1
+                    start_date: 2023/01/01
+                    end_date: 2023/01/31
+                    payment_quantity: 5
+                  custom_data:
+                    internal_customer_id: 0114120d-c394-4cce-9cdb-4ccbae605748
+                    val1: true
+                    val2: custom value
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Invalid request
+        '500':
+          description: Unexpected error
+      operationId: patchLinksLinkid
+  /links:
+    get:
+      tags:
+      - Payment Links
+      summary: Fetching Payment Links
+      description: Fetches all payment links for a given business<br><br>
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          minLength: 1
+                          maxLength: 75
+                          description: The title of the payment link
+                          default: Chocolate Box - Small
+                        description:
+                          type: string
+                          maxLength: 75
+                          description: Payment description. This will appear on the payment checkout page.
+                          default: 12pcs Chocolate Box
+                        capacity:
+                          type: integer
+                          description: The number of times a payment link can be used. The capacity will be ignored when the subscription params exist.
+                          default: 1
+                        active:
+                          type: boolean
+                          default: true
+                        return_url:
+                          type: string
+                          format: uri
+                          description: The URL which the customer will be redirected to after a successful payment.
+                          default: https://myawesomewebsite.com/paymentSuccess
+                        terms_and_conditions_url:
+                          type: string
+                          format: uri
+                          description: The URL to the terms and conditions page, if provided, the customer will be required to accept the terms before proceeding to payment.
+                        processing_fee_percentage:
+                          type: number
+                          minimum: 2
+                          default: 3
+                        amount:
+                          type: number
+                          minimum: 2
+                          default: 119.99
+                        amount_currency:
+                          type: string
+                          enum:
+                          - AED
+                          - USD
+                          - EUR
+                          - GBP
+                          - SAR
+                          default: AED
+                        link_type:
+                          type: string
+                          enum:
+                          - standalone
+                          - modal
+                          - inline
+                          description: Type of link to be created.
+                          default: standalone
+                        enable_tabby:
+                          type: boolean
+                          description: Enables the ability for customers to buy now and pay later.
+                          default: false
+                        enable_message:
+                          type: boolean
+                          description: Enables the ability for customers to add a message during the checkout process.
+                          default: false
+                        enable_tips:
+                          type: boolean
+                          description: Enables the tips option. This will be displayed on the first screen.
+                          default: false
+                        enable_customer_details:
+                          type: boolean
+                          description: Enables adding customer details such as the name, email, and phone number. This screen will be displayed before the payment details screen.
+                          default: false
+                        enable_quantity:
+                          type: boolean
+                          description: When enabled, customers can specify the number of items they intend to purchase. This quantity will serve as a multiplier for the base amount.
+                          default: false
+                        enable_qr_code:
+                          type: boolean
+                          description: Adds the ability to verify a payment through a QR code.
+                          default: false
+                        send_customer_receipt:
+                          type: boolean
+                          description: Enables the sending of customer receipts.
+                          default: false
+                        save_card:
+                          type: string
+                          enum:
+                          - 'off'
+                          - optional
+                          - required
+                          description: Allows the merchant to enable the option to store card details to be used later on for Merchant Initiated Transactions.
+                          default: 'off'
+                        payment_methods:
+                          type: array
+                          description: 'An array of accepted payment methods, card always apart of default option. Example: [''card'', ''wallet'']'
+                        rules:
+                          type: object
+                          description: Setting the rule for payment link
+                          properties:
+                            allowed:
+                              type: array
+                              description: An array of one or more rules
+                              items:
+                                type: object
+                                properties:
+                                  type:
+                                    type: string
+                                    enum:
+                                    - bins
+                                    description: name of rules
+                                  list:
+                                    type: array
+                                    description: value of bins
+                                  decline_message:
+                                    type: string
+                                    description: Custom decline message for this rule
+                        subscription:
+                          type: object
+                          description: to be populated if this payment link is for a subscription. Otherwise, this property can be left out. REQUIRES Premium Business Plan to be enabled.
+                          properties:
+                            frequency:
+                              type: string
+                              enum:
+                              - annually
+                              - monthly
+                              - weekly
+                              description: defines the interval that this subscription will be run on.
+                            frequency_interval:
+                              type: integer
+                              minimum: 1
+                              description: defines how often this subscription will run. This will be based on the frequency property defined above.
+                            end_date:
+                              type: string
+                              pattern: \d{4}\/\d{2}\/\d{2}
+                              description: the last date this subscription could run on.
+                            payment_quantity:
+                              type: integer
+                              description: number of times this subscription will occur. If end_date defined, end_date takes precedence.
+                        first_name:
+                          type: string
+                          description: The first name of customer which will pre-populate in card info step.
+                        last_name:
+                          type: string
+                          description: The last name of customer which will pre-populate in card info step.
+                        email:
+                          type: string
+                          description: The email of customer which will pre-populate in card info step.
+                        payouts_share:
+                          type: object
+                          properties:
+                            recipient_id:
+                              type: string
+                              description: The ID of an already added recipient that the transaction amount will be shared with.
+                            percentage_to_recipient:
+                              type: number
+                              description: The percentage of the transaction amount that will be sent to the recipient.
+                            recipient_pays_fees:
+                              type: boolean
+                              description: Whether Mamo fees for a given transaction will be passed on to the recipient.
+                        custom_data:
+                          type: object
+                        id:
+                          type: string
+                        title:
+                          type: string
+                        platform:
+                          type: string
+                        prefilled_customer:
+                          type: object
+                        external_id:
+                          type: string
+                        hold_and_charge_later:
+                          type: boolean
+                        internal_note:
+                          type: string
+                        lang:
+                          type: string
+                        expiration_date:
+                          type: string
+                        is_widget:
+                          type: boolean
+                        max_amount:
+                          type: number
+                        processing_fee_amount:
+                          type: number
+                        payment_url:
+                          type: string
+                  pagination_meta:
+                    type: object
+                    properties:
+                      page:
+                        type: number
+                      per_page:
+                        type: number
+                      total_pages:
+                        type: number
+                      next_page:
+                        type: number
+                      prev_page:
+                        type: number
+                      from:
+                        type: number
+                      to:
+                        type: number
+                      total_count:
+                        type: number
+                example:
+                  data:
+                  - id: MB-LINK-37D90AAF51
+                    title: Test Payment Link
+                    name: Test Payment Link
+                    description: Test description
+                    capacity: 1
+                    active: true
+                    return_url: https://myawesomewebsite.com/paymentSuccess
+                    processing_fee_percentage: 0
+                    amount: 10
+                    amount_currency: AED
+                    platform: client
+                    prefilled_customer: {}
+                    external_id: null
+                    hold_and_charge_later: false
+                    internal_note: null
+                    lang: en
+                    expiration_date: null
+                    enable_message: false
+                    enable_tips: false
+                    enable_tabby: false
+                    link_type: standalone
+                    enable_customer_details: false
+                    save_card: 'off'
+                    is_widget: false
+                    max_amount: null
+                    processing_fee_amount: null
+                    enable_quantity: false
+                    payment_methods:
+                    - card
+                    - wallet
+                    rules:
+                      allowed: []
+                    subscription: null
+                    first_name: null
+                    last_name: null
+                    email: null
+                    payouts_share: null
+                    custom_data: {}
+                    payment_url: https://sandbox.dev.business.mamopay.com/pay/mamo-c1f890
+                    send_customer_receipt: true
+                    terms_and_conditions_url: null
+                  pagination_meta:
+                    page: 1
+                    per_page: 10
+                    total_pages: 5
+                    next_page: 2
+                    prev_page: null
+                    from: 1
+                    to: 10
+                    total_count: 47
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '500':
+          description: Unexpected error
+      operationId: getLinks
+    post:
+      tags:
+      - Payment Links
+      summary: Create Payment Link
+      description: 'API to generate vanilla and subscription payment links. <br> <h3>Payment Status</h3> Once your customer completes a payment, the redirect URL will be appended with the following params<br> - createdAt: The date the charge was captured at<br> - paymentLinkId: The payment link id<br> - status: indicates the payment status, whether captured or failed<br> - transactionId: The transaction / charge id related to the payment<br> <br> You may also get notified about a payment''s status by setting up a webhook. Details [here](https://mamopay.readme.io/reference/post_webhooks)<br> <br> A third approach to check the transaction status is by calling our transaction info API [here](https://mamopay.readme.io/reference/get_charges-chargeid)<br> <br> **Sample redirect url after a successful payment**<br> https://www.mamopay.com/?createdAt=2023-08-09-16-42-35&paymentLinkId=MB-LINK-3216D27C9D&status=captured&transactionId=MPB-CHRG-BEE56990A9<br> <br>
+
+        <h3>For Payment Testing</h3>
+
+        <p>To make payments with different use cases on the test environment, you can use the card details below alongside the below CVV and expiry date.</p> - CVV: 123<br> - Expiry: 01/28
+
+        <table> <thead> <tr> <th>Card Number</th> <th>Payment Status</th> <th>3DS</th> <th>Address Required</th> <th>Country</th> </tr> </thead> <tbody> <tr> <td>4659 1055 6905 1157</td> <td>Success</td> <td>X</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4242 4242 4242 4242</td> <td>Success</td> <td>✓</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4111 1111 1111 1111</td> <td>Success</td> <td>✓</td> <td>✓</td> <td>US</td> </tr> <tr> <td>4567 3613 2598 1788</td> <td>Fail</td> <td>X</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4095 2548 0264 2505</td> <td>Fail</td> <td>X</td> <td>✓</td> <td>US</td> </tr> </tbody> </table>
+
+
+
+
+        <br> <h3>3DS</h3> If prompted for a password, enter **Checkout1!**<br> <br> <h3>Subscriptions</h3> To create a subscription payment link, create the subscription first using the [Create Subscription](/reference/post_subscriptions) API, then pass its identifier as `subscription_id` below with `link_type` set to `inline`. The inline `subscription` object is a legacy, backwards-compatible alternative — when setting it up, if both end_date and payment_quantity were defined, end_date takes precedence.<br><br> '
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  minLength: 1
+                  maxLength: 50
+                  description: The title of the payment link
+                  default: Chocolate Box - Small
+                description:
+                  type: string
+                  maxLength: 75
+                  description: Payment description. This will appear on the payment checkout page.
+                  default: 12pcs Chocolate Box
+                capacity:
+                  type: integer
+                  description: The number of times a payment link can be used, if null the link can be used indefinitely. The capacity will be ignored when the subscription params exist.
+                active:
+                  type: boolean
+                  default: true
+                return_url:
+                  type: string
+                  format: uri
+                  description: The URL which the customer will be redirected to after a successful payment.
+                  default: https://myawesomewebsite.com/paymentSuccess
+                failure_return_url:
+                  type: string
+                  format: uri
+                  description: The URL which the customer will be redirected to after a failure payment.
+                  default: https://failureurl.com/paymentFailure
+                terms_and_conditions_url:
+                  type: string
+                  format: uri
+                  description: The URL to the terms and conditions page, if provided, the customer will be required to accept the terms before proceeding to payment.
+                processing_fee_percentage:
+                  type: number
+                  description: Processing fee that you as a merchant can impose on your customers
+                  minimum: 0
+                  default: 0
+                amount:
+                  type: number
+                  minimum: 2
+                  description: amount could be 0 with save_card 'required' option for card verification
+                  default: 119.99
+                amount_currency:
+                  type: string
+                  enum:
+                  - AED
+                  - USD
+                  - EUR
+                  - GBP
+                  - SAR
+                  default: AED
+                  description: Currency code for the payment amount. See [examples](https://help.mamopay.com/en/articles/8225989-supported-currencies) for more details.
+                link_type:
+                  type: string
+                  enum:
+                  - standalone
+                  - modal
+                  - inline
+                  description: Type of link to be created.
+                  default: standalone
+                enable_tabby:
+                  type: boolean
+                  description: Enables the ability for customers to buy now and pay later.
+                  default: false
+                enable_message:
+                  type: boolean
+                  description: Enables the ability for customers to add a message during the checkout process.
+                  default: false
+                enable_tips:
+                  type: boolean
+                  description: Enables the tips option. This will be displayed on the first screen.
+                  default: false
+                save_card:
+                  type: string
+                  enum:
+                  - 'off'
+                  - optional
+                  - required
+                  description: Allows the merchant to enable the option to store card details to be used later on for Merchant Initiated Transactions.
+                  default: 'off'
+                enable_customer_details:
+                  type: boolean
+                  description: Enables adding customer details such as the name, email, and phone number. This screen will be displayed before the payment details screen.
+                  default: false
+                enable_quantity:
+                  type: boolean
+                  description: When enabled, customers can specify the number of items they intend to purchase. This quantity will serve as a multiplier for the base amount.
+                  default: false
+                enable_qr_code:
+                  type: boolean
+                  description: Adds the ability to verify a payment through a QR code.
+                  default: false
+                send_customer_receipt:
+                  type: boolean
+                  description: Enables the sending of customer receipts.
+                  default: false
+                payment_methods:
+                  type: array
+                  description: 'An array of the accepted payment methods, with ''card'' always included as the default option, and wallet for Apple Pay and Google Pay. Example to accept all: [''card'', ''wallet'']'
+                rules:
+                  type: object
+                  description: Setting the rule for payment link
+                  properties:
+                    allowed:
+                      type: array
+                      description: An array of one or more rules
+                      items:
+                        type: object
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - bins
+                            description: name of rules
+                          list:
+                            type: array
+                            description: value of bins
+                          decline_message:
+                            type: string
+                            description: Custom decline message for this rule
+                subscription_id:
+                  type: string
+                  description: The identifier of an existing subscription (created via the [Create Subscription](/reference/post_subscriptions) API) to attach to this payment link. This is the recommended way to create a subscription payment link — create the subscription first, then pass its identifier here. Requires `link_type` to be `inline`.
+                subscription:
+                  type: object
+                  description: Legacy, backwards-compatible way to configure a subscription inline, to be populated if this payment link is for a subscription. Otherwise, this property can be left out. New integrations should use the `subscription_id` field instead, together with the Create Subscription API.
+                  properties:
+                    frequency:
+                      type: string
+                      enum:
+                      - annually
+                      - monthly
+                      - weekly
+                      description: defines the interval that this subscription will be run on.
+                    frequency_interval:
+                      type: integer
+                      minimum: 1
+                      description: defines how often this subscription will run. This will be based on the frequency property defined above.
+                    start_date:
+                      type: string
+                      pattern: \d{4}\/\d{2}\/\d{2}
+                      description: the first date this subscription will run on.
+                    end_date:
+                      type: string
+                      pattern: \d{4}\/\d{2}\/\d{2}
+                      description: the last date this subscription could run on.
+                    payment_quantity:
+                      type: integer
+                      description: number of times this subscription will occur. If end_date defined, end_date takes precedence.
+                first_name:
+                  type: string
+                  description: The first name of customer which will pre-populate in card info step.
+                last_name:
+                  type: string
+                  description: The last name of customer which will pre-populate in card info step.
+                email:
+                  type: string
+                  description: The email of customer which will pre-populate in card info step.
+                custom_data:
+                  type: object
+                external_id:
+                  type: string
+                  description: The external ID of your choice to associate with payments captured by this payment link.
+                hold_and_charge_later:
+                  type: boolean
+                  default: false
+                  description: Indicates whether to place the payment on hold and charge it later using the "captures" API.
+                payouts_share:
+                  type: object
+                  properties:
+                    recipient_id:
+                      type: string
+                      description: The ID of an already added recipient that the transaction amount will be shared with.
+                    percentage_to_recipient:
+                      type: number
+                      description: The percentage of the transaction amount that will be sent to the recipient.
+                    recipient_pays_fees:
+                      type: boolean
+                      description: Whether Mamo fees for a given transaction will be passed on to the recipient.
+              required:
+              - title
+              example:
+                title: Chocolate Box - Small
+                description: 12pcs Chocolate Box
+                capacity: 1
+                active: true
+                return_url: https://myawesomewebsite.com/paymentSuccess
+                failure_return_url: https://failurewebsite.com/paymentFailure
+                terms_and_conditions_url: https://myawesomewebsite.com/terms
+                processing_fee_percentage: 3
+                amount: 119.99
+                amount_currency: AED
+                enable_message: true
+                enable_tips: true
+                save_card: optional
+                enable_tabby: true
+                link_type: modal
+                enable_customer_details: true
+                payment_methods:
+                - card
+                - wallet
+                rules:
+                  allowed:
+                  - type: bins
+                  - list:
+                    - '424242'
+                  - decline_message: Custom decline message for this rule
+                subscription:
+                  frequency: monthly
+                  frequency_interval: 1
+                  start_date: 2023/01/01
+                  end_date: 2023/02/31
+                  payment_quantity: 5
+                first_name: first name
+                last_name: last name
+                email: email@mamopay.com
+                custom_data:
+                  val1: true
+                  val2: custom value
+                external_id: ORDER-12345
+                hold_and_charge_later: false
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  capacity:
+                    type: integer
+                  active:
+                    type: boolean
+                  return_url:
+                    type: string
+                  failure_return_url:
+                    type: string
+                  terms_and_conditions_url:
+                    type: string
+                  processing_fee_percentage:
+                    type: number
+                  link_type:
+                    type: string
+                  amount:
+                    type: number
+                  amount_currency:
+                    type: string
+                  send_customer_receipt:
+                    type: boolean
+                  enable_tabby:
+                    type: boolean
+                  enable_message:
+                    type: boolean
+                  enable_tips:
+                    type: boolean
+                  save_card:
+                    type: string
+                  enable_quantity:
+                    type: boolean
+                  enable_customer_details:
+                    type: boolean
+                  payment_url:
+                    type: string
+                  first_name:
+                    type: string
+                  last_name:
+                    type: string
+                  email:
+                    type: string
+                  custom_data:
+                    type: object
+                  external_id:
+                    type: string
+                  payment_methods:
+                    type: array
+                  rules:
+                    type: object
+                    properties:
+                      allowed:
+                        type: array
+                        properties:
+                          type:
+                            type: string
+                            enum:
+                            - bins
+                          list:
+                            type: array
+                          decline_message:
+                            type: string
+                  subscription:
+                    type: object
+                    properties:
+                      identifier:
+                        type: string
+                      repeats_every:
+                        type: string
+                      frequency_interval:
+                        type: integer
+                      start_date:
+                        type: string
+                      end_date:
+                        type: string
+                      payment_quantity:
+                        type: integer
+                      frequency:
+                        type: string
+                  platform:
+                    type: string
+                  prefilled_customer:
+                    type: object
+                  hold_and_charge_later:
+                    type: boolean
+                  internal_note:
+                    type: string
+                  lang:
+                    type: string
+                  expiration_date:
+                    type: string
+                  name:
+                    type: string
+                  is_widget:
+                    type: boolean
+                  max_amount:
+                    type: number
+                  processing_fee_amount:
+                    type: number
+                  payouts_share:
+                    type: object
+                example:
+                  id: MB-LINK-37D90AAF51
+                  title: Test Payment Link
+                  name: Test Payment Link
+                  description: Test description
+                  capacity: 1
+                  active: true
+                  return_url: https://myawesomewebsite.com/paymentSuccess
+                  failure_return_url: null
+                  amount: 10
+                  amount_currency: AED
+                  send_customer_receipt: true
+                  platform: client
+                  prefilled_customer: {}
+                  external_id: null
+                  hold_and_charge_later: false
+                  internal_note: null
+                  lang: en
+                  expiration_date: null
+                  enable_tabby: false
+                  is_widget: false
+                  link_type: standalone
+                  max_amount: null
+                  processing_fee_percentage: 0
+                  processing_fee_amount: null
+                  enable_message: false
+                  enable_tips: false
+                  enable_quantity: false
+                  payment_methods:
+                  - card
+                  - wallet
+                  rules:
+                    allowed: []
+                  enable_customer_details: false
+                  payment_url: https://sandbox.dev.business.mamopay.com/pay/mamo-c1f890
+                  save_card: 'off'
+                  terms_and_conditions_url: null
+                  subscription: null
+                  payouts_share: null
+                  custom_data: {}
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Invalid request
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                  error_code:
+                    type: string
+                  errors:
+                    type: object
+                    properties:
+                      name:
+                        type: array
+                        items:
+                          type: string
+                example:
+                  messages:
+                  - Title can't be blank
+                  - Title is too short (minimum is 1 character)
+                  error_code: VALIDATION_FAILED
+                  errors:
+                    title:
+                    - can't be blank
+                    - is too short (minimum is 1 character)
+        '500':
+          description: Unexpected error
+      operationId: postLinks
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'

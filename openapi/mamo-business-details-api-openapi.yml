@@ -1,0 +1,185 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Business Details
+paths:
+  /finances:
+    get:
+      tags:
+      - Business Details
+      summary: Fetch Account Balances
+      description: API to fetch the balances of the merchant's different Mamo accounts.<br><br>
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  wallets:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        currency:
+                          type: string
+                        balance:
+                          type: number
+                        type:
+                          type: string
+                example:
+                  wallets:
+                  - id: WLT-2F7029718D
+                    currency: AED
+                    balance: 81289.8
+                    type: main_wallet
+                  - id: MPB-Account-A680E1C894
+                    currency: AED
+                    balance: 0
+                    type: debit
+                  - id: WLT-EFE1D89DFE
+                    currency: AED
+                    balance: 0
+                    type: cashback_wallet
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Charge record was not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+      operationId: getFinances
+  /me:
+    get:
+      tags:
+      - Business Details
+      summary: Fetch Business Info
+      description: API to fetch your business info.<br><br>
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  business_name:
+                    type: string
+                  business_tag:
+                    type: string
+                  website:
+                    type: string
+                example:
+                  business_name: Mamo
+                  business_tag: mamo
+                  website: https://mamopay.com
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Charge record was not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+      operationId: getMe
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'

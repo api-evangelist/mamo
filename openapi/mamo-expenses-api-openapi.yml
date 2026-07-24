@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details Expenses API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Expenses
+paths:
+  /expenses/{expenseId}:
+    patch:
+      tags:
+      - Expenses
+      summary: Update Expense
+      description: Updates expense details such as description, invoice number, and status
+      parameters:
+      - in: path
+        name: expenseId
+        schema:
+          type: string
+          default: EXP-F096A17391
+        required: true
+        description: Expense ID
+        example: EXP-F096A17391
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: multipart/form-data
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                invoice_number:
+                  type: string
+                  description: Invoice number for the expense
+                description:
+                  type: string
+                  description: Description of the expense
+                status:
+                  type: string
+                  enum:
+                  - incomplete
+                  - pending_review
+                  - ready
+                  - synced
+                  description: Status of the expense
+              example:
+                invoice_number: '123'
+                description: testing
+                status: pending_review
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum:
+                    - incomplete
+                    - pending_review
+                    - ready
+                    - synced
+                    description: Expense status
+                  description:
+                    type: string
+                    description: Expense description
+                  invoiceNumber:
+                    type: string
+                    description: Invoice number
+                  id:
+                    type: string
+                    description: Expense identifier
+                  category:
+                    type: string
+                    description: Expense category
+                  taxCode:
+                    type: string
+                    description: Tax code
+                  paymentAccount:
+                    type: string
+                    nullable: true
+                    description: Payment account
+                  expenseAccount:
+                    type: string
+                    description: Expense account
+                  vendor:
+                    type: string
+                    nullable: true
+                    description: Vendor information
+                  receiptUploaded:
+                    type: boolean
+                    description: Whether receipt is uploaded
+                  createdAt:
+                    type: string
+                    description: Expense creation date
+                  updatedAt:
+                    type: string
+                    description: Expense last update date
+                example:
+                  status: pending_review
+                  description: testing
+                  invoiceNumber: '123'
+                  id: EXP-F096A17391
+                  category: Food and entertainment
+                  taxCode: Sales Tax on Imports
+                  paymentAccount: null
+                  expenseAccount: Cleaning
+                  vendor: null
+                  receiptUploaded: false
+                  createdAt: 12 Jun 2025, 01:02PM
+                  updatedAt: 08 Oct 2025, 03:14PM
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '404':
+          description: Expense not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Expense not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: string
+                example:
+                  status: 500
+                  error: Internal Server Error
+      operationId: patchExpensesExpenseid
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'

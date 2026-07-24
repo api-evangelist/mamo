@@ -1,0 +1,317 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details Payouts API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Payouts
+paths:
+  /disbursements/{disbursementId}:
+    get:
+      tags:
+      - Payouts
+      summary: Fetch Disbursement Info
+      description: Allows a user to fetch the disbursement details.<br><br>
+      parameters:
+      - in: path
+        name: disbursementId
+        schema:
+          type: string
+          default: MPB-DISBMT-FBA601A8FA
+        required: true
+        description: Disbursement ID
+        example: MPB-DISBMT-FBA601A8FA
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: number
+                  identifier:
+                    type: string
+                    description: unique id from the disbursement
+                    default: MPB-DISBMT-F2336E5CFB
+                  reason:
+                    type: string
+                    default: Invoice payment
+                  name:
+                    type: string
+                    description: Recipient's name
+                    default: Homemade Chocolatier
+                  amount_formatted:
+                    type: string
+                    description: Transfer amount
+                    default: '100.12'
+                  method:
+                    type: string
+                    description: Type of transfer
+                    default: Bank Account
+                  recipient:
+                    type: string
+                    description: The recipient's bank account
+                    default: AE080200000123223333121
+                  created_at:
+                    type: string
+                    description: The date the disbursement was created at
+                    default: 07/03/2023
+                  status:
+                    type: string
+                    enum:
+                    - Processing
+                    - Processed
+                    - Failed
+                    description: Current status of the disbursement
+                    default: Processing
+                example:
+                  id: 72
+                  identifier: MPB-DISBMT-F2336E5CFB
+                  reason: reason
+                  name: wes e
+                  amount_formatted: '2.00'
+                  method: Bank account
+                  recipient: AE080200000123223333121
+                  created_at: 07/03/2023
+                  status: Processing
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Merchant::Disbursement record was not found
+                  error_code: RECORD_NOT_FOUND
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: string
+                example:
+                  status: 500
+                  error: Internal Server Error
+      operationId: getDisbursementsDisbursementid
+  /disbursements:
+    post:
+      tags:
+      - Payouts
+      summary: Issue Disbursements
+      description: Allows the issuance of disbursements in bulk<br><br>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                disbursements:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      first_name_or_business_name:
+                        type: string
+                        description: Name of the business or the first name of the individual
+                        default: Homemade Chocolatier
+                      last_name:
+                        type: string
+                        description: Recipient's last name
+                      account:
+                        type: string
+                        description: Recipient's IBAN
+                        default: AE080200000123223333121
+                      transfer_method:
+                        type: string
+                        description: Type of transfer. Currently only bank account transfers are supported
+                        enum:
+                        - BANK_ACCOUNT
+                        default: BANK_ACCOUNT
+                      reason:
+                        type: string
+                        description: Description of what the payment is for
+                        default: Invoice payment
+                      amount:
+                        type: string
+                        description: Amount to be paid as a string. Only AED transfers supported
+                        default: '100.12'
+                        minimum: 1
+              required:
+              - first_name_or_business_name
+              - account
+              - transfer_method
+              - reason
+              - amount
+              example:
+                disbursements:
+                - first_name_or_business_name: Homemade Chocolatier
+                  last_name: ''
+                  account: AE080200000123223333121
+                  transfer_method: BANK_ACCOUNT
+                  reason: Invoice payment
+                  amount: '100.12'
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: number
+                    identifier:
+                      type: string
+                      description: unique id from the disbursement
+                      default: MPB-DISBMT-F2336E5CFB
+                    reason:
+                      type: string
+                      default: Invoice payment
+                    name:
+                      type: string
+                      description: Recipient's name
+                      default: Homemade Chocolatier
+                    amount_formatted:
+                      type: string
+                      description: Transfer amount
+                      default: '100.12'
+                    currency:
+                      type: string
+                      description: Currency code
+                      default: AED
+                    method:
+                      type: string
+                      description: Type of transfer
+                      default: Bank account
+                    recipient:
+                      type: string
+                      description: The recipient's bank account
+                      default: AE080200000123223333121
+                    created_at:
+                      type: string
+                      description: The date the disbursement was created at
+                      default: 07/03/2023
+                    status:
+                      type: string
+                      enum:
+                      - Processing
+                      - Processed
+                      - Failed
+                      description: Current status of the disbursement
+                      default: Processing
+                example:
+                - id: 879
+                  identifier: PYT-19044D349D
+                  name: Test Business
+                  amount_formatted: '50.00'
+                  currency: AED
+                  method: Bank account
+                  recipient: AE080200000123223333121
+                  created_at: 04/12/2025
+                  status: Processing
+                  reason: Test payment
+        '400':
+          description: Bad Request
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - 'Row 1 is invalid: Recipient first name can''t be blank'
+                  error_code: INVALID_ATTRIBUTES
+        '500':
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  error:
+                    type: string
+                example:
+                  status: 500
+                  error: Internal Server Error
+      operationId: postDisbursements
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'

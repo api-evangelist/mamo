@@ -1,0 +1,293 @@
+openapi: 3.0.0
+info:
+  title: Mamo Business Business Details Invoices API
+  version: '1.6'
+  description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+servers:
+- url: https://business.mamopay.com/manage_api/v1
+  description: Production server
+- url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+  description: Sandbox server
+security:
+- bearerAuth: []
+tags:
+- name: Invoices
+paths:
+  /invoices:
+    post:
+      tags:
+      - Invoices
+      summary: Create Invoice
+      description: API to create and send an invoice to a customer via email.
+      parameters:
+      - name: Content-Type
+        in: header
+        schema:
+          type: string
+        example: application/json
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+        example: Bearer <your sandbox api key>
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  minimum: 0
+                  description: The invoice amount to be charged to the customer.
+                  default: 123
+                amount_currency:
+                  type: string
+                  enum:
+                  - AED
+                  - USD
+                  - EUR
+                  - GBP
+                  - SAR
+                  default: AED
+                  description: Currency code for the invoice amount. See [examples](https://help.mamopay.com/en/articles/8225989-supported-currencies) for more details.
+                email:
+                  type: string
+                  format: email
+                  description: The customer's email address where the invoice will be sent.
+                description:
+                  type: string
+                  description: A description of the invoice. This will appear on the invoice sent to the customer.
+                customer_type:
+                  type: string
+                  enum:
+                  - individual
+                  - business
+                  description: The type of customer receiving the invoice.
+                  default: individual
+                first_name:
+                  type: string
+                  description: The first name of the customer.
+                last_name:
+                  type: string
+                  description: The last name of the customer.
+                phone_number:
+                  type: string
+                  description: The customer's phone number.
+                vat_enabled:
+                  type: boolean
+                  default: false
+                  description: Whether VAT should be applied and displayed on the invoice.
+                additional_heading:
+                  type: string
+                  description: An optional heading that will appear as additional information on the invoice.
+                additional_details:
+                  type: string
+                  description: Optional additional details or notes to include on the invoice.
+                additional_cc_emails:
+                  type: array
+                  items:
+                    type: string
+                    format: email
+                  description: A list of additional email addresses to CC when the invoice is sent.
+                include_external_id:
+                  type: boolean
+                  default: false
+                  description: Whether to display the external ID on the invoice.
+                external_id:
+                  type: string
+                  description: An external reference ID of your choice to associate with this invoice.
+                processing_fee_percentage:
+                  type: number
+                  nullable: true
+                  minimum: 0
+                  description: A processing fee percentage to be added on top of the invoice amount and charged to the customer.
+                processing_fee_amount:
+                  type: number
+                  nullable: true
+                  minimum: 0
+                  description: A fixed processing fee amount to be added on top of the invoice amount and charged to the customer.
+              required:
+              - amount
+              - amount_currency
+              - email
+              example:
+                amount: 123
+                amount_currency: AED
+                email: customer@example.com
+                description: Invoice for consulting services
+                customer_type: individual
+                first_name: John
+                last_name: Doe
+                phone_number: '+971555512345'
+                vat_enabled: false
+                additional_heading: Payment Terms
+                additional_details: Please complete payment within 7 days.
+                additional_cc_emails: []
+                include_external_id: true
+                external_id: ORDER-98765
+                processing_fee_percentage: null
+                processing_fee_amount: null
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    description: The unique identifier of the created invoice.
+                  status:
+                    type: string
+                    enum:
+                    - outstanding
+                    - paid
+                    - cancelled
+                    description: The current status of the invoice.
+                  amount:
+                    type: number
+                    description: The invoice amount.
+                  amount_formatted:
+                    type: string
+                    description: The invoice amount formatted with the currency code.
+                  amount_currency:
+                    type: string
+                    description: The currency code of the invoice amount.
+                  description:
+                    type: string
+                    description: The description provided for the invoice.
+                  customer:
+                    type: object
+                    description: Details of the customer the invoice was sent to.
+                    properties:
+                      name:
+                        type: string
+                        description: The full name of the customer.
+                      email:
+                        type: string
+                        description: The email address of the customer.
+                      phone:
+                        type: string
+                        description: The phone number of the customer.
+                  external_id:
+                    type: string
+                    description: The external reference ID associated with the invoice.
+                  additional_heading:
+                    type: string
+                    description: The additional heading displayed on the invoice.
+                  additional_details:
+                    type: string
+                    description: The additional details displayed on the invoice.
+                  business_name:
+                    type: string
+                    nullable: true
+                    description: The business name on the invoice, if applicable.
+                  uae_tax_reference_number:
+                    type: string
+                    nullable: true
+                    description: The UAE tax reference number, if applicable.
+                  address:
+                    type: string
+                    nullable: true
+                    description: The address associated with the invoice, if applicable.
+                  city:
+                    type: string
+                    nullable: true
+                    description: The city associated with the invoice, if applicable.
+                  country:
+                    type: string
+                    nullable: true
+                    description: The country associated with the invoice, if applicable.
+                  payment_url:
+                    type: string
+                    description: The URL where the customer can complete payment for this invoice.
+                  invoice_pdf_url:
+                    type: string
+                    nullable: true
+                    description: The URL to download the invoice as a PDF, once generated.
+                  paid_at:
+                    type: string
+                    nullable: true
+                    description: The date and time the invoice was paid, if applicable.
+                  created_at:
+                    type: string
+                    description: The date the invoice was created.
+                example:
+                  id: INV-A3B02CC00F
+                  status: outstanding
+                  amount: 123
+                  amount_formatted: AED 123.00
+                  amount_currency: AED
+                  description: Invoice for consulting services
+                  customer:
+                    name: John Doe
+                    email: customer@example.com
+                    phone: '+971555512345'
+                  external_id: ORDER-98765
+                  additional_heading: Payment Terms
+                  additional_details: Please complete payment within 7 days.
+                  business_name: null
+                  uae_tax_reference_number: null
+                  address: null
+                  city: null
+                  country: null
+                  payment_url: https://sandbox.dev.business.mamopay.com/pay/mamo-6112becefca9
+                  invoice_pdf_url: null
+                  paid_at: null
+                  created_at: 16 Apr, 2026
+        '403':
+          description: Unauthorised
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                example:
+                  messages:
+                  - Unauthorized
+                  error_code: UNAUTHORIZED
+        '422':
+          description: Unprocessable entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      type: string
+                  error_code:
+                    type: string
+                  errors:
+                    type: object
+                example:
+                  messages:
+                  - Amount can't be blank
+                  - Email can't be blank
+                  error_code: VALIDATION_FAILED
+                  errors:
+                    amount:
+                    - can't be blank
+                    email:
+                    - can't be blank
+        '500':
+          description: Unexpected error
+      operationId: postInvoices
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization: Bearer <api_key>`.'
