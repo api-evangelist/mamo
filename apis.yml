@@ -1,7 +1,17 @@
 aid: mamo
 name: Mamo
-description: Mamo is a company surfaced as a portfolio company of 500-global and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Mamo is a UAE-based fintech platform (Mamo Pay / Mamo Business) offering
+  integrated payment solutions for businesses across the Gulf. Its products
+  include hosted payment links and checkout, subscriptions and recurring
+  billing, merchant-initiated charges with saved cards, refunds/captures/holds,
+  invoicing, global payouts and disbursements to recipients, virtual and
+  physical corporate cards with expense management, and partner cards for
+  instant payouts. The Mamo Business API is a REST/JSON API hosted on readme.io
+  that lets merchants automate payment link generation, charges, subscriptions,
+  disbursements, recipients, card transactions, expenses, and webhooks. The
+  platform serves 4,000+ businesses and has processed over AED 12 billion in
+  total payment volume.
 url: https://raw.githubusercontent.com/api-evangelist/mamo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,17 +19,410 @@ x-backed-by:
 - 500-global
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://cdn.prod.website-files.com/62662ec945767b19355b5c00/695f9da901d5bfde3a81193b_Website%20thumbnail2.png
 tags:
 - Company
-apis: []
+- Payments
+- Fintech
+- Payment Links
+- Subscriptions
+- Corporate Cards
+- Payouts
+- Expense Management
+- UAE
+- Middle East
+apis:
+- aid: mamo:mamo-business-details-api
+  name: Mamo Business Details API
+  description: The Business Details API from Mamo — 2 operation(s) for business details.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Business Details
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-business-details-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-cards-api
+  name: Mamo Cards API
+  description: The Cards API from Mamo — 5 operation(s) for cards.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-cards-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-expenses-api
+  name: Mamo Expenses API
+  description: The Expenses API from Mamo — 1 operation(s) for expenses.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Expenses
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-expenses-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-getting-started-api
+  name: Mamo Getting Started API
+  description: The Getting Started API from Mamo — 1 operation(s) for getting started.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Getting Started
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-getting-started-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-invoices-api
+  name: Mamo Invoices API
+  description: The Invoices API from Mamo — 1 operation(s) for invoices.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Invoices
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-invoices-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-payment-links-api
+  name: Mamo Payment Links API
+  description: The Payment Links API from Mamo — 2 operation(s) for payment links.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Payment Links
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-payment-links-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-payouts-api
+  name: Mamo Payouts API
+  description: The Payouts API from Mamo — 2 operation(s) for payouts.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Payouts
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-payouts-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-receipts-api
+  name: Mamo Receipts API
+  description: The Receipts API from Mamo — 2 operation(s) for receipts.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Receipts
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-receipts-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-recipients-api
+  name: Mamo Recipients API
+  description: The Recipients API from Mamo — 2 operation(s) for recipients.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Recipients
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-recipients-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-subscriptions-api
+  name: Mamo Subscriptions API
+  description: The Subscriptions API from Mamo — 6 operation(s) for subscriptions.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-subscriptions-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-transactions-api
+  name: Mamo Transactions API
+  description: The Transactions API from Mamo — 7 operation(s) for transactions.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-transactions-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
+- aid: mamo:mamo-webhooks-api
+  name: Mamo Webhooks API
+  description: The Webhooks API from Mamo — 2 operation(s) for webhooks.
+  humanURL: https://mamopay.readme.io/reference/get_
+  baseURL: https://business.mamopay.com/manage_api/v1
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/mamo-webhooks-api-openapi.yml
+  - type: Authentication
+    url: authentication/mamo-authentication.yml
+  - type: Conventions
+    url: conventions/mamo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/mamo-problem-types.yml
+  - type: DeclineCodes
+    url: errors/mamo-decline-codes.yml
+  - type: DataModel
+    url: data-model/mamo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: AsyncAPI
+    url: asyncapi/mamo-webhooks-asyncapi.yml
+  - type: Conformance
+    url: conformance/mamo-conformance.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/mamo/overview
+- type: VulnerabilityDisclosure
+  url: security/mamo-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.mamopay.com/security
+- type: DomainSecurity
+  url: security/mamo-domain-security.yml
 - type: Website
   url: https://mamopay.com
+- type: DeveloperPortal
+  url: https://mamopay.readme.io/
+- type: Documentation
+  url: https://mamopay.readme.io/reference/get_
+- type: APIReference
+  url: https://mamopay.readme.io/reference/get_
+- type: GettingStarted
+  url: https://mamopay.readme.io/reference/get_
+- type: Authentication
+  url: https://mamopay.readme.io/reference/authentication
+- type: ChangeLog
+  url: https://mamopay.readme.io/reference/changelog
+- type: StatusPage
+  url: https://mamo.instatus.com/
+- type: Support
+  url: https://help.mamopay.com/en/
+- type: HelpCenter
+  url: https://help.mamopay.com/en/collections/7614470-developers
+- type: Blog
+  url: https://mamopay.com/blog
+- type: Pricing
+  url: https://mamopay.com/pricing
+- type: SignUp
+  url: https://dashboard.mamopay.com/onboarding/signup
+- type: Login
+  url: https://dashboard.mamopay.com/
+- type: TermsOfService
+  url: https://mamopay.com/legal/terms-business
+- type: PrivacyPolicy
+  url: https://mamopay.com/legal/privacy
+- type: LLMsTxt
+  url: llms/mamo-llms.txt
+- type: Sandbox
+  url: sandbox/mamo-sandbox.yml
+- type: Lifecycle
+  url: lifecycle/mamo-lifecycle.yml
+- type: ChangeLog
+  url: changelog/mamo-changelog.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: GitHubOrganization
+  url: https://github.com/mamopay
+- type: TrustCenter
+  url: security/mamo-trust-center.yml
+- type: Compliance
+  url: https://www.mamopay.com/security
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1
