@@ -1,0 +1,66 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/reference/transaction-failure-messages
+envelope_field: error_code
+notes: >-
+  Payment decline / failure reasons for the Mamo Business API, captured verbatim
+  from the published Failure Messages reference. Each decline surfaces a
+  normalized error_code and a customer-facing description shown to the buyer.
+  Complements errors/mamo-problem-types.yml (API-level HTTP errors).
+decline_codes:
+- code: generic
+  aliases: [generic_decline, try_again_later, transaction_not_allowed, rule]
+  meaning: Generic reason - user should contact their bank.
+  customer_message: We're sorry, the card was declined. Please try again or use another card.
+- code: authentication_failed
+  aliases: [payment_intent_authentication_failure]
+  meaning: Authentication failed.
+  customer_message: We're sorry, the payment was declined because authentication failed. Please try again.
+- code: insufficient_funds
+  meaning: Insufficient funds.
+  customer_message: We're sorry, the card was declined due to insufficient funds. Please try again.
+- code: issuer_declined
+  aliases: [generic_decline, contact_card_issuer, do_not_honor]
+  meaning: User's bank declined the payment.
+  customer_message: We're sorry, your bank has declined this payment. Please contact your bank to unblock this payment or try a different card.
+- code: timeout
+  meaning: Failed connection - user should try again.
+  customer_message: We're sorry, something went wrong and we weren't able to process your payment. Please try again.
+- code: invalid_card
+  meaning: Invalid card details.
+  customer_message: We're sorry, the card number is invalid. Please try again.
+- code: expired_card
+  meaning: Expired card.
+  customer_message: We're sorry, this card is expired. Please try another card.
+- code: tabby_rejected
+  meaning: Tabby rejected.
+  customer_message: Sorry, Tabby is unable to approve this purchase. Please use an alternative payment method for your order.
+- code: retry_limit_exceeded
+  meaning: Too many failed attempts.
+  customer_message: We're sorry, there's a limit to the number of payment attempts per day. Please try again tomorrow or contact support@mamopay.com.
+- code: duplicate_payment
+  meaning: Duplicate payment.
+  customer_message: We're sorry, the card was declined because there was a similar payment charged recently. Please try a different card or contact your bank.
+- code: invalid_bin
+  meaning: Card issued by a non-supported bank.
+  customer_message: We're sorry, this card is issued by a bank which is not supported. Please try again with a different card.
+- code: invalid_expiry
+  meaning: Invalid expiry.
+  customer_message: We're sorry, the card expiry date is invalid. Please try again.
+- code: incorrect_verification_code
+  meaning: Incorrect CVC/CVV.
+  customer_message: We're sorry, the card was declined because the CVC/CVV number is incorrect. Please try again.
+- code: cvv2_failure
+  aliases: [invalid_amex_cvv]
+  meaning: Incorrect CVV.
+  customer_message: We're sorry, the card was declined because the CVV number is incorrect. Please try again.
+- code: tabby_minimum
+  meaning: Below Tabby minimum amount.
+  customer_message: The minimum payment amount to use Tabby is AED 10. Please try an alternative payment method.
+- code: not_supported_card
+  aliases: [subscriptions_card_not_supported]
+  meaning: Card not supported.
+  customer_message: This card is not supported. Please use a different card.
+- code: authentication_expired
+  meaning: Authentication incomplete.
+  customer_message: The payment was declined because authentication wasn't completed successfully. Please try again.

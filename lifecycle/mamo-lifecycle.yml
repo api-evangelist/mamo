@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/ + https://mamo.instatus.com/
+versioning:
+  scheme: path-plus-spec-version
+  current: v1
+  spec_version: '1.6'
+  docs: https://mamopay.readme.io/reference/get_
+  notes: >-
+    API is served under /manage_api/v1; the OpenAPI info.version is 1.6.
+    Changes are communicated through the dated changelog rather than dated API
+    versions.
+changelog: https://mamopay.readme.io/reference/changelog
+status_page: https://mamo.instatus.com/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No formal deprecation policy or RFC 8594 Sunset/Deprecation header support
+    was located. Legacy behavior is signalled inline in the docs (e.g. the
+    inline subscription object is described as a legacy, backwards-compatible
+    alternative on Create Payment Link).
+sla:
+  url: null
+  uptime_target: null
+deprecated_operations: []

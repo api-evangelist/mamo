@@ -1,0 +1,2266 @@
+{
+  "info": {
+    "_postman_id": "c6c6d092-cd2e-4ec5-a7d4-5cdaed27038a",
+    "name": "Mamo Business Business Details Transactions API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:09.000Z",
+    "updatedAt": "2026-07-28T02:09:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6c6d092-cd2e-4ec5-a7d4-5cdaed27038a"
+  },
+  "item": [
+    {
+      "name": "cards",
+      "item": [
+        {
+          "name": "transactions",
+          "item": [
+            {
+              "name": "{transactionId}",
+              "item": [
+                {
+                  "name": "Fetch Transaction Details",
+                  "id": "d37f7dfc-b510-4a60-b88e-e3346d44457d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/transactions/:transactionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        "transactions",
+                        ":transactionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c01c4695-ce30-49bf-97b6-48b4f947f8b5",
+                          "key": "transactionId",
+                          "value": "CTX-4584B3DEC9",
+                          "description": "(Required) Transaction ID"
+                        }
+                      ]
+                    },
+                    "description": "Fetches detailed information for a specific card transaction<br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "19c6ba2b-a0b3-4bc9-a5cc-3fb822591986",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cards/transactions/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cards",
+                            "transactions",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "transactionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"kind\": \"<string>\",\n  \"merchant_name_formatted\": \"<string>\",\n  \"amount_currency\": \"<string>\",\n  \"billing_amount_currency\": \"<string>\",\n  \"status\": \"success\",\n  \"card_last4\": \"<string>\",\n  \"id\": \"<string>\",\n  \"merchant_name\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"billing_amount\": \"<number>\",\n  \"card_name\": \"<string>\",\n  \"card_holder_name\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"expense\": {\n    \"status\": \"incomplete\",\n    \"description\": \"<string>\",\n    \"invoice_number\": \"<string>\",\n    \"id\": \"<string>\",\n    \"category\": \"<string>\",\n    \"tax_code\": \"<string>\",\n    \"payment_account\": \"<string>\",\n    \"expense_account\": \"<string>\",\n    \"vendor\": \"<string>\",\n    \"receipt_uploaded\": \"<boolean>\",\n    \"created_at\": \"<string>\",\n    \"updated_at\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-19c6ba2b-a0b3-4bc9-a5cc-3fb822591986"
+                    },
+                    {
+                      "id": "b59f0617-02d0-4fc0-94b9-71ffd7df2750",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cards/transactions/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cards",
+                            "transactions",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "transactionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-b59f0617-02d0-4fc0-94b9-71ffd7df2750"
+                    },
+                    {
+                      "id": "7a784dde-22be-4890-bbd3-d9083e4ce6ca",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cards/transactions/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cards",
+                            "transactions",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "transactionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-7a784dde-22be-4890-bbd3-d9083e4ce6ca"
+                    },
+                    {
+                      "id": "811076eb-768b-45eb-ad2f-407837938048",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/cards/transactions/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "cards",
+                            "transactions",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "transactionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-811076eb-768b-45eb-ad2f-407837938048"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-d37f7dfc-b510-4a60-b88e-e3346d44457d"
+                }
+              ],
+              "id": "c13f0d5f-0dac-4f42-ba55-c6d716c26dff",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-c13f0d5f-0dac-4f42-ba55-c6d716c26dff"
+            },
+            {
+              "name": "Fetching Card Transactions",
+              "id": "c9a8ea77-bfc9-4465-9da8-50846bb2c357",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/cards/transactions?page=<integer>&per_page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "cards",
+                    "transactions"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Fetches all transactions for cards<br><br>"
+              },
+              "response": [
+                {
+                  "id": "c442083c-62b0-4a8f-bc25-dbc6cb5f1fc5",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/transactions?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"kind\": \"<string>\",\n      \"merchant_name_formatted\": \"<string>\",\n      \"amount_currency\": \"<string>\",\n      \"billing_amount_currency\": \"<string>\",\n      \"status\": \"declined\",\n      \"card_last4\": \"<string>\",\n      \"id\": \"<string>\",\n      \"merchant_name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"billing_amount\": \"<number>\",\n      \"card_name\": \"<string>\",\n      \"card_holder_name\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"expense\": {\n        \"status\": \"ready\",\n        \"description\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"tax_code\": \"<string>\",\n        \"payment_account\": \"<string>\",\n        \"expense_account\": \"<string>\",\n        \"vendor\": \"<string>\",\n        \"receipt_uploaded\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"updated_at\": \"<string>\"\n      }\n    },\n    {\n      \"kind\": \"<string>\",\n      \"merchant_name_formatted\": \"<string>\",\n      \"amount_currency\": \"<string>\",\n      \"billing_amount_currency\": \"<string>\",\n      \"status\": \"declined\",\n      \"card_last4\": \"<string>\",\n      \"id\": \"<string>\",\n      \"merchant_name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"billing_amount\": \"<number>\",\n      \"card_name\": \"<string>\",\n      \"card_holder_name\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"expense\": {\n        \"status\": \"pending_review\",\n        \"description\": \"<string>\",\n        \"invoice_number\": \"<string>\",\n        \"id\": \"<string>\",\n        \"category\": \"<string>\",\n        \"tax_code\": \"<string>\",\n        \"payment_account\": \"<string>\",\n        \"expense_account\": \"<string>\",\n        \"vendor\": \"<string>\",\n        \"receipt_uploaded\": \"<boolean>\",\n        \"created_at\": \"<string>\",\n        \"updated_at\": \"<string>\"\n      }\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": \"<integer>\",\n    \"per_page\": \"<integer>\",\n    \"total_pages\": \"<integer>\",\n    \"next_page\": \"<integer>\",\n    \"prev_page\": \"<integer>\",\n    \"from\": \"<integer>\",\n    \"to\": \"<integer>\",\n    \"total_count\": \"<integer>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-c442083c-62b0-4a8f-bc25-dbc6cb5f1fc5"
+                },
+                {
+                  "id": "f367ab39-2d75-44e2-a0b3-0b25edba5984",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/transactions?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-f367ab39-2d75-44e2-a0b3-0b25edba5984"
+                },
+                {
+                  "id": "c665f529-92b7-4b96-897c-8441e4f54929",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/cards/transactions?page=<integer>&per_page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "cards",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "per_page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-c665f529-92b7-4b96-897c-8441e4f54929"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-c9a8ea77-bfc9-4465-9da8-50846bb2c357"
+            }
+          ],
+          "id": "27ff3532-219e-417d-afe0-dc9ca880dc79",
+          "createdAt": "2026-07-28T02:09:09.000Z",
+          "updatedAt": "2026-07-28T02:09:09.000Z",
+          "uid": "35240-27ff3532-219e-417d-afe0-dc9ca880dc79"
+        }
+      ],
+      "id": "dc7ec4f5-5415-4544-9a00-8cb22fe03674",
+      "createdAt": "2026-07-28T02:09:09.000Z",
+      "updatedAt": "2026-07-28T02:09:09.000Z",
+      "uid": "35240-dc7ec4f5-5415-4544-9a00-8cb22fe03674"
+    },
+    {
+      "name": "charges",
+      "item": [
+        {
+          "name": "{chargeId}",
+          "item": [
+            {
+              "name": "captures",
+              "item": [
+                {
+                  "name": "Capture Payment",
+                  "id": "c7bf4742-7d9a-4c5a-b3bd-838f71e52caf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId",
+                        "captures"
+                      ],
+                      "variable": [
+                        {
+                          "id": "10f30b77-d2b5-45d8-b328-a67b5ac2ca65",
+                          "key": "chargeId",
+                          "value": "CHG-D8B07FB8D7",
+                          "description": "(Required) Transaction ID / Charge ID"
+                        }
+                      ]
+                    },
+                    "description": "API to capture an \"On hold\" charge. <br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "0e9aba12-8bb5-4a20-9a1b-483301a51161",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "captures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"CHG-D8B07FB8D7\",\n  \"status\": \"captured\",\n  \"amount\": 122.87,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"<string>\",\n  \"custom_data\": {},\n  \"created_date\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"next_payment_date\": \"<string>\",\n  \"settlement_amount\": \"<number>\",\n  \"settlement_currency\": \"<string>\",\n  \"settlement_date\": \"<string>\",\n  \"customer_details\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"comment\": \"<string>\"\n  },\n  \"payment_method\": {\n    \"type\": \"<string>\",\n    \"card_holder_name\": \"<string>\",\n    \"card_last4\": \"<string>\",\n    \"origin\": \"<string>\"\n  },\n  \"settlement_fee\": \"<string>\",\n  \"settlement_vat\": \"<string>\",\n  \"payment_link_id\": \"<string>\",\n  \"payment_link_url\": \"<string>\",\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-0e9aba12-8bb5-4a20-9a1b-483301a51161"
+                    },
+                    {
+                      "id": "f17e9c87-ec4a-43ae-9fae-6785abb31b47",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "captures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-f17e9c87-ec4a-43ae-9fae-6785abb31b47"
+                    },
+                    {
+                      "id": "60ba63d3-d52a-42d4-b6c6-e87c1b90a845",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "captures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-60ba63d3-d52a-42d4-b6c6-e87c1b90a845"
+                    },
+                    {
+                      "id": "0afbb190-803c-4de8-97db-abf32fb10d6f",
+                      "name": "Unprocessable Entity",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "captures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-0afbb190-803c-4de8-97db-abf32fb10d6f"
+                    },
+                    {
+                      "id": "59be42f1-e378-4090-bc39-c57ecaffcf82",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/captures",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "captures"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-59be42f1-e378-4090-bc39-c57ecaffcf82"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-c7bf4742-7d9a-4c5a-b3bd-838f71e52caf"
+                }
+              ],
+              "id": "a43cc34e-7c56-4c05-9edc-b8f3b901e30e",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-a43cc34e-7c56-4c05-9edc-b8f3b901e30e"
+            },
+            {
+              "name": "refunds",
+              "item": [
+                {
+                  "name": "Refund Payment",
+                  "id": "a6af0633-4a71-44d8-bc6f-b76591f58bdb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": 10\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId",
+                        "refunds"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3d0f42e1-5589-425f-b53f-e50f8bd939a2",
+                          "key": "chargeId",
+                          "value": "MB-LINK-D8B07FB8C7",
+                          "description": "(Required) Transaction ID / Charge ID"
+                        }
+                      ]
+                    },
+                    "description": "API to refund the charge. <br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "f1b7f130-ea79-49dc-9a8c-d064f0d7353e",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": 10\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "refunds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"refund_status\": \"<string>\",\n  \"refund_amount\": \"<number>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-f1b7f130-ea79-49dc-9a8c-d064f0d7353e"
+                    },
+                    {
+                      "id": "ead705a3-1a5a-4944-bbdf-ccf0a1bf7218",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": 10\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "refunds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-ead705a3-1a5a-4944-bbdf-ccf0a1bf7218"
+                    },
+                    {
+                      "id": "443d8c1d-a149-4cdd-af6b-6ec80e0d40ee",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": 10\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "refunds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-443d8c1d-a149-4cdd-af6b-6ec80e0d40ee"
+                    },
+                    {
+                      "id": "f95ce6d9-8755-4551-8e01-beecc953993a",
+                      "name": "Unprocessable Entity",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": 10\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "refunds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-f95ce6d9-8755-4551-8e01-beecc953993a"
+                    },
+                    {
+                      "id": "a8de84b1-e9db-4ff1-96a9-acaf95bb33b7",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": 10\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/refunds",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "refunds"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-a8de84b1-e9db-4ff1-96a9-acaf95bb33b7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-a6af0633-4a71-44d8-bc6f-b76591f58bdb"
+                }
+              ],
+              "id": "a9540b9d-c5c5-4f48-9272-48029fb50784",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-a9540b9d-c5c5-4f48-9272-48029fb50784"
+            },
+            {
+              "name": "reverses",
+              "item": [
+                {
+                  "name": "Reverse Payment",
+                  "id": "47ef8942-ba8d-408b-8d9c-b3fac44d7fc4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId",
+                        "reverses"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7d53f4cd-623f-48c3-9ac5-42ede2fe1cd2",
+                          "key": "chargeId",
+                          "value": "CHG-D8B07FB8D7",
+                          "description": "(Required) Transaction ID / Charge ID"
+                        }
+                      ]
+                    },
+                    "description": "API to reverse an \"On hold\" charge. <br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "e30cd923-e1e6-4e13-b9b0-7761a0c322a7",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "reverses"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"CHG-D8B07FB8D7\",\n  \"status\": \"voided\",\n  \"amount\": 122.87,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"<string>\",\n  \"custom_data\": {},\n  \"created_date\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"next_payment_date\": \"<string>\",\n  \"settlement_amount\": \"<number>\",\n  \"settlement_currency\": \"<string>\",\n  \"settlement_date\": \"<string>\",\n  \"customer_details\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"comment\": \"<string>\"\n  },\n  \"payment_method\": {\n    \"type\": \"<string>\",\n    \"card_holder_name\": \"<string>\",\n    \"card_last4\": \"<string>\",\n    \"origin\": \"<string>\"\n  },\n  \"settlement_fee\": \"<string>\",\n  \"settlement_vat\": \"<string>\",\n  \"payment_link_id\": \"<string>\",\n  \"payment_link_url\": \"<string>\",\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-e30cd923-e1e6-4e13-b9b0-7761a0c322a7"
+                    },
+                    {
+                      "id": "d3b7bdcf-610e-4fba-b2dc-1a3926e2c157",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "reverses"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-d3b7bdcf-610e-4fba-b2dc-1a3926e2c157"
+                    },
+                    {
+                      "id": "a4c65a60-3c0f-4271-ae60-a9efc4b022bb",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "reverses"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-a4c65a60-3c0f-4271-ae60-a9efc4b022bb"
+                    },
+                    {
+                      "id": "2697d96c-ba29-42f7-9c64-ba50d569bc9a",
+                      "name": "Unprocessable Entity",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "reverses"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-2697d96c-ba29-42f7-9c64-ba50d569bc9a"
+                    },
+                    {
+                      "id": "db2f92eb-9c57-433c-a2fa-0bfe4993c9e2",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/charges/:chargeId/reverses",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "charges",
+                            ":chargeId",
+                            "reverses"
+                          ],
+                          "variable": [
+                            {
+                              "key": "chargeId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:09.000Z",
+                      "updatedAt": "2026-07-28T02:09:09.000Z",
+                      "uid": "35240-db2f92eb-9c57-433c-a2fa-0bfe4993c9e2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-47ef8942-ba8d-408b-8d9c-b3fac44d7fc4"
+                }
+              ],
+              "id": "1beab454-753d-4e89-a441-4af31bf5c0d1",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-1beab454-753d-4e89-a441-4af31bf5c0d1"
+            },
+            {
+              "name": "Fetch Transaction Info",
+              "id": "e43d6a89-9ef2-407c-984a-2adb128e0cdf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges/:chargeId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "57b4db71-327e-49cf-99e9-95498b3d6aeb",
+                      "key": "chargeId",
+                      "value": "MPB-CHRG-E0CE93E071",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "description": "This API enables you to retrieve detailed information about a specific charge by providing the charge ID.<br>It is designed to give you a comprehensive view of transaction details.<br><br>"
+              },
+              "response": [
+                {
+                  "id": "66a3ec7d-6bae-4705-8c75-b61230d53fb1",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "chargeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"confirmation_required\",\n  \"id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"amount_currency\": \"<string>\",\n  \"refund_amount\": \"<number>\",\n  \"refund_status\": \"<string>\",\n  \"billing_descriptor\": \"<string>\",\n  \"custom_data\": {},\n  \"created_date\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"next_payment_date\": \"<string>\",\n  \"settlement_amount\": \"<number>\",\n  \"settlement_currency\": \"<string>\",\n  \"settlement_date\": \"<string>\",\n  \"customer_details\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"comment\": \"<string>\"\n  },\n  \"payment_method\": {\n    \"type\": \"CREDIT MASTERCARD\",\n    \"card_holder_name\": \"<string>\",\n    \"card_last4\": \"<string>\",\n    \"origin\": \"<string>\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-66a3ec7d-6bae-4705-8c75-b61230d53fb1"
+                },
+                {
+                  "id": "48e6c94a-cfe6-4021-b468-4938f81bb1ad",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "chargeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-48e6c94a-cfe6-4021-b468-4938f81bb1ad"
+                },
+                {
+                  "id": "2d567536-6b4d-4749-908f-ebef56584720",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "chargeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-2d567536-6b4d-4749-908f-ebef56584720"
+                },
+                {
+                  "id": "df9fd5b8-497d-4856-afdf-c91bddd82474",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/charges/:chargeId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "charges",
+                        ":chargeId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "chargeId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:09.000Z",
+                  "updatedAt": "2026-07-28T02:09:09.000Z",
+                  "uid": "35240-df9fd5b8-497d-4856-afdf-c91bddd82474"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-e43d6a89-9ef2-407c-984a-2adb128e0cdf"
+            }
+          ],
+          "id": "54276781-cb69-4279-97db-994c8bcbdfbb",
+          "createdAt": "2026-07-28T02:09:09.000Z",
+          "updatedAt": "2026-07-28T02:09:09.000Z",
+          "uid": "35240-54276781-cb69-4279-97db-994c8bcbdfbb"
+        },
+        {
+          "name": "Fetching Transactions",
+          "id": "ba4ac2b5-ecfe-4278-8bed-c90f54d8c08b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/charges?page=<integer>&per_page=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "charges"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Fetches all transactions for a given business<br><br>"
+          },
+          "response": [
+            {
+              "id": "03e16e64-0087-48ba-a24a-a1af7d3c44c1",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?page=<integer>&per_page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"MPB-CHRG-D8B07FB8D7\",\n      \"status\": \"captured\",\n      \"amount\": 122.87,\n      \"amount_currency\": \"AED\",\n      \"refund_amount\": 0,\n      \"refund_status\": \"No refund\",\n      \"billing_descriptor\": \"<string>\",\n      \"custom_data\": {},\n      \"created_date\": \"<string>\",\n      \"subscription_id\": \"<string>\",\n      \"next_payment_date\": \"<string>\",\n      \"settlement_amount\": \"<number>\",\n      \"settlement_currency\": \"<string>\",\n      \"settlement_date\": \"<string>\",\n      \"customer_details\": {\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"comment\": \"<string>\"\n      },\n      \"payment_method\": {\n        \"type\": \"<string>\",\n        \"card_holder_name\": \"<string>\",\n        \"card_last4\": \"<string>\",\n        \"origin\": \"<string>\"\n      },\n      \"settlement_fee\": \"<string>\",\n      \"settlement_vat\": \"<string>\",\n      \"payment_link_id\": \"<string>\",\n      \"payment_link_url\": \"<string>\",\n      \"error_code\": \"<string>\",\n      \"error_message\": \"<string>\"\n    },\n    {\n      \"id\": \"MPB-CHRG-D8B07FB8D7\",\n      \"status\": \"captured\",\n      \"amount\": 122.87,\n      \"amount_currency\": \"AED\",\n      \"refund_amount\": 0,\n      \"refund_status\": \"No refund\",\n      \"billing_descriptor\": \"<string>\",\n      \"custom_data\": {},\n      \"created_date\": \"<string>\",\n      \"subscription_id\": \"<string>\",\n      \"next_payment_date\": \"<string>\",\n      \"settlement_amount\": \"<number>\",\n      \"settlement_currency\": \"<string>\",\n      \"settlement_date\": \"<string>\",\n      \"customer_details\": {\n        \"name\": \"<string>\",\n        \"email\": \"<string>\",\n        \"phone_number\": \"<string>\",\n        \"comment\": \"<string>\"\n      },\n      \"payment_method\": {\n        \"type\": \"<string>\",\n        \"card_holder_name\": \"<string>\",\n        \"card_last4\": \"<string>\",\n        \"origin\": \"<string>\"\n      },\n      \"settlement_fee\": \"<string>\",\n      \"settlement_vat\": \"<string>\",\n      \"payment_link_id\": \"<string>\",\n      \"payment_link_url\": \"<string>\",\n      \"error_code\": \"<string>\",\n      \"error_message\": \"<string>\"\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": \"<number>\",\n    \"per_page\": \"<number>\",\n    \"total_pages\": \"<number>\",\n    \"next_page\": \"<number>\",\n    \"prev_page\": \"<number>\",\n    \"from\": \"<number>\",\n    \"to\": \"<number>\",\n    \"total_count\": \"<number>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-03e16e64-0087-48ba-a24a-a1af7d3c44c1"
+            },
+            {
+              "id": "49fc8f81-e3b3-44b7-a93e-961ca1c077d1",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?page=<integer>&per_page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-49fc8f81-e3b3-44b7-a93e-961ca1c077d1"
+            },
+            {
+              "id": "9645abf9-a1a1-4aaa-9b83-9603988f027f",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/charges?page=<integer>&per_page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-9645abf9-a1a1-4aaa-9b83-9603988f027f"
+            }
+          ],
+          "createdAt": "2026-07-28T02:09:09.000Z",
+          "updatedAt": "2026-07-28T02:09:09.000Z",
+          "uid": "35240-ba4ac2b5-ecfe-4278-8bed-c90f54d8c08b"
+        },
+        {
+          "name": "Initiate Payment",
+          "id": "04f707cd-2646-4b46-bc88-1b8bd1f371a4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/charges",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "charges"
+              ]
+            },
+            "description": "API to initiate transactions by merchant. <br> <h3>About MIT (Merchant Initiated Transaction)</h3> Merchant Initiated Transactions (MIT) allows a business to use card details, that were stored during previous transactions, to charge their customers.<br> <br> <h3>How do MITs work?</h3> 1- You request a payment link with the option to save the card details.<br> 2- You save the charge ID.<br> 3- You get the charge details (redirect, GET /charge, or webhook) which will include the ID of the card used to make the payment, you can save either one of the IDs so you always have access to the card ID.<br> 4- You call the below API to initiate a transaction using the same card.<br> "
+          },
+          "response": [
+            {
+              "id": "a7d48b49-253b-4a3d-95db-3757356ff71a",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/charges",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"failed\",\n  \"id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"amount_currency\": \"<string>\",\n  \"refund_amount\": \"<number>\",\n  \"refund_status\": \"<string>\",\n  \"billing_descriptor\": \"<string>\",\n  \"custom_data\": {},\n  \"created_date\": \"<string>\",\n  \"subscription_id\": \"<string>\",\n  \"next_payment_date\": \"<string>\",\n  \"settlement_amount\": \"<number>\",\n  \"settlement_currency\": \"<string>\",\n  \"settlement_date\": \"<string>\",\n  \"customer_details\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone_number\": \"<string>\",\n    \"comment\": \"<string>\"\n  },\n  \"payment_method\": {\n    \"type\": \"<string>\",\n    \"card_holder_name\": \"<string>\",\n    \"card_last4\": \"<string>\",\n    \"origin\": \"<string>\"\n  },\n  \"error_code\": \"<string>\",\n  \"error_message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-a7d48b49-253b-4a3d-95db-3757356ff71a"
+            },
+            {
+              "id": "454cee6d-2d60-4d53-8d52-2df236c4cbd8",
+              "name": "Bad Request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/charges",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-454cee6d-2d60-4d53-8d52-2df236c4cbd8"
+            },
+            {
+              "id": "0f196e34-d6e2-4ca0-8b5a-248fd1c9398f",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/charges",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-0f196e34-d6e2-4ca0-8b5a-248fd1c9398f"
+            },
+            {
+              "id": "c3668981-72e6-4d56-a68b-6b54cc40f6cb",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/charges",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-c3668981-72e6-4d56-a68b-6b54cc40f6cb"
+            },
+            {
+              "id": "83e4fd38-476c-49dd-b23b-9a011a368b22",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": {},\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/charges",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "charges"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:09.000Z",
+              "updatedAt": "2026-07-28T02:09:09.000Z",
+              "uid": "35240-83e4fd38-476c-49dd-b23b-9a011a368b22"
+            }
+          ],
+          "createdAt": "2026-07-28T02:09:09.000Z",
+          "updatedAt": "2026-07-28T02:09:09.000Z",
+          "uid": "35240-04f707cd-2646-4b46-bc88-1b8bd1f371a4"
+        }
+      ],
+      "id": "d362fd91-0fd8-4755-8feb-2296316b1676",
+      "createdAt": "2026-07-28T02:09:09.000Z",
+      "updatedAt": "2026-07-28T02:09:09.000Z",
+      "uid": "35240-d362fd91-0fd8-4755-8feb-2296316b1676"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mamo-openapi.yml
+format: http-status
+notes: >-
+  Derived from the HTTP status codes present across the harvested Mamo Business
+  OpenAPI responses. Mamo does not publish application/problem+json (RFC 9457);
+  errors are returned as JSON with an error_code + message. Payment-decline
+  reasons are catalogued separately in errors/mamo-decline-codes.yml.
+problems:
+- status: 400
+  title: Bad Request
+  description: The request was malformed or contained invalid parameters.
+  remediation: Validate the request body and query parameters against the reference before retrying.
+- status: 403
+  title: Forbidden
+  description: The API key is missing, invalid, or lacks permission for the requested operation or environment.
+  remediation: Confirm you are sending a valid Authorization Bearer API key for the correct (sandbox vs production) environment.
+- status: 404
+  title: Not Found
+  description: The referenced resource (charge, payment link, subscription, recipient, webhook, card) does not exist.
+  remediation: Verify the resource identifier; it may have been deleted or belong to another business.
+- status: 422
+  title: Unprocessable Entity
+  description: The request was well-formed but failed business validation (e.g. proration below minimum, inactive subscriber, missing card).
+  remediation: Inspect the returned error_code (e.g. PRORATION_BELOW_MINIMUM, INACTIVE_SUBSCRIBER, MISSING_CARD, SAME_SUBSCRIPTION, CHARGE_FAILED) and correct the input.
+- status: 500
+  title: Internal Server Error
+  description: An unexpected error occurred on Mamo's side.
+  remediation: Retry after a short delay; if it persists contact api@mamopay.com.
+domain_error_codes:
+  source: https://mamopay.readme.io/reference/patch_subscriptions-subscriptionid-subscribers-subscriberid-change-customer-subscription.md
+  note: Application-level error_code values documented on the Change Customer Subscription operation.
+  codes:
+  - code: INACTIVE_SUBSCRIBER
+    meaning: The subscriber is not active.
+  - code: MISSING_CARD
+    meaning: The subscriber has no off-session chargeable card on file.
+  - code: SAME_SUBSCRIPTION
+    meaning: The target subscription is the same as the subscriber's current subscription.
+  - code: PRORATION_BELOW_MINIMUM
+    meaning: The prorated charge difference is below the minimum chargeable amount (2 AED / 0.55 in other currencies).
+  - code: CHARGE_FAILED
+    meaning: The proration charge was declined (includes a decline reason).

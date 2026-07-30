@@ -1,0 +1,428 @@
+{
+  "info": {
+    "_postman_id": "aa5bd79b-d553-49fe-a6d8-e905f258f0e9",
+    "name": "Mamo Business Business Details API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:08:39.000Z",
+    "updatedAt": "2026-07-28T02:08:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aa5bd79b-d553-49fe-a6d8-e905f258f0e9"
+  },
+  "item": [
+    {
+      "name": "finances",
+      "item": [
+        {
+          "name": "Fetch Account Balances",
+          "id": "fec7799d-062c-4c5a-9f71-6f2dc00c4073",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/finances",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "finances"
+              ]
+            },
+            "description": "API to fetch the balances of the merchant's different Mamo accounts.<br><br>"
+          },
+          "response": [
+            {
+              "id": "0d43995c-8f38-43b2-b499-fe3e47587835",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/finances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "finances"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"wallets\": [\n    {\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"balance\": \"<number>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"balance\": \"<number>\",\n      \"type\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-0d43995c-8f38-43b2-b499-fe3e47587835"
+            },
+            {
+              "id": "b6f1e0ca-939e-426c-b356-8e9b56d06646",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/finances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "finances"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-b6f1e0ca-939e-426c-b356-8e9b56d06646"
+            },
+            {
+              "id": "66f13c25-c8ee-4c48-b5fa-25c241187173",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/finances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "finances"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-66f13c25-c8ee-4c48-b5fa-25c241187173"
+            },
+            {
+              "id": "986724b1-17df-4527-aacb-18f26630a160",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/finances",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "finances"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-986724b1-17df-4527-aacb-18f26630a160"
+            }
+          ],
+          "createdAt": "2026-07-28T02:08:40.000Z",
+          "updatedAt": "2026-07-28T02:08:40.000Z",
+          "uid": "35240-fec7799d-062c-4c5a-9f71-6f2dc00c4073"
+        }
+      ],
+      "id": "333c14ec-6e97-4c63-a64f-c9adee986949",
+      "createdAt": "2026-07-28T02:08:40.000Z",
+      "updatedAt": "2026-07-28T02:08:40.000Z",
+      "uid": "35240-333c14ec-6e97-4c63-a64f-c9adee986949"
+    },
+    {
+      "name": "me",
+      "item": [
+        {
+          "name": "Fetch Business Info",
+          "id": "21af142d-c1b5-46f7-ad82-9ad2be314ffa",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me"
+              ]
+            },
+            "description": "API to fetch your business info.<br><br>"
+          },
+          "response": [
+            {
+              "id": "3f3ed41b-fb71-4c51-9e7f-4d5899efd9cc",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"business_name\": \"<string>\",\n  \"business_tag\": \"<string>\",\n  \"website\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-3f3ed41b-fb71-4c51-9e7f-4d5899efd9cc"
+            },
+            {
+              "id": "48c82760-1995-4cfa-a918-61eef8383a03",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-48c82760-1995-4cfa-a918-61eef8383a03"
+            },
+            {
+              "id": "4f7db05d-6701-49c5-91f7-9953b73997b1",
+              "name": "Not Found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-4f7db05d-6701-49c5-91f7-9953b73997b1"
+            },
+            {
+              "id": "cfe3aa70-71f2-4308-bd59-0bf0819313cb",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:08:40.000Z",
+              "updatedAt": "2026-07-28T02:08:40.000Z",
+              "uid": "35240-cfe3aa70-71f2-4308-bd59-0bf0819313cb"
+            }
+          ],
+          "createdAt": "2026-07-28T02:08:40.000Z",
+          "updatedAt": "2026-07-28T02:08:40.000Z",
+          "uid": "35240-21af142d-c1b5-46f7-ad82-9ad2be314ffa"
+        }
+      ],
+      "id": "d830f0dd-b7a2-41ce-9214-4aa834c236c2",
+      "createdAt": "2026-07-28T02:08:40.000Z",
+      "updatedAt": "2026-07-28T02:08:40.000Z",
+      "uid": "35240-d830f0dd-b7a2-41ce-9214-4aa834c236c2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: mamopay.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 10 12:51:52 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: mamopay.readme.io
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  9 13:12:37 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: business.mamopay.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 24 03:01:17 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+domains:
+- domain: mamopay.com
+  dnssec: false
+  caa:
+  - 0 issue "pki.goog"
+  - 0 iodef "mailto:caa-violations@mamopay.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "digicert.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: readme.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/
+summary: >-
+  Cross-cutting request/response semantics for the Mamo Business API, harvested
+  from the readme.io reference and derived from the harvested OpenAPI. REST/JSON
+  over HTTPS, bearer API-key auth, page/per_page pagination, merchant-supplied
+  external_id for correlation. No documented Idempotency-Key header or published
+  rate-limit headers as of this pass.
+authentication:
+  style: bearer-api-key
+  header: Authorization
+  format: 'Bearer <api_key>'
+  docs: https://mamopay.readme.io/reference/authentication
+  notes: >-
+    A single API key is retrieved from the dashboard (Developer > Keys). Separate
+    keys/accounts for sandbox vs production. See authentication/mamo-authentication.yml.
+base_url:
+  production: https://business.mamopay.com/manage_api/v1
+  sandbox: https://sandbox.dev.business.mamopay.com/manage_api/v1
+content_type: application/json
+pagination:
+  style: page-number
+  params:
+  - name: page
+    description: 1-based page number.
+  - name: per_page
+    description: Number of items to return per page.
+  notes: List endpoints (charges, links, recipients, webhooks, card transactions, expense receipts) accept page and per_page query parameters.
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header is documented. Charge and payment-link objects
+    accept a merchant-supplied external_id (and custom_data) that can be used to
+    correlate/deduplicate on the merchant side, but this is not a server-enforced
+    idempotency contract.
+correlation:
+  external_id: >-
+    Optional merchant-supplied identifier accepted on charge / payment-link
+    creation to associate the Mamo object with a record in your own system.
+  custom_data: Free-form object stored alongside charges/links and echoed back on read and webhooks.
+versioning:
+  scheme: header-in-spec
+  current: '1.6'
+  notes: The OpenAPI info.version is 1.6; the API path carries /manage_api/v1. See lifecycle/mamo-lifecycle.yml.
+rate_limiting:
+  documented: false
+  notes: No published rate-limit headers or quotas found in the reference as of this pass.
+error_envelope:
+  format: json
+  notes: >-
+    API errors return JSON with an error_code + message. Payment declines surface
+    a normalized error_code with a customer-facing message — see
+    errors/mamo-decline-codes.yml. HTTP-level problems use standard status codes
+    (400/403/404/422/500) — see errors/mamo-problem-types.yml.
+webhooks:
+  supported: true
+  notes: Register webhooks via POST /webhooks with enabled_events. See asyncapi/mamo-webhooks-asyncapi.yml.
+cross_links:
+  authentication: authentication/mamo-authentication.yml
+  errors: errors/mamo-problem-types.yml
+  decline_codes: errors/mamo-decline-codes.yml
+  lifecycle: lifecycle/mamo-lifecycle.yml
+  webhooks: asyncapi/mamo-webhooks-asyncapi.yml

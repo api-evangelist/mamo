@@ -1,0 +1,14 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mamo-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'API key from the Mamo dashboard (Developer > Keys), passed as `Authorization:
+    Bearer <api_key>`.'
+  sources:
+  - openapi/mamo-openapi.yml

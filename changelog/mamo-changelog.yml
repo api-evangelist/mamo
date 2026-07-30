@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/reference/changelog
+scheme: dated-entries
+current_version: '1.6'
+notes: Recent window of the published Mamo Business API changelog (readme.io). Dates as printed in the source.
+entries:
+- title: Partner Cards
+  date: '2026-01-08'
+  breaking: false
+  highlights: Merchants can create, fetch and update partner cards.
+- title: Expense Webhooks and APIs
+  date: '2025-11-01'
+  breaking: false
+  highlights: Added webhook events for card expenses and their transactions, plus APIs to retrieve and modify expense data.
+- title: Custom Data and External ID
+  date: '2024-08-13'
+  breaking: false
+  highlights: New custom_data and external_id fields on the charge endpoint for associating custom objects and merchant identifiers.
+- title: Receipt Control
+  date: '2024-07-24'
+  breaking: false
+  highlights: Introduced send_customer_receipt field to enable/disable automated receipts for saved-card charges.
+- title: Hold Funds Feature
+  date: '2024-04-23'
+  breaking: false
+  highlights: hold_and_charge_later field allows merchants to reserve funds and capture payments subsequently.
+- title: Payment Link Rules
+  date: '2024-03-14'
+  breaking: false
+  highlights: New rule field permits business restrictions such as card-type filtering by BIN.
+- title: Virtual Corporate Cards
+  date: '2024-02-28'
+  breaking: false
+  highlights: Single-use card creation system for corporate spending management.
+- title: Payout Shares
+  date: '2024-02-20'
+  breaking: false
+  highlights: payout_share field enables automatic payment splitting to designated recipients.

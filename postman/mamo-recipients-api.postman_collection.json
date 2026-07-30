@@ -1,0 +1,1267 @@
+{
+  "info": {
+    "_postman_id": "85e18df6-6508-4561-9505-1640140a03f5",
+    "name": "Mamo Business Business Details Recipients API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:07.000Z",
+    "updatedAt": "2026-07-28T02:09:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-85e18df6-6508-4561-9505-1640140a03f5"
+  },
+  "item": [
+    {
+      "name": "accounts",
+      "item": [
+        {
+          "name": "recipients",
+          "item": [
+            {
+              "name": "{recipientIdentifier}",
+              "item": [
+                {
+                  "name": "Delete Recipient",
+                  "id": "6ef42910-8147-4551-bf71-72c77cec9e9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients",
+                        ":recipientIdentifier"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aca229a7-e397-4d87-926a-3b2a45011c12",
+                          "key": "recipientIdentifier",
+                          "value": "REP-6BB7CA8DC7",
+                          "description": "(Required) Recipient Identifier"
+                        }
+                      ]
+                    },
+                    "description": "Allows a user to delete recipient.<br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "411f9850-0c7d-45fb-832b-0766f21bdb49",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-411f9850-0c7d-45fb-832b-0766f21bdb49"
+                    },
+                    {
+                      "id": "12f6d9a7-4075-4c26-ad9d-65bce7e3968c",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-12f6d9a7-4075-4c26-ad9d-65bce7e3968c"
+                    },
+                    {
+                      "id": "34e73008-f701-42f2-8606-9efcbf3787a5",
+                      "name": "Invalid request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-34e73008-f701-42f2-8606-9efcbf3787a5"
+                    },
+                    {
+                      "id": "b4565de0-9fa5-409b-9223-0f088c3274ce",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-b4565de0-9fa5-409b-9223-0f088c3274ce"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-6ef42910-8147-4551-bf71-72c77cec9e9a"
+                },
+                {
+                  "name": "Fetch Recipient",
+                  "id": "56ef2d5f-1cba-43d8-8bb7-bcb23b1e8324",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients",
+                        ":recipientIdentifier"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7b15cf9a-aa9a-4ae2-bb41-cf3609e69947",
+                          "key": "recipientIdentifier",
+                          "value": "REP-6BB7CA8DC7",
+                          "description": "(Required) Recipient Identifier"
+                        }
+                      ]
+                    },
+                    "description": "Allows a user to fetch recipient details.<br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "4e4a57c0-44c8-4b47-b1ba-6a437c691af2",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"identifier\": \"<string>\",\n  \"recipient_type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"relationship\": \"<string>\",\n  \"email\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"bank\": {\n    \"iban\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"created_at\": \"<string>\",\n  \"recipient_meta\": {}\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-4e4a57c0-44c8-4b47-b1ba-6a437c691af2"
+                    },
+                    {
+                      "id": "220fb77c-298b-4368-8265-b54b943e276e",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-220fb77c-298b-4368-8265-b54b943e276e"
+                    },
+                    {
+                      "id": "2b4f9352-5751-4c11-8768-15026c3aec2d",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-2b4f9352-5751-4c11-8768-15026c3aec2d"
+                    },
+                    {
+                      "id": "b3ae42ad-73b3-46a6-879f-0a2ce1caab23",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-b3ae42ad-73b3-46a6-879f-0a2ce1caab23"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-56ef2d5f-1cba-43d8-8bb7-bcb23b1e8324"
+                },
+                {
+                  "name": "Update Recipient",
+                  "id": "8ad5edf7-a167-4ae0-9c30-6fed6e6c9fb0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"relationship\": \"subsidiary_company\",\n  \"reason\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients",
+                        ":recipientIdentifier"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7289e926-28fb-46a2-92a5-8c56397397d7",
+                          "key": "recipientIdentifier",
+                          "value": "REP-6BB7CA8DC7",
+                          "description": "(Required) Recipient Identifier"
+                        }
+                      ]
+                    },
+                    "description": "Allows a user to update recipient details.<br><br>"
+                  },
+                  "response": [
+                    {
+                      "id": "aaf88ce7-b598-4748-82e6-385bd287db33",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"recipient_type\": \"individual\",\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"relationship\": \"subsidiary_company\",\n  \"reason\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"identifier\": \"<string>\",\n  \"recipient_type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"relationship\": \"<string>\",\n  \"email\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"bank\": {\n    \"iban\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"created_at\": \"<string>\",\n  \"recipient_meta\": {}\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-aaf88ce7-b598-4748-82e6-385bd287db33"
+                    },
+                    {
+                      "id": "a1b8a358-c01e-46d6-ab5f-8a3b6738e93d",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"recipient_type\": \"individual\",\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"relationship\": \"subsidiary_company\",\n  \"reason\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-a1b8a358-c01e-46d6-ab5f-8a3b6738e93d"
+                    },
+                    {
+                      "id": "aa7144ae-9340-492d-bec5-8eff771fb6d2",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"recipient_type\": \"individual\",\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"relationship\": \"subsidiary_company\",\n  \"reason\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-aa7144ae-9340-492d-bec5-8eff771fb6d2"
+                    },
+                    {
+                      "id": "7b9a95dd-9824-4d58-ac5d-66b4b84aa946",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"recipient_type\": \"individual\",\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"relationship\": \"subsidiary_company\",\n  \"reason\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/accounts/recipients/:recipientIdentifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "accounts",
+                            "recipients",
+                            ":recipientIdentifier"
+                          ],
+                          "variable": [
+                            {
+                              "key": "recipientIdentifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:09:07.000Z",
+                      "updatedAt": "2026-07-28T02:09:07.000Z",
+                      "uid": "35240-7b9a95dd-9824-4d58-ac5d-66b4b84aa946"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-8ad5edf7-a167-4ae0-9c30-6fed6e6c9fb0"
+                }
+              ],
+              "id": "d01a0310-9305-4c88-9001-30d46dc94367",
+              "createdAt": "2026-07-28T02:09:07.000Z",
+              "updatedAt": "2026-07-28T02:09:07.000Z",
+              "uid": "35240-d01a0310-9305-4c88-9001-30d46dc94367"
+            },
+            {
+              "name": "Fetching Recipients",
+              "id": "6ae80cee-a8bc-41ee-b481-1f0b25892d1c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/recipients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    "recipients"
+                  ]
+                },
+                "description": "Fetches all recipients for a given business.<br><br>"
+              },
+              "response": [
+                {
+                  "id": "22eefb5c-f803-4af5-97ee-719c79b50107",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": [\n    {\n      \"identifier\": \"<string>\",\n      \"recipient_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"relationship\": \"<string>\",\n      \"email\": \"<string>\",\n      \"eid_number\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"address\": {\n        \"address_line1\": \"<string>\",\n        \"address_line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"bank\": {\n        \"iban\": \"<string>\",\n        \"account_number\": \"<string>\",\n        \"name\": \"<string>\",\n        \"bic_code\": \"<string>\",\n        \"address\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"created_at\": \"<string>\",\n      \"recipient_meta\": {}\n    },\n    {\n      \"identifier\": \"<string>\",\n      \"recipient_type\": \"<string>\",\n      \"name\": \"<string>\",\n      \"relationship\": \"<string>\",\n      \"email\": \"<string>\",\n      \"eid_number\": \"<string>\",\n      \"reason\": \"<string>\",\n      \"address\": {\n        \"address_line1\": \"<string>\",\n        \"address_line2\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"bank\": {\n        \"iban\": \"<string>\",\n        \"account_number\": \"<string>\",\n        \"name\": \"<string>\",\n        \"bic_code\": \"<string>\",\n        \"address\": \"<string>\",\n        \"country\": \"<string>\"\n      },\n      \"created_at\": \"<string>\",\n      \"recipient_meta\": {}\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": \"<number>\",\n    \"per_page\": \"<number>\",\n    \"total_pages\": \"<number>\",\n    \"next_page\": \"<number>\",\n    \"prev_page\": \"<number>\",\n    \"from\": \"<number>\",\n    \"to\": \"<number>\",\n    \"total_count\": \"<number>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-22eefb5c-f803-4af5-97ee-719c79b50107"
+                },
+                {
+                  "id": "6f4efc63-5ff0-41c0-ae0e-1ee0aef582d9",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-6f4efc63-5ff0-41c0-ae0e-1ee0aef582d9"
+                },
+                {
+                  "id": "b775c7f6-5799-4d62-90c2-3a00279493ab",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-b775c7f6-5799-4d62-90c2-3a00279493ab"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:07.000Z",
+              "updatedAt": "2026-07-28T02:09:07.000Z",
+              "uid": "35240-6ae80cee-a8bc-41ee-b481-1f0b25892d1c"
+            },
+            {
+              "name": "Create Recipient",
+              "id": "d5fa09ec-b598-4d53-8c59-cecb73f084bf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/accounts/recipients",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "accounts",
+                    "recipients"
+                  ]
+                },
+                "description": "Allows a user to create recipient.<br><br>"
+              },
+              "response": [
+                {
+                  "id": "f1784fec-178b-485a-9d1e-38372e0b25b4",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"identifier\": \"<string>\",\n  \"recipient_type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"relationship\": \"<string>\",\n  \"email\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"province\": \"<string>\",\n    \"zip\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"bank\": {\n    \"iban\": \"<string>\",\n    \"account_number\": \"<string>\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"created_at\": \"<string>\",\n  \"recipient_meta\": {}\n}",
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-f1784fec-178b-485a-9d1e-38372e0b25b4"
+                },
+                {
+                  "id": "4db55523-9f1b-4d11-af19-2686396cf74d",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-4db55523-9f1b-4d11-af19-2686396cf74d"
+                },
+                {
+                  "id": "045be862-5df0-499a-8158-d13e4bef3048",
+                  "name": "Invalid request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-045be862-5df0-499a-8158-d13e4bef3048"
+                },
+                {
+                  "id": "84606a00-fa56-40ed-9edd-aeda38acc37a",
+                  "name": "Unprocessable entity",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": \"<array>\",\n  \"error_code\": \"<string>\",\n  \"errors\": {\n    \"name\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-84606a00-fa56-40ed-9edd-aeda38acc37a"
+                },
+                {
+                  "id": "e4e72302-6e4f-41a5-9889-4da3b5712c9b",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"recipient_type\": \"individual\",\n  \"reason\": \"<string>\",\n  \"relationship\": \"debtor\",\n  \"bank\": {\n    \"iban\": \"AE080200000123223333121\",\n    \"account_number\": \"<string>\",\n    \"address\": \"<string>\",\n    \"country\": \"AE\",\n    \"name\": \"<string>\",\n    \"bic_code\": \"<string>\"\n  },\n  \"email\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"eid_number\": \"<string>\",\n  \"address\": {\n    \"address_line1\": \"<string>\",\n    \"address_line2\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"country\": \"<string>\"\n  },\n  \"recipient_meta\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/accounts/recipients",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "accounts",
+                        "recipients"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:09:07.000Z",
+                  "updatedAt": "2026-07-28T02:09:07.000Z",
+                  "uid": "35240-e4e72302-6e4f-41a5-9889-4da3b5712c9b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:07.000Z",
+              "updatedAt": "2026-07-28T02:09:07.000Z",
+              "uid": "35240-d5fa09ec-b598-4d53-8c59-cecb73f084bf"
+            }
+          ],
+          "id": "1690a237-3765-49b9-ae03-c78bdbd2f456",
+          "createdAt": "2026-07-28T02:09:07.000Z",
+          "updatedAt": "2026-07-28T02:09:07.000Z",
+          "uid": "35240-1690a237-3765-49b9-ae03-c78bdbd2f456"
+        }
+      ],
+      "id": "a4d9c878-bc60-45f6-8664-da26fdaac1ec",
+      "createdAt": "2026-07-28T02:09:07.000Z",
+      "updatedAt": "2026-07-28T02:09:07.000Z",
+      "uid": "35240-a4d9c878-bc60-45f6-8664-da26fdaac1ec"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

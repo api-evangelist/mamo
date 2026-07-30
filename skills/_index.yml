@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/mamo-openapi.yml
+skills:
+- file: mamo-create-payment-link.md
+  name: Create and track a Mamo payment link
+  api: openapi/mamo-openapi.yml
+  operations: [postLinks, getLinksLinkid, getChargesChargeid, postWebhooks]
+- file: mamo-charge-and-refund.md
+  name: Charge a saved card and refund
+  api: openapi/mamo-openapi.yml
+  operations: [postCharges, getChargesChargeid, postChargesChargeidRefunds]
+- file: mamo-payouts.md
+  name: Pay out to a recipient
+  api: openapi/mamo-openapi.yml
+  operations: [postAccountsRecipients, postDisbursements, getDisbursementsDisbursementid]

@@ -1,0 +1,88 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/mamo-openapi.yml + https://mamopay.readme.io/ object references
+notes: >-
+  Entity-relationship graph derived from the Mamo Business API path structure and
+  the published object references (Charge, Payment Link, Payout, Transaction,
+  Expense, Subscription). Relationships inferred from nested routes and
+  id-reference fields; id prefixes captured from published examples where shown.
+entities:
+- name: Business
+  description: The merchant account. Fetched via GET /me; balances via GET /finances.
+  operations: [getMe, getFinances]
+- name: PaymentLink
+  id_prefix: MB-LINK-
+  description: Hosted payment/checkout link (one-off or subscription-bound).
+  operations: [postLinks, getLinks, getLinksLinkid, patchLinksLinkid, deleteLinksLinkid]
+  relationships:
+  - type: has_many
+    target: Charge
+    via: paymentLinkId
+  - type: has_one
+    target: Subscription
+    via: subscription_id
+- name: Charge
+  id_prefix: MPB-CHRG-
+  description: A transaction / charge captured against a card, optionally with external_id and custom_data.
+  operations: [postCharges, getCharges, getChargesChargeid, postChargesChargeidRefunds, postChargesChargeidCaptures, postChargesChargeidReverses]
+  relationships:
+  - type: belongs_to
+    target: PaymentLink
+    via: paymentLinkId
+  - type: has_many
+    target: Refund
+    via: chargeId
+- name: Subscription
+  description: A billing schedule (frequency, interval, start/end date) attached to a payment link.
+  operations: [postSubscriptions, deleteSubscriptionsSubscriptionid, getSubscriptionsSubscriptionidPayments, getSubscriptionsSubscriptionidSubscribers]
+  relationships:
+  - type: has_many
+    target: Subscriber
+    via: subscriptionId
+  - type: has_many
+    target: SubscriptionPayment
+    via: subscriptionId
+- name: Subscriber
+  description: A customer subscribed to a subscription.
+  operations: [getSubscriptionsSubscriptionidSubscribers, deleteSubscriptionsSubscriptionidSubscribersSubscriberid, patchSubscriptionsSubscriptionidSubscribersSubscriberidChangeCustomerSubscription]
+  relationships:
+  - type: belongs_to
+    target: Subscription
+    via: subscriptionId
+- name: Recipient
+  description: A payout recipient owned by the business.
+  operations: [postAccountsRecipients, getAccountsRecipients, getAccountsRecipientsRecipientidentifier, patchAccountsRecipientsRecipientidentifier, deleteAccountsRecipientsRecipientidentifier]
+  relationships:
+  - type: has_many
+    target: Disbursement
+    via: recipientIdentifier
+- name: Disbursement
+  description: A payout issued (in bulk) to recipients.
+  operations: [postDisbursements, getDisbursementsDisbursementid]
+  relationships:
+  - type: belongs_to
+    target: Recipient
+    via: recipientIdentifier
+- name: Invoice
+  description: An invoice created and emailed to a customer.
+  operations: [postInvoices]
+- name: PartnerCard
+  description: A virtual card issued to a business partner with spending limits and controls.
+  operations: [postPartnerCards, getPartnerCards, getPartnerCardsIdentifier, patchPartnerCardsIdentifier, patchPartnerCardsIdentifierCancel, getPartnerCardsIdentifierTransactions, getPartnerCardsIdentifierTransactionsTransactionIdentifier]
+  relationships:
+  - type: has_many
+    target: CardTransaction
+    via: identifier
+- name: CardTransaction
+  description: A transaction on a corporate/partner card.
+  operations: [getCardsTransactions, getCardsTransactionsTransactionid, getPartnerCardsIdentifierTransactions]
+  relationships:
+  - type: has_one
+    target: Expense
+    via: transactionId
+- name: Expense
+  description: An expense record derived from a card transaction, with receipts.
+  operations: [patchExpensesExpenseid, getExpensesReceipts, getExpensesReceiptsIdentifier]
+- name: Webhook
+  description: A registered HTTPS callback subscribed to enabled_events.
+  operations: [postWebhooks, getWebhooks, patchWebhooksWebhookid, deleteWebhooksWebhookid]

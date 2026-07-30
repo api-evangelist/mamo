@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/reference/post_links (For Payment Testing) + https://mamopay.readme.io/reference/authentication
+notes: >-
+  Test-vs-live separation and published test card values for the Mamo Business
+  API, captured verbatim from the reference. Sandbox requires a dedicated
+  sandbox account and API key (request via api@mamopay.com or the docs chat).
+environments:
+  sandbox:
+    base_url: https://sandbox.dev.business.mamopay.com/manage_api/v1
+    account: Requires a dedicated sandbox account and API key (not self-serve; request from Mamo).
+  production:
+    base_url: https://business.mamopay.com/manage_api/v1
+test_cards:
+  cvv: '123'
+  expiry: 01/28
+  '3ds_password': Checkout1!
+  cards:
+  - number: 4659 1055 6905 1157
+    result: Success
+    '3ds': false
+    address_required: false
+    country: GB
+  - number: 4242 4242 4242 4242
+    result: Success
+    '3ds': true
+    address_required: false
+    country: GB
+  - number: 4111 1111 1111 1111
+    result: Success
+    '3ds': true
+    address_required: true
+    country: US
+  - number: 4567 3613 2598 1788
+    result: Fail
+    '3ds': false
+    address_required: false
+    country: GB
+  - number: 4095 2548 0264 2505
+    result: Fail
+    '3ds': false
+    address_required: true
+    country: US

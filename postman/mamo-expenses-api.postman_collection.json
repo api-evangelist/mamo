@@ -1,0 +1,415 @@
+{
+  "info": {
+    "_postman_id": "897501e5-6b1b-40ba-905b-f81251e0d44c",
+    "name": "Mamo Business Business Details Expenses API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:08:44.000Z",
+    "updatedAt": "2026-07-28T02:08:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-897501e5-6b1b-40ba-905b-f81251e0d44c"
+  },
+  "item": [
+    {
+      "name": "expenses",
+      "item": [
+        {
+          "name": "{expenseId}",
+          "item": [
+            {
+              "name": "Update Expense",
+              "id": "f7c408a7-8309-48f5-a342-330e5bdb5114",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "Invoice number for the expense",
+                      "key": "invoice_number",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Description of the expense",
+                      "key": "description",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Status of the expense (This can only be one of incomplete,pending_review,ready,synced)",
+                      "key": "status",
+                      "value": "pending_review",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/expenses/:expenseId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "expenses",
+                    ":expenseId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c3785c48-a061-4f2e-ba25-f6b76f25ad85",
+                      "key": "expenseId",
+                      "value": "EXP-F096A17391",
+                      "description": "(Required) Expense ID"
+                    }
+                  ]
+                },
+                "description": "Updates expense details such as description, invoice number, and status"
+              },
+              "response": [
+                {
+                  "id": "61c65b33-3806-4537-877e-e847344a12c4",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Invoice number for the expense",
+                          "key": "invoice_number",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Description of the expense",
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Status of the expense (This can only be one of incomplete,pending_review,ready,synced)",
+                          "key": "status",
+                          "value": "pending_review",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/:expenseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        ":expenseId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "expenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"incomplete\",\n  \"description\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"id\": \"<string>\",\n  \"category\": \"<string>\",\n  \"taxCode\": \"<string>\",\n  \"paymentAccount\": \"<string>\",\n  \"expenseAccount\": \"<string>\",\n  \"vendor\": \"<string>\",\n  \"receiptUploaded\": \"<boolean>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:44.000Z",
+                  "updatedAt": "2026-07-28T02:08:44.000Z",
+                  "uid": "35240-61c65b33-3806-4537-877e-e847344a12c4"
+                },
+                {
+                  "id": "fd680c34-9b40-4f3d-8fd9-585be575c08d",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Invoice number for the expense",
+                          "key": "invoice_number",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Description of the expense",
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Status of the expense (This can only be one of incomplete,pending_review,ready,synced)",
+                          "key": "status",
+                          "value": "pending_review",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/:expenseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        ":expenseId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "expenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:44.000Z",
+                  "updatedAt": "2026-07-28T02:08:44.000Z",
+                  "uid": "35240-fd680c34-9b40-4f3d-8fd9-585be575c08d"
+                },
+                {
+                  "id": "d9b30423-eed3-48f1-bf5a-27319a52b7a0",
+                  "name": "Expense not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Invoice number for the expense",
+                          "key": "invoice_number",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Description of the expense",
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Status of the expense (This can only be one of incomplete,pending_review,ready,synced)",
+                          "key": "status",
+                          "value": "pending_review",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/:expenseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        ":expenseId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "expenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:44.000Z",
+                  "updatedAt": "2026-07-28T02:08:44.000Z",
+                  "uid": "35240-d9b30423-eed3-48f1-bf5a-27319a52b7a0"
+                },
+                {
+                  "id": "dc533597-e326-4114-98f1-037d318ada10",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "Invoice number for the expense",
+                          "key": "invoice_number",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Description of the expense",
+                          "key": "description",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Status of the expense (This can only be one of incomplete,pending_review,ready,synced)",
+                          "key": "status",
+                          "value": "pending_review",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/expenses/:expenseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "expenses",
+                        ":expenseId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "expenseId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<number>\",\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:44.000Z",
+                  "updatedAt": "2026-07-28T02:08:44.000Z",
+                  "uid": "35240-dc533597-e326-4114-98f1-037d318ada10"
+                }
+              ],
+              "createdAt": "2026-07-28T02:08:44.000Z",
+              "updatedAt": "2026-07-28T02:08:44.000Z",
+              "uid": "35240-f7c408a7-8309-48f5-a342-330e5bdb5114"
+            }
+          ],
+          "id": "cf724377-974d-43dc-9ffa-016bf927a3b9",
+          "createdAt": "2026-07-28T02:08:44.000Z",
+          "updatedAt": "2026-07-28T02:08:44.000Z",
+          "uid": "35240-cf724377-974d-43dc-9ffa-016bf927a3b9"
+        }
+      ],
+      "id": "9dca3d66-22a8-4c59-ab3f-caeeb146178c",
+      "createdAt": "2026-07-28T02:08:44.000Z",
+      "updatedAt": "2026-07-28T02:08:44.000Z",
+      "uid": "35240-9dca3d66-22a8-4c59-ab3f-caeeb146178c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "a26f316e-7e61-4f43-8ff9-ca0288033f9a",
+    "name": "Mamo Business Business Details Invoices API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:01.000Z",
+    "updatedAt": "2026-07-28T02:09:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a26f316e-7e61-4f43-8ff9-ca0288033f9a"
+  },
+  "item": [
+    {
+      "name": "invoices",
+      "item": [
+        {
+          "name": "Create Invoice",
+          "id": "0fd7f8df-2e63-46b0-9fce-087e698cfa76",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 123,\n  \"amount_currency\": \"AED\",\n  \"email\": \"<email>\",\n  \"description\": \"<string>\",\n  \"customer_type\": \"individual\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"vat_enabled\": false,\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"additional_cc_emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"include_external_id\": false,\n  \"external_id\": \"<string>\",\n  \"processing_fee_percentage\": \"<number>\",\n  \"processing_fee_amount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoices"
+              ]
+            },
+            "description": "API to create and send an invoice to a customer via email."
+          },
+          "response": [
+            {
+              "id": "f4cd8e1f-5e23-4325-9a77-34977437ea85",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 123,\n  \"amount_currency\": \"AED\",\n  \"email\": \"<email>\",\n  \"description\": \"<string>\",\n  \"customer_type\": \"individual\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"vat_enabled\": false,\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"additional_cc_emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"include_external_id\": false,\n  \"external_id\": \"<string>\",\n  \"processing_fee_percentage\": \"<number>\",\n  \"processing_fee_amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<string>\",\n  \"status\": \"outstanding\",\n  \"amount\": \"<number>\",\n  \"amount_formatted\": \"<string>\",\n  \"amount_currency\": \"<string>\",\n  \"description\": \"<string>\",\n  \"customer\": {\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"phone\": \"<string>\"\n  },\n  \"external_id\": \"<string>\",\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"business_name\": \"<string>\",\n  \"uae_tax_reference_number\": \"<string>\",\n  \"address\": \"<string>\",\n  \"city\": \"<string>\",\n  \"country\": \"<string>\",\n  \"payment_url\": \"<string>\",\n  \"invoice_pdf_url\": \"<string>\",\n  \"paid_at\": \"<string>\",\n  \"created_at\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:01.000Z",
+              "updatedAt": "2026-07-28T02:09:01.000Z",
+              "uid": "35240-f4cd8e1f-5e23-4325-9a77-34977437ea85"
+            },
+            {
+              "id": "016409e2-3149-4009-a7eb-4e26cf3dc37f",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 123,\n  \"amount_currency\": \"AED\",\n  \"email\": \"<email>\",\n  \"description\": \"<string>\",\n  \"customer_type\": \"individual\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"vat_enabled\": false,\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"additional_cc_emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"include_external_id\": false,\n  \"external_id\": \"<string>\",\n  \"processing_fee_percentage\": \"<number>\",\n  \"processing_fee_amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:01.000Z",
+              "updatedAt": "2026-07-28T02:09:01.000Z",
+              "uid": "35240-016409e2-3149-4009-a7eb-4e26cf3dc37f"
+            },
+            {
+              "id": "b09c2f3a-9c32-4d7c-a345-d8ce552a8050",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 123,\n  \"amount_currency\": \"AED\",\n  \"email\": \"<email>\",\n  \"description\": \"<string>\",\n  \"customer_type\": \"individual\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"vat_enabled\": false,\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"additional_cc_emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"include_external_id\": false,\n  \"external_id\": \"<string>\",\n  \"processing_fee_percentage\": \"<number>\",\n  \"processing_fee_amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\",\n  \"errors\": {}\n}",
+              "createdAt": "2026-07-28T02:09:01.000Z",
+              "updatedAt": "2026-07-28T02:09:01.000Z",
+              "uid": "35240-b09c2f3a-9c32-4d7c-a345-d8ce552a8050"
+            },
+            {
+              "id": "661286d5-2fc4-43fe-bc68-781d435a65ed",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 123,\n  \"amount_currency\": \"AED\",\n  \"email\": \"<email>\",\n  \"description\": \"<string>\",\n  \"customer_type\": \"individual\",\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"vat_enabled\": false,\n  \"additional_heading\": \"<string>\",\n  \"additional_details\": \"<string>\",\n  \"additional_cc_emails\": [\n    \"<email>\",\n    \"<email>\"\n  ],\n  \"include_external_id\": false,\n  \"external_id\": \"<string>\",\n  \"processing_fee_percentage\": \"<number>\",\n  \"processing_fee_amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/invoices",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "invoices"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:09:01.000Z",
+              "updatedAt": "2026-07-28T02:09:01.000Z",
+              "uid": "35240-661286d5-2fc4-43fe-bc68-781d435a65ed"
+            }
+          ],
+          "createdAt": "2026-07-28T02:09:01.000Z",
+          "updatedAt": "2026-07-28T02:09:01.000Z",
+          "uid": "35240-0fd7f8df-2e63-46b0-9fce-087e698cfa76"
+        }
+      ],
+      "id": "a38d1379-6e03-406c-a812-c21c98d7f857",
+      "createdAt": "2026-07-28T02:09:01.000Z",
+      "updatedAt": "2026-07-28T02:09:01.000Z",
+      "uid": "35240-a38d1379-6e03-406c-a812-c21c98d7f857"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

@@ -1,0 +1,2016 @@
+{
+  "info": {
+    "_postman_id": "143951a2-1138-4556-85b9-9dc9598404f4",
+    "name": "Mamo Business Business Details Cards API",
+    "description": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:08:40.000Z",
+    "updatedAt": "2026-07-28T02:08:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-143951a2-1138-4556-85b9-9dc9598404f4"
+  },
+  "item": [
+    {
+      "name": "partner_cards",
+      "item": [
+        {
+          "name": "{identifier}",
+          "item": [
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "{transaction_identifier}",
+                  "item": [
+                    {
+                      "name": "Get Partner Card Transaction Details",
+                      "id": "bbdd9913-dabf-4156-a36b-caedd950b7f0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/transactions/:transaction_identifier",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "transactions",
+                            ":transaction_identifier"
+                          ],
+                          "variable": [
+                            {
+                              "id": "d1d8c357-b74d-49e7-b551-2cec075eb861",
+                              "key": "identifier",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the partner card"
+                            },
+                            {
+                              "id": "1e09f00b-c8b0-459a-8e15-ed8675585b41",
+                              "key": "transaction_identifier",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the transaction"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve detailed information about a specific transaction for a partner card. This endpoint provides complete transaction details including merchant information, amounts, and status."
+                      },
+                      "response": [
+                        {
+                          "id": "207f1d98-fca2-4060-a8dd-0e15e0abfa6d",
+                          "name": "Successful response",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/partner_cards/:identifier/transactions/:transaction_identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner_cards",
+                                ":identifier",
+                                "transactions",
+                                ":transaction_identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "identifier"
+                                },
+                                {
+                                  "key": "transaction_identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kind\": \"refund\",\n  \"merchant_name_formatted\": \"<string>\",\n  \"amount_currency\": \"<string>\",\n  \"billing_amount_currency\": \"<string>\",\n  \"status\": \"pending\",\n  \"card_last4\": \"<string>\",\n  \"id\": \"<string>\",\n  \"merchant_name\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"billing_amount\": \"<number>\",\n  \"card_name\": \"<string>\",\n  \"card_holder_name\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"updated_at\": \"<string>\",\n  \"expense\": {}\n}",
+                          "createdAt": "2026-07-28T02:08:41.000Z",
+                          "updatedAt": "2026-07-28T02:08:41.000Z",
+                          "uid": "35240-207f1d98-fca2-4060-a8dd-0e15e0abfa6d"
+                        },
+                        {
+                          "id": "d467a703-dcfc-423a-ba10-507125c8aa03",
+                          "name": "Unauthorised",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/partner_cards/:identifier/transactions/:transaction_identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner_cards",
+                                ":identifier",
+                                "transactions",
+                                ":transaction_identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "identifier"
+                                },
+                                {
+                                  "key": "transaction_identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:08:41.000Z",
+                          "updatedAt": "2026-07-28T02:08:41.000Z",
+                          "uid": "35240-d467a703-dcfc-423a-ba10-507125c8aa03"
+                        },
+                        {
+                          "id": "b66672a3-cfdb-4fc0-b0df-7606c22fd8ed",
+                          "name": "Transaction or card not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/partner_cards/:identifier/transactions/:transaction_identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner_cards",
+                                ":identifier",
+                                "transactions",
+                                ":transaction_identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "identifier"
+                                },
+                                {
+                                  "key": "transaction_identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:08:41.000Z",
+                          "updatedAt": "2026-07-28T02:08:41.000Z",
+                          "uid": "35240-b66672a3-cfdb-4fc0-b0df-7606c22fd8ed"
+                        },
+                        {
+                          "id": "8c76bf2b-b3ca-4ab0-9f4c-645b4fc6c92b",
+                          "name": "Unexpected error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/partner_cards/:identifier/transactions/:transaction_identifier",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "partner_cards",
+                                ":identifier",
+                                "transactions",
+                                ":transaction_identifier"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "identifier"
+                                },
+                                {
+                                  "key": "transaction_identifier"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:08:41.000Z",
+                          "updatedAt": "2026-07-28T02:08:41.000Z",
+                          "uid": "35240-8c76bf2b-b3ca-4ab0-9f4c-645b4fc6c92b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-bbdd9913-dabf-4156-a36b-caedd950b7f0"
+                    }
+                  ],
+                  "id": "f6f529bc-2ff7-4abe-9fae-f365049f6628",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-f6f529bc-2ff7-4abe-9fae-f365049f6628"
+                },
+                {
+                  "name": "Get Partner Card Transactions",
+                  "id": "a19b539a-9b67-4a13-b73e-ce32d606e6df",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier/transactions?page=1&per_page=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier",
+                        "transactions"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number for pagination",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of items per page",
+                          "key": "per_page",
+                          "value": "10"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "4f6d9541-8742-4264-baca-db137bb13798",
+                          "key": "identifier",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the partner card"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a paginated list of all transactions for a specific partner card. This endpoint provides detailed transaction history including purchase information, amounts, and status."
+                  },
+                  "response": [
+                    {
+                      "id": "52a56399-e497-434c-b42c-fd8ad761b329",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/transactions?page=1&per_page=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "10"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    {\n      \"kind\": \"purchase\",\n      \"merchant_name_formatted\": \"<string>\",\n      \"amount_currency\": \"<string>\",\n      \"billing_amount_currency\": \"<string>\",\n      \"status\": \"success\",\n      \"card_last4\": \"<string>\",\n      \"id\": \"<string>\",\n      \"merchant_name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"billing_amount\": \"<number>\",\n      \"card_name\": \"<string>\",\n      \"card_holder_name\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"expense\": {}\n    },\n    {\n      \"kind\": \"refund\",\n      \"merchant_name_formatted\": \"<string>\",\n      \"amount_currency\": \"<string>\",\n      \"billing_amount_currency\": \"<string>\",\n      \"status\": \"pending\",\n      \"card_last4\": \"<string>\",\n      \"id\": \"<string>\",\n      \"merchant_name\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"billing_amount\": \"<number>\",\n      \"card_name\": \"<string>\",\n      \"card_holder_name\": \"<string>\",\n      \"created_at\": \"<string>\",\n      \"updated_at\": \"<string>\",\n      \"expense\": {}\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": \"<number>\",\n    \"per_page\": \"<number>\",\n    \"total_pages\": \"<number>\",\n    \"next_page\": \"<number>\",\n    \"prev_page\": \"<number>\",\n    \"from\": \"<number>\",\n    \"to\": \"<number>\",\n    \"total_count\": \"<number>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-52a56399-e497-434c-b42c-fd8ad761b329"
+                    },
+                    {
+                      "id": "48895249-f163-4031-95c9-f61a9a7c17bf",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/transactions?page=1&per_page=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "10"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-48895249-f163-4031-95c9-f61a9a7c17bf"
+                    },
+                    {
+                      "id": "e4fe77e8-ef69-461a-9dbe-f0d58264f82f",
+                      "name": "Card not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/transactions?page=1&per_page=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "10"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-e4fe77e8-ef69-461a-9dbe-f0d58264f82f"
+                    },
+                    {
+                      "id": "80b5fd28-4418-4761-bc06-f318c1ad86a0",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/transactions?page=1&per_page=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "transactions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number for pagination",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of items per page",
+                              "key": "per_page",
+                              "value": "10"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-80b5fd28-4418-4761-bc06-f318c1ad86a0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-a19b539a-9b67-4a13-b73e-ce32d606e6df"
+                }
+              ],
+              "id": "4ad2f998-3829-4210-9835-f4e76079f1c4",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-4ad2f998-3829-4210-9835-f4e76079f1c4"
+            },
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Cancel Partner Card",
+                  "id": "8aa249e5-a825-4e21-8239-c1e6a887ad0f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier",
+                        "cancel"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4142dcfe-38a7-4604-adc0-ce42f9689f24",
+                          "key": "identifier",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the partner card to cancel"
+                        }
+                      ]
+                    },
+                    "description": "Cancel an active partner card. This action will terminate the card and prevent any further transactions. Only active cards can be cancelled."
+                  },
+                  "response": [
+                    {
+                      "id": "32806dff-480a-4845-83bc-2a2810352279",
+                      "name": "Card cancelled successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-32806dff-480a-4845-83bc-2a2810352279"
+                    },
+                    {
+                      "id": "acfe0e08-85b6-463d-80c9-f5a601985885",
+                      "name": "Bad Request - Card cannot be cancelled",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-acfe0e08-85b6-463d-80c9-f5a601985885"
+                    },
+                    {
+                      "id": "261b4148-364a-421b-8308-90340a5e1926",
+                      "name": "Unauthorised",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-261b4148-364a-421b-8308-90340a5e1926"
+                    },
+                    {
+                      "id": "a4d77228-e748-4cba-bcab-3c2bf5a19c8c",
+                      "name": "Card not found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-a4d77228-e748-4cba-bcab-3c2bf5a19c8c"
+                    },
+                    {
+                      "id": "cdf360b9-696f-4243-9115-222233ceeba3",
+                      "name": "Unexpected error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/partner_cards/:identifier/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "partner_cards",
+                            ":identifier",
+                            "cancel"
+                          ],
+                          "variable": [
+                            {
+                              "key": "identifier"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:08:41.000Z",
+                      "updatedAt": "2026-07-28T02:08:41.000Z",
+                      "uid": "35240-cdf360b9-696f-4243-9115-222233ceeba3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-8aa249e5-a825-4e21-8239-c1e6a887ad0f"
+                }
+              ],
+              "id": "6cd585b7-971f-4008-a348-cb0ab3c5fcd6",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-6cd585b7-971f-4008-a348-cb0ab3c5fcd6"
+            },
+            {
+              "name": "Get Partner Card Details",
+              "id": "856eb02c-5154-472e-a6d9-91461a7d7f79",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards/:identifier",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards",
+                    ":identifier"
+                  ],
+                  "variable": [
+                    {
+                      "id": "65024b25-8434-40e0-af58-5041757ef0e4",
+                      "key": "identifier",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the partner card"
+                    }
+                  ]
+                },
+                "description": "Retrieve detailed information about a specific partner card using its identifier. This endpoint provides complete card information including current status, spending details, and metadata."
+              },
+              "response": [
+                {
+                  "id": "8853631d-4d1b-4e23-9ba1-77db57161985",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"cardHolderName\": \"<string>\",\n  \"expiryDate\": \"<string>\",\n  \"cardLast4\": \"<string>\",\n  \"status\": \"terminated\",\n  \"bookingId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"totalSpend\": \"<number>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-8853631d-4d1b-4e23-9ba1-77db57161985"
+                },
+                {
+                  "id": "bba5eb74-b120-4020-992a-31ba295161ee",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-bba5eb74-b120-4020-992a-31ba295161ee"
+                },
+                {
+                  "id": "6c4edb06-2059-40f3-b538-2afb2ccf167f",
+                  "name": "Card not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-6c4edb06-2059-40f3-b538-2afb2ccf167f"
+                },
+                {
+                  "id": "6de280b2-b48c-4541-9fd7-9d8063f4d866",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-6de280b2-b48c-4541-9fd7-9d8063f4d866"
+                }
+              ],
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-856eb02c-5154-472e-a6d9-91461a7d7f79"
+            },
+            {
+              "name": "Update Partner Card",
+              "id": "328018a6-818b-4800-8a51-0f6650f5bc4a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards/:identifier",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards",
+                    ":identifier"
+                  ],
+                  "variable": [
+                    {
+                      "id": "057f5c4a-29cb-4340-aa1c-1d74082b4752",
+                      "key": "identifier",
+                      "value": "<string>",
+                      "description": "(Required) Unique identifier of the partner card to update"
+                    }
+                  ]
+                },
+                "description": "Update the amount limit of an active partner card. This allows you to increase or decrease the spending limit on the card. Only active cards can be updated."
+              },
+              "response": [
+                {
+                  "id": "eb992dfe-b484-4893-86f6-055f2a1f3758",
+                  "name": "Card updated successfully",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-eb992dfe-b484-4893-86f6-055f2a1f3758"
+                },
+                {
+                  "id": "3374a206-ed97-474a-8393-9fc6db0f3a24",
+                  "name": "Bad Request - Card cannot be updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-3374a206-ed97-474a-8393-9fc6db0f3a24"
+                },
+                {
+                  "id": "f9589d81-28d1-4785-8250-515123a2095d",
+                  "name": "Unauthorised",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-f9589d81-28d1-4785-8250-515123a2095d"
+                },
+                {
+                  "id": "5286e752-e512-4e0e-87e2-e5c9a2a55a3c",
+                  "name": "Card not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-5286e752-e512-4e0e-87e2-e5c9a2a55a3c"
+                },
+                {
+                  "id": "81cb557e-362f-4904-af89-42ca8314cde0",
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-81cb557e-362f-4904-af89-42ca8314cde0"
+                },
+                {
+                  "id": "0fe58864-0505-4b56-9987-d41e6d9b518e",
+                  "name": "Unexpected error",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/partner_cards/:identifier",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "partner_cards",
+                        ":identifier"
+                      ],
+                      "variable": [
+                        {
+                          "key": "identifier"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:08:41.000Z",
+                  "updatedAt": "2026-07-28T02:08:41.000Z",
+                  "uid": "35240-0fe58864-0505-4b56-9987-d41e6d9b518e"
+                }
+              ],
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-328018a6-818b-4800-8a51-0f6650f5bc4a"
+            }
+          ],
+          "id": "a4b48d6e-9892-4e8a-81f4-3720935ae43c",
+          "createdAt": "2026-07-28T02:08:41.000Z",
+          "updatedAt": "2026-07-28T02:08:41.000Z",
+          "uid": "35240-a4b48d6e-9892-4e8a-81f4-3720935ae43c"
+        },
+        {
+          "name": "Get Partner Cards List",
+          "id": "12e6ef86-92d9-4322-889e-d62a421666c5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/partner_cards?page=1&per_page=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "partner_cards"
+              ],
+              "query": [
+                {
+                  "description": "Page number for pagination",
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "description": "Number of items per page",
+                  "key": "per_page",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Retrieve a paginated list of all partner cards for the business. This endpoint allows you to view all issued partner cards with their current status and details."
+          },
+          "response": [
+            {
+              "id": "4ed90f00-ab03-407e-af34-89e76b011eed",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards?page=1&per_page=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items per page",
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"data\": [\n    {\n      \"card_holder_name\": \"<string>\",\n      \"expiry_date\": \"<string>\",\n      \"card_last4\": \"<string>\",\n      \"status\": \"inactive\",\n      \"booking_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"total_spend\": \"<number>\"\n    },\n    {\n      \"card_holder_name\": \"<string>\",\n      \"expiry_date\": \"<string>\",\n      \"card_last4\": \"<string>\",\n      \"status\": \"inactive\",\n      \"booking_id\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\",\n      \"id\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"total_spend\": \"<number>\"\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": \"<number>\",\n    \"per_page\": \"<number>\",\n    \"total_pages\": \"<number>\",\n    \"next_page\": \"<number>\",\n    \"prev_page\": \"<number>\",\n    \"from\": \"<number>\",\n    \"to\": \"<number>\",\n    \"total_count\": \"<number>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-4ed90f00-ab03-407e-af34-89e76b011eed"
+            },
+            {
+              "id": "cfe5f1f9-4190-410d-8e47-2319bc42ecaf",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards?page=1&per_page=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items per page",
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-cfe5f1f9-4190-410d-8e47-2319bc42ecaf"
+            },
+            {
+              "id": "629db5a4-b8a0-4fb9-9170-f88cfad861cc",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards?page=1&per_page=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items per page",
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-629db5a4-b8a0-4fb9-9170-f88cfad861cc"
+            }
+          ],
+          "createdAt": "2026-07-28T02:08:41.000Z",
+          "updatedAt": "2026-07-28T02:08:41.000Z",
+          "uid": "35240-12e6ef86-92d9-4322-889e-d62a421666c5"
+        },
+        {
+          "name": "Create Partner Card",
+          "id": "f0473262-d405-4ad0-85f4-e7d9c7844842",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/partner_cards",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "partner_cards"
+              ]
+            },
+            "description": "Create a partner card for business transactions. This API allows you to issue virtual cards with specific limits and controls for your business partners. This API is available upon request for a tailored integration. Email us on api@mamopay.com to get started."
+          },
+          "response": [
+            {
+              "id": "125c0ec5-7dee-43d3-915d-247b05443634",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"card_holder_name\": \"<string>\",\n  \"expiry_date\": \"<string>\",\n  \"card_last4\": \"<string>\",\n  \"status\": \"inactive\",\n  \"booking_id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\",\n  \"id\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"total_spend\": \"<number>\",\n  \"url\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-125c0ec5-7dee-43d3-915d-247b05443634"
+            },
+            {
+              "id": "77df5e82-6ea4-476e-a8d9-c085767c4810",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"error_code\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-77df5e82-6ea4-476e-a8d9-c085767c4810"
+            },
+            {
+              "id": "16af0ddd-9626-48c2-8a63-6f313105305a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-16af0ddd-9626-48c2-8a63-6f313105305a"
+            },
+            {
+              "id": "aac0d254-29a4-4aff-955c-5e9c2412805f",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": \"<array>\",\n  \"error_code\": \"<string>\",\n  \"errors\": {\n    \"name\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-aac0d254-29a4-4aff-955c-5e9c2412805f"
+            },
+            {
+              "id": "76b37403-970d-44b8-abbe-797b31f1521e",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"email\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"verification_email\": \"<email>\",\n  \"transactions_limit\": \"<number>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/partner_cards",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "partner_cards"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:08:41.000Z",
+              "updatedAt": "2026-07-28T02:08:41.000Z",
+              "uid": "35240-76b37403-970d-44b8-abbe-797b31f1521e"
+            }
+          ],
+          "createdAt": "2026-07-28T02:08:41.000Z",
+          "updatedAt": "2026-07-28T02:08:41.000Z",
+          "uid": "35240-f0473262-d405-4ad0-85f4-e7d9c7844842"
+        }
+      ],
+      "id": "b91aa4f9-5c4f-42dc-824e-ea0114e288f2",
+      "createdAt": "2026-07-28T02:08:41.000Z",
+      "updatedAt": "2026-07-28T02:08:41.000Z",
+      "uid": "35240-b91aa4f9-5c4f-42dc-824e-ea0114e288f2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://business.mamopay.com/manage_api/v1"
+    }
+  ]
+}

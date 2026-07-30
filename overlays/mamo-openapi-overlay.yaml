@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Mamo Business API
+  version: 1.0.0
+extends: openapi/mamo-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: mamo
+    x-apievangelist-category: payments
+    x-apievangelist-enrichment: '2026-07-20'
+    x-apievangelist-notes: >-
+      Spec reconstructed from per-endpoint OpenAPI definitions published on
+      readme.io and normalized (deterministic operationIds added). Bearer
+      API-key auth. Sandbox and production servers. See conventions/, errors/,
+      sandbox/, asyncapi/ artifacts in the repo.
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/mamo-authentication.yml
+      conventions: conventions/mamo-conventions.yml
+      errors: errors/mamo-problem-types.yml
+      decline_codes: errors/mamo-decline-codes.yml
+      sandbox: sandbox/mamo-sandbox.yml
+      webhooks: asyncapi/mamo-webhooks-asyncapi.yml
+      data_model: data-model/mamo-data-model.yml
+      lifecycle: lifecycle/mamo-lifecycle.yml
+      changelog: changelog/mamo-changelog.yml

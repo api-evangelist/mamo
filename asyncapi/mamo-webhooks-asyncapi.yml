@@ -1,0 +1,70 @@
+generated: '2026-07-20'
+method: searched
+source: https://mamopay.readme.io/reference/post_webhooks
+spec_type: AsyncAPI
+asyncapi: 3.0.0
+info:
+  title: Mamo Business Webhooks
+  version: '1.6'
+  description: >-
+    Webhook event surface for the Mamo Business API. Merchants register a
+    webhook URL via POST /webhooks with a set of enabled_events; Mamo POSTs a
+    JSON event payload to that URL when the corresponding event occurs. Event
+    names and descriptions are captured verbatim from the Create Webhook
+    reference.
+  contact:
+    name: Mamo API Support
+    email: api@mamopay.com
+defaultContentType: application/json
+servers:
+  production:
+    host: business.mamopay.com
+    protocol: https
+    description: Merchant-hosted webhook receiver registered with Mamo (delivery is Mamo -> your URL).
+channels:
+  merchantWebhook:
+    address: '{merchant_webhook_url}'
+    description: The HTTPS endpoint the merchant registers to receive Mamo events.
+    parameters:
+      merchant_webhook_url:
+        description: The URL supplied in the `url` field on POST /webhooks.
+    messages:
+      chargeFailed: { $ref: '#/components/messages/chargeFailed' }
+      chargeSucceeded: { $ref: '#/components/messages/chargeSucceeded' }
+      chargeRefundInitiated: { $ref: '#/components/messages/chargeRefundInitiated' }
+      chargeRefunded: { $ref: '#/components/messages/chargeRefunded' }
+      chargeRefundFailed: { $ref: '#/components/messages/chargeRefundFailed' }
+      chargeCardVerified: { $ref: '#/components/messages/chargeCardVerified' }
+      chargeAuthorized: { $ref: '#/components/messages/chargeAuthorized' }
+      subscriptionFailed: { $ref: '#/components/messages/subscriptionFailed' }
+      subscriptionSucceeded: { $ref: '#/components/messages/subscriptionSucceeded' }
+      paymentLinkCreate: { $ref: '#/components/messages/paymentLinkCreate' }
+      payoutProcessed: { $ref: '#/components/messages/payoutProcessed' }
+      payoutFailed: { $ref: '#/components/messages/payoutFailed' }
+      expenseCreate: { $ref: '#/components/messages/expenseCreate' }
+      expenseUpdate: { $ref: '#/components/messages/expenseUpdate' }
+      cardTransactionCreate: { $ref: '#/components/messages/cardTransactionCreate' }
+      cardTransactionUpdate: { $ref: '#/components/messages/cardTransactionUpdate' }
+operations:
+  receiveMamoEvent:
+    action: receive
+    channel: { $ref: '#/channels/merchantWebhook' }
+    summary: Receive a Mamo webhook event at the registered merchant URL.
+components:
+  messages:
+    chargeFailed: { name: charge.failed, title: Notification for failed one-off payments, payload: { type: object } }
+    chargeSucceeded: { name: charge.succeeded, title: Notification for successful one-off payments, payload: { type: object } }
+    chargeRefundInitiated: { name: charge.refund_initiated, title: Notification for initializing the refund, payload: { type: object } }
+    chargeRefunded: { name: charge.refunded, title: Notification for the successful refund, payload: { type: object } }
+    chargeRefundFailed: { name: charge.refund_failed, title: Notification for the failed refund, payload: { type: object } }
+    chargeCardVerified: { name: charge.card_verified, title: Notification for card verification payment, payload: { type: object } }
+    chargeAuthorized: { name: charge.authorized, title: Notification for when a charge is placed on hold, payload: { type: object } }
+    subscriptionFailed: { name: subscription.failed, title: Notification for failed subscription payments, payload: { type: object } }
+    subscriptionSucceeded: { name: subscription.succeeded, title: Notification for successful subscription payments, payload: { type: object } }
+    paymentLinkCreate: { name: payment_link.create, title: Notification for successfully created payment link, payload: { type: object } }
+    payoutProcessed: { name: payout.processed, title: Notification for settled payout, payload: { type: object } }
+    payoutFailed: { name: payout.failed, title: Notification for rejected payout, payload: { type: object } }
+    expenseCreate: { name: expense.create, title: Notification for expense creation, payload: { type: object } }
+    expenseUpdate: { name: expense.update, title: Notification for expense updates, payload: { type: object } }
+    cardTransactionCreate: { name: card_transaction.create, title: Notification for card transaction creation, payload: { type: object } }
+    cardTransactionUpdate: { name: card_transaction.update, title: Notification for card transaction updates, payload: { type: object } }

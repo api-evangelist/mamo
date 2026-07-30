@@ -1,0 +1,142 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/mamo-openapi.yml
+notes: No official hosted Mamo MCP server was found. Candidate tool list derived one-per-operation from
+  the harvested Mamo Business OpenAPI.
+server:
+  name: mamo
+  transport: http
+tools:
+- name: deleteAccountsRecipientsRecipientidentifier
+  description: Delete Recipient
+  source_operation: openapi/mamo-openapi.yml#deleteAccountsRecipientsRecipientidentifier
+- name: getAccountsRecipientsRecipientidentifier
+  description: Fetch Recipient
+  source_operation: openapi/mamo-openapi.yml#getAccountsRecipientsRecipientidentifier
+- name: patchAccountsRecipientsRecipientidentifier
+  description: Update Recipient
+  source_operation: openapi/mamo-openapi.yml#patchAccountsRecipientsRecipientidentifier
+- name: deleteLinksLinkid
+  description: Delete Payment Link
+  source_operation: openapi/mamo-openapi.yml#deleteLinksLinkid
+- name: getLinksLinkid
+  description: Fetch Payment Link Info
+  source_operation: openapi/mamo-openapi.yml#getLinksLinkid
+- name: patchLinksLinkid
+  description: Update Payment Link
+  source_operation: openapi/mamo-openapi.yml#patchLinksLinkid
+- name: deleteSubscriptionsSubscriptionidSubscribersSubscriberid
+  description: Unsubscribe subscription
+  source_operation: openapi/mamo-openapi.yml#deleteSubscriptionsSubscriptionidSubscribersSubscriberid
+- name: deleteSubscriptionsSubscriptionid
+  description: Cancel Subscription
+  source_operation: openapi/mamo-openapi.yml#deleteSubscriptionsSubscriptionid
+- name: deleteWebhooksWebhookid
+  description: Delete Webhook
+  source_operation: openapi/mamo-openapi.yml#deleteWebhooksWebhookid
+- name: patchWebhooksWebhookid
+  description: Update Webhook
+  source_operation: openapi/mamo-openapi.yml#patchWebhooksWebhookid
+- name: get
+  description: Quick start
+  source_operation: openapi/mamo-openapi.yml#get
+- name: getAccountsRecipients
+  description: Fetching Recipients
+  source_operation: openapi/mamo-openapi.yml#getAccountsRecipients
+- name: postAccountsRecipients
+  description: Create Recipient
+  source_operation: openapi/mamo-openapi.yml#postAccountsRecipients
+- name: getCardsTransactionsTransactionid
+  description: Fetch Transaction Details
+  source_operation: openapi/mamo-openapi.yml#getCardsTransactionsTransactionid
+- name: getCardsTransactions
+  description: Fetching Card Transactions
+  source_operation: openapi/mamo-openapi.yml#getCardsTransactions
+- name: getChargesChargeid
+  description: Fetch Transaction Info
+  source_operation: openapi/mamo-openapi.yml#getChargesChargeid
+- name: getCharges
+  description: Fetching Transactions
+  source_operation: openapi/mamo-openapi.yml#getCharges
+- name: postCharges
+  description: Initiate Payment
+  source_operation: openapi/mamo-openapi.yml#postCharges
+- name: getDisbursementsDisbursementid
+  description: Fetch Disbursement Info
+  source_operation: openapi/mamo-openapi.yml#getDisbursementsDisbursementid
+- name: getExpensesReceiptsIdentifier
+  description: Fetch Expense Receipt Details
+  source_operation: openapi/mamo-openapi.yml#getExpensesReceiptsIdentifier
+- name: getExpensesReceipts
+  description: Fetching Expense Receipts
+  source_operation: openapi/mamo-openapi.yml#getExpensesReceipts
+- name: getFinances
+  description: Fetch Account Balances
+  source_operation: openapi/mamo-openapi.yml#getFinances
+- name: getLinks
+  description: Fetching Payment Links
+  source_operation: openapi/mamo-openapi.yml#getLinks
+- name: postLinks
+  description: Create Payment Link
+  source_operation: openapi/mamo-openapi.yml#postLinks
+- name: getMe
+  description: Fetch Business Info
+  source_operation: openapi/mamo-openapi.yml#getMe
+- name: getPartnerCardsIdentifierTransactionsTransactionIdentifier
+  description: Get Partner Card Transaction Details
+  source_operation: openapi/mamo-openapi.yml#getPartnerCardsIdentifierTransactionsTransactionIdentifier
+- name: getPartnerCardsIdentifierTransactions
+  description: Get Partner Card Transactions
+  source_operation: openapi/mamo-openapi.yml#getPartnerCardsIdentifierTransactions
+- name: getPartnerCardsIdentifier
+  description: Get Partner Card Details
+  source_operation: openapi/mamo-openapi.yml#getPartnerCardsIdentifier
+- name: patchPartnerCardsIdentifier
+  description: Update Partner Card
+  source_operation: openapi/mamo-openapi.yml#patchPartnerCardsIdentifier
+- name: getPartnerCards
+  description: Get Partner Cards List
+  source_operation: openapi/mamo-openapi.yml#getPartnerCards
+- name: postPartnerCards
+  description: Create Partner Card
+  source_operation: openapi/mamo-openapi.yml#postPartnerCards
+- name: getSubscriptionsSubscriptionidPayments
+  description: Fetch Subscription Payments
+  source_operation: openapi/mamo-openapi.yml#getSubscriptionsSubscriptionidPayments
+- name: getSubscriptionsSubscriptionidSubscribers
+  description: Fetch Subscribers
+  source_operation: openapi/mamo-openapi.yml#getSubscriptionsSubscriptionidSubscribers
+- name: getWebhooks
+  description: Fetching Webhooks
+  source_operation: openapi/mamo-openapi.yml#getWebhooks
+- name: postWebhooks
+  description: Create Webhook
+  source_operation: openapi/mamo-openapi.yml#postWebhooks
+- name: patchExpensesExpenseid
+  description: Update Expense
+  source_operation: openapi/mamo-openapi.yml#patchExpensesExpenseid
+- name: patchPartnerCardsIdentifierCancel
+  description: Cancel Partner Card
+  source_operation: openapi/mamo-openapi.yml#patchPartnerCardsIdentifierCancel
+- name: patchSubscriptionsSubscriptionidSubscribersSubscriberidChangeCustomerSubscription
+  description: Change Customer Subscription
+  source_operation: openapi/mamo-openapi.yml#patchSubscriptionsSubscriptionidSubscribersSubscriberidChangeCustomerSubscription
+- name: postChargesChargeidCaptures
+  description: Capture Payment
+  source_operation: openapi/mamo-openapi.yml#postChargesChargeidCaptures
+- name: postChargesChargeidRefunds
+  description: Refund Payment
+  source_operation: openapi/mamo-openapi.yml#postChargesChargeidRefunds
+- name: postChargesChargeidReverses
+  description: Reverse Payment
+  source_operation: openapi/mamo-openapi.yml#postChargesChargeidReverses
+- name: postDisbursements
+  description: Issue Disbursements
+  source_operation: openapi/mamo-openapi.yml#postDisbursements
+- name: postInvoices
+  description: Create Invoice
+  source_operation: openapi/mamo-openapi.yml#postInvoices
+- name: postSubscriptions
+  description: Create Subscription
+  source_operation: openapi/mamo-openapi.yml#postSubscriptions

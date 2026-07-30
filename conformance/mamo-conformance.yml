@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/mamo-openapi.yml + https://mamopay.readme.io/ + https://www.mamopay.com/security
+notes: >-
+  Cross-cutting standards posture derived from the harvested OpenAPI and docs,
+  and confirmed against Mamo's published security page. Mamo is a UAE
+  card-acquiring / payments platform that publicly states PCI-DSS compliance and
+  DFSA regulation; captured as the provider's own published claims. See
+  security/mamo-trust-center.yml.
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: Reference is published as OpenAPI 3.0.0 (per-endpoint definitions on readme.io).
+- id: rest-json
+  conforms: true
+  evidence: JSON-encoded request/response bodies over standard HTTP verbs and status codes.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is a static bearer API key, not OAuth2.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are JSON with error_code + message; application/problem+json is not used.
+- id: webhooks
+  conforms: true
+  evidence: POST /webhooks registers HTTPS callbacks for a documented set of enabled_events.
+- id: pagination
+  conforms: true
+  evidence: List endpoints use page / per_page query parameters.
+- id: pci-dss
+  conforms: true
+  evidence: >-
+    Mamo publicly states it is "PCI DSS compliant" on its security page
+    (https://www.mamopay.com/security); hosted payment links keep raw PAN off
+    the merchant integration, consistent with PCI-DSS SAQ-A patterns. Self-
+    published claim; no independently verified AOC located.
+- id: dfsa-regulated
+  conforms: true
+  evidence: >-
+    Regulated by the Dubai Financial Services Authority (DFSA) for money
+    services, and subject to the DIFC Data Protection Law
+    (https://www.mamopay.com/security). See security/mamo-trust-center.yml.

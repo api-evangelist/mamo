@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+probe: true
+url: https://www.mamopay.com/security
+certifications:
+- PCI DSS
+regulatory:
+- authority: DFSA
+  name: Dubai Financial Services Authority
+  note: Mamo is regulated by the DFSA for the provision of money services.
+- framework: DIFC Data Protection Law
+  note: Subject to the Dubai International Financial Centre's Data Protection Law and Regulations.
+disclosure:
+  responsible_disclosure: true
+  contact: https://mamopay.com/contact
+evidence:
+- source: https://www.mamopay.com/security
+  keywords:
+  - pci dss compliant
+  - dfsa
+  - difc data protection
+  - responsible disclosure
+notes: >-
+  Mamo publishes its security posture at mamopay.com/security: it states it is
+  PCI DSS compliant, is regulated by the DFSA for money services, and is subject
+  to the DIFC Data Protection Law. A responsible-disclosure channel is offered
+  via the general contact form (no dedicated security.txt or bug-bounty platform
+  located in this pass). Certifications are captured from the provider's own
+  published claim, not from an independently verified AOC.

@@ -1,0 +1,36 @@
+{
+  "provider": "mamo",
+  "sources": [
+    "mamo-business-details-api-openapi.yml",
+    "mamo-cards-api-openapi.yml",
+    "mamo-expenses-api-openapi.yml",
+    "mamo-getting-started-api-openapi.yml",
+    "mamo-invoices-api-openapi.yml",
+    "mamo-payment-links-api-openapi.yml",
+    "mamo-payouts-api-openapi.yml",
+    "mamo-receipts-api-openapi.yml",
+    "mamo-recipients-api-openapi.yml",
+    "mamo-subscriptions-api-openapi.yml",
+    "mamo-transactions-api-openapi.yml",
+    "mamo-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "mamo-business-details-api-openapi.yml",
+    "mamo-cards-api-openapi.yml",
+    "mamo-expenses-api-openapi.yml",
+    "mamo-getting-started-api-openapi.yml",
+    "mamo-invoices-api-openapi.yml",
+    "mamo-payment-links-api-openapi.yml",
+    "mamo-payouts-api-openapi.yml",
+    "mamo-receipts-api-openapi.yml",
+    "mamo-recipients-api-openapi.yml",
+    "mamo-subscriptions-api-openapi.yml",
+    "mamo-transactions-api-openapi.yml",
+    "mamo-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
