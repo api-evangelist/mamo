@@ -365,6 +365,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: MCPServer
+  url: mcp/mamo-mcp.yml
+- type: Overlay
+  url: overlays/mamo-openapi-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/mamo/overview
 - type: VulnerabilityDisclosure
