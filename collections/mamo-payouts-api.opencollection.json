@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Payouts API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payouts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Disbursement Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/disbursements/:disbursementId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "disbursementId",
+                "value": "MPB-DISBMT-FBA601A8FA",
+                "type": "path",
+                "description": "Disbursement ID"
+              }
+            ]
+          },
+          "docs": "Allows a user to fetch the disbursement details.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Issue Disbursements",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/disbursements",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows the issuance of disbursements in bulk<br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

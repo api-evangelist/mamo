@@ -140,3 +140,9 @@ tools:
 - name: postSubscriptions
   description: Create Subscription
   source_operation: openapi/mamo-openapi.yml#postSubscriptions
+deployment:
+  mode: none
+  verified: derived
+  tools: 44
+  checked: '2026-08-12'
+  source: catalog MCP census

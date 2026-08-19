@@ -1,0 +1,1221 @@
+{
+  "item": [
+    {
+      "id": "5ff2c5e0-ad3b-4dde-a1ec-9574ede61d5a",
+      "name": "Webhooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "786a6f1a-2dc9-4657-b005-a9a3c306269a",
+          "name": "Delete Webhook",
+          "request": {
+            "name": "Delete Webhook",
+            "description": {
+              "content": "Allows a user to delete a registered webhook.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MPB-WH-09B9214B61",
+                  "key": "webhookId",
+                  "description": "(Required) Webhook ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10450756-4d90-4663-9419-9cdf17f88dce",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-09B9214B61",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d6195a5-43a4-414c-9843-795bbd2cc332",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-09B9214B61",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cbd0546-e8ef-40d5-8783-be6b149fb343",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-09B9214B61",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "da37ddc0-e777-4258-8430-bf02dbd6ec75",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-09B9214B61",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d63d0431-cf22-4242-89e7-64caec43ac55",
+          "name": "Update Webhook",
+          "request": {
+            "name": "Update Webhook",
+            "description": {
+              "content": "Allows a user to update webhook details.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks",
+                ":webhookId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MPB-WH-FBA601A8DA",
+                  "key": "webhookId",
+                  "description": "(Required) Webhook ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c48f01fe-e410-4f37-ae8d-323698a58e3f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-FBA601A8DA",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\"\n  ],\n  \"auth_header\": \"test\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9c30390-db7a-4966-9a03-6661a28cc6f7",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-FBA601A8DA",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85f8864b-6cc4-4c5a-aa75-602b2556a4d1",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-FBA601A8DA",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a6d54565-e55b-470b-933a-e65190cd2db6",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks",
+                    ":webhookId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-WH-FBA601A8DA",
+                      "key": "webhookId",
+                      "description": "(Required) Webhook ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "04dea37a-2400-4c02-bbb2-d1fdd00c8db9",
+          "name": "Fetching Webhooks",
+          "request": {
+            "name": "Fetching Webhooks",
+            "description": {
+              "content": "Fetches all registered webhooks for a given business.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edf95766-7e03-497a-9e8a-ec021f43c018",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01d3f8f8-2441-4e5e-874e-81e8295a2c84",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2cf2400e-ba69-4c1a-97ea-2579e23d27af",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cfda6c79-c665-4eca-8296-3ad1d616022c",
+          "name": "Create Webhook",
+          "request": {
+            "name": "Create Webhook",
+            "description": {
+              "content": "Webhook registration for updates on one-off payment statuses and subscription payment statues.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "59f651b7-28e1-4bff-833b-0be20bd68053",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2141f650-06f3-48e4-aae0-5fd8f698a968",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af71e1d4-eb56-467b-ab81-2322142765f6",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ac2dbcc0-631e-4c29-8f95-35a9f7abd436",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"errors\": {\n    \"name\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b4f3806-e86e-41dd-8a97-ba334d4a4a07",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"url\": \"https://webhook.site/e9145367-01cc-45f9-bebb-69775badb883\",\n  \"enabled_events\": [\n    \"charge.failed\",\n    \"charge.succeeded\",\n    \"charge.refund_initiated\",\n    \"charge.refunded\",\n    \"charge.refund_failed\",\n    \"subscription.failed\",\n    \"subscription.succeeded\",\n    \"payment_link.create\"\n  ],\n  \"auth_header\": \"authentication header\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://business.mamopay.com/manage_api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "353e49e4-af14-4c6d-9945-b45175ee71bb",
+    "name": "Mamo Business Business Details Webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+      "type": "text/plain"
+    }
+  }
+}

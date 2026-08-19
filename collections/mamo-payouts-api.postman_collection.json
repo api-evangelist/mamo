@@ -1,0 +1,636 @@
+{
+  "item": [
+    {
+      "id": "b902e571-a75f-43d6-ae68-9e9a565b8566",
+      "name": "Payouts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7a1f304-0c85-4bc9-97e3-ae3dc5bbc785",
+          "name": "Fetch Disbursement Info",
+          "request": {
+            "name": "Fetch Disbursement Info",
+            "description": {
+              "content": "Allows a user to fetch the disbursement details.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disbursements",
+                ":disbursementId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MPB-DISBMT-FBA601A8FA",
+                  "key": "disbursementId",
+                  "description": "(Required) Disbursement ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1c654698-02e5-4c4a-a9ce-4ea61d9f156d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements",
+                    ":disbursementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-DISBMT-FBA601A8FA",
+                      "key": "disbursementId",
+                      "description": "(Required) Disbursement ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 72,\n  \"identifier\": \"MPB-DISBMT-F2336E5CFB\",\n  \"reason\": \"reason\",\n  \"name\": \"wes e\",\n  \"amount_formatted\": \"2.00\",\n  \"method\": \"Bank account\",\n  \"recipient\": \"AE080200000123223333121\",\n  \"created_at\": \"07/03/2023\",\n  \"status\": \"Processing\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2b01b7a-b5d4-41c1-847b-d2f7f905a933",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements",
+                    ":disbursementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-DISBMT-FBA601A8FA",
+                      "key": "disbursementId",
+                      "description": "(Required) Disbursement ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Merchant::Disbursement record was not found\"\n  ],\n  \"error_code\": \"RECORD_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52c34b5c-803a-471c-92e4-4d3295c86458",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements",
+                    ":disbursementId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-DISBMT-FBA601A8FA",
+                      "key": "disbursementId",
+                      "description": "(Required) Disbursement ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77c10978-3f1a-4e3c-b1fa-58e45f0c8d04",
+          "name": "Issue Disbursements",
+          "request": {
+            "name": "Issue Disbursements",
+            "description": {
+              "content": "Allows the issuance of disbursements in bulk<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disbursements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 9436,\n  \"account\": false,\n  \"transfer_method\": \"string\",\n  \"reason\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bbf5d28-6f2c-452b-88dc-45d074035da5",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 7179.468240944019,\n  \"account\": true,\n  \"transfer_method\": 5572.000441160194,\n  \"reason\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 879,\n    \"identifier\": \"PYT-19044D349D\",\n    \"name\": \"Test Business\",\n    \"amount_formatted\": \"50.00\",\n    \"currency\": \"AED\",\n    \"method\": \"Bank account\",\n    \"recipient\": \"AE080200000123223333121\",\n    \"created_at\": \"04/12/2025\",\n    \"status\": \"Processing\",\n    \"reason\": \"Test payment\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1b6f653-0e03-4c86-a3d3-37f00325d293",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 7179.468240944019,\n  \"account\": true,\n  \"transfer_method\": 5572.000441160194,\n  \"reason\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e3dc1b1e-a978-4487-82e8-596755c1a329",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 7179.468240944019,\n  \"account\": true,\n  \"transfer_method\": 5572.000441160194,\n  \"reason\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8ae45662-39c7-47db-b8d7-18346b16d86b",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 7179.468240944019,\n  \"account\": true,\n  \"transfer_method\": 5572.000441160194,\n  \"reason\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Row 1 is invalid: Recipient first name can't be blank\"\n  ],\n  \"error_code\": \"INVALID_ATTRIBUTES\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c62cc882-70d3-42c7-99fd-3aab003ae68f",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disbursements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"disbursements\": [\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    },\n    {\n      \"first_name_or_business_name\": \"Homemade Chocolatier\",\n      \"last_name\": \"<string>\",\n      \"account\": \"AE080200000123223333121\",\n      \"transfer_method\": \"BANK_ACCOUNT\",\n      \"reason\": \"Invoice payment\",\n      \"amount\": \"100.12\"\n    }\n  ],\n  \"first_name_or_business_name\": 7179.468240944019,\n  \"account\": true,\n  \"transfer_method\": 5572.000441160194,\n  \"reason\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://business.mamopay.com/manage_api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7c75cf62-3aa4-4bcd-9168-379306128779",
+    "name": "Mamo Business Business Details Payouts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+      "type": "text/plain"
+    }
+  }
+}

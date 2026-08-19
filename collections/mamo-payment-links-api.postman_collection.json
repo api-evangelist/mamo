@@ -1,0 +1,1517 @@
+{
+  "item": [
+    {
+      "id": "a7ac9cb6-3fd6-41b0-862d-73217961b4d2",
+      "name": "Payment Links",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4cf5e15-43f3-4903-8700-17df732eccb9",
+          "name": "Delete Payment Link",
+          "request": {
+            "name": "Delete Payment Link",
+            "description": {
+              "content": "Allows a user to delete payment link<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "links",
+                ":linkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MB-LINK-6BB7CA8DC7",
+                  "key": "linkId",
+                  "description": "(Required) Payment link ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1aaae14f-be1a-4370-af78-0323d19df671",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6246b655-f059-4ae4-b4d8-50dec83258c6",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "599d81b1-c612-4aff-af87-a73f02407d5f",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2fc2eeda-70f7-4102-98da-5c22c7fb935c",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4013df7-f365-44ec-bf6a-0b10d6f23b2e",
+          "name": "Fetch Payment Link Info",
+          "request": {
+            "name": "Fetch Payment Link Info",
+            "description": {
+              "content": "Allows a user to fetch payment link details<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "links",
+                ":linkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MB-LINK-6BB7CA8DC7",
+                  "key": "linkId",
+                  "description": "(Required) Payment link ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8f5fd00-da87-4c60-9320-8cdaa6511c9d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"terms_and_conditions_url\": \"https://xWbtnU.akbnYUcQmuFJmW9jrm142r,oSQUOFwFdgUlXd5ya\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"save_card\": \"off\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"bins\",\n        \"decline_message\": \"string\"\n      },\n      {\n        \"type\": \"bins\",\n        \"decline_message\": \"string\"\n      }\n    ]\n  },\n  \"subscription\": {\n    \"frequency\": \"weekly\",\n    \"frequency_interval\": 6767,\n    \"end_date\": \"1269/47/35\",\n    \"payment_quantity\": 5897\n  },\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"payouts_share\": {\n    \"recipient_id\": \"string\",\n    \"percentage_to_recipient\": 8577.15833880947,\n    \"recipient_pays_fees\": true\n  },\n  \"custom_data\": {},\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"platform\": \"string\",\n  \"prefilled_customer\": {},\n  \"external_id\": \"string\",\n  \"hold_and_charge_later\": false,\n  \"internal_note\": \"string\",\n  \"lang\": \"string\",\n  \"expiration_date\": \"string\",\n  \"is_widget\": true,\n  \"max_amount\": 1327.6790732982124,\n  \"processing_fee_amount\": 8191.581384628817,\n  \"payment_url\": \"string\",\n  \"charges\": [\n    {\n      \"status\": \"refunded\",\n      \"id\": \"string\",\n      \"amount\": 7994.144407949355,\n      \"refund_amount\": 1799.0509895213113,\n      \"refund_status\": \"string\",\n      \"billing_descriptor\": \"string\",\n      \"custom_data\": {},\n      \"created_date\": \"string\",\n      \"subscription_id\": \"string\",\n      \"settlement_amount\": 6097.24075455725,\n      \"settlement_currency\": \"string\",\n      \"settlement_date\": \"string\",\n      \"customer_details\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"comment\": \"string\"\n      },\n      \"payment_method\": {\n        \"type\": \"string\",\n        \"card_holder_name\": \"string\",\n        \"card_last4\": \"string\",\n        \"origin\": \"string\"\n      }\n    },\n    {\n      \"status\": \"failed\",\n      \"id\": \"string\",\n      \"amount\": 152.46334700667495,\n      \"refund_amount\": 4594.109948488367,\n      \"refund_status\": \"string\",\n      \"billing_descriptor\": \"string\",\n      \"custom_data\": {},\n      \"created_date\": \"string\",\n      \"subscription_id\": \"string\",\n      \"settlement_amount\": 2750.14020772577,\n      \"settlement_currency\": \"string\",\n      \"settlement_date\": \"string\",\n      \"customer_details\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"comment\": \"string\"\n      },\n      \"payment_method\": {\n        \"type\": \"string\",\n        \"card_holder_name\": \"string\",\n        \"card_last4\": \"string\",\n        \"origin\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40953f1c-2c02-4183-8463-267defdc8d7e",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24c82d8d-43d7-4693-9f02-b01acb3096ba",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Merchant::Link record was not found\"\n  ],\n  \"error_code\": \"RECORD_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60a5bb9a-aa4a-4a07-9486-21cb78f70908",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cadd3b6-b1d7-4c5e-8b68-e8e6b9e9bd1f",
+          "name": "Update Payment Link",
+          "request": {
+            "name": "Update Payment Link",
+            "description": {
+              "content": "Allows a user to update payment link details<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "links",
+                ":linkId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MB-LINK-6BB7CA8DC7",
+                  "key": "linkId",
+                  "description": "(Required) Payment link ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"custom_data\": \"<object>\",\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91fb670c-d1fd-4b5a-ba5a-4a85f6627e06",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"custom_data\": \"<object>\",\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"capacity\": 1933,\n  \"active\": false,\n  \"return_url\": \"string\",\n  \"failure_return_url\": \"string\",\n  \"processing_fee_percentage\": 1914.3447803357726,\n  \"link_type\": \"string\",\n  \"amount\": 5220.617381597679,\n  \"amount_currency\": \"string\",\n  \"send_customer_receipt\": false,\n  \"enable_tabby\": false,\n  \"enable_message\": true,\n  \"enable_tips\": false,\n  \"save_card\": \"string\",\n  \"enable_quantity\": false,\n  \"enable_customer_details\": false,\n  \"payment_url\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"external_id\": \"string\",\n  \"custom_data\": {},\n  \"rules\": {\n    \"allowed\": {\n      \"type\": \"bins\",\n      \"decline_message\": \"string\"\n    }\n  },\n  \"subscription\": {\n    \"identifier\": \"string\",\n    \"repeats_every\": \"string\",\n    \"frequency_interval\": 1435,\n    \"start_date\": \"string\",\n    \"end_date\": \"string\",\n    \"payment_quantity\": 1803,\n    \"frequency\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cae9616-be6b-430a-ac52-1e3e14847c02",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"custom_data\": \"<object>\",\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24d2d68f-b155-447a-80d7-a80b3a09ba07",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"custom_data\": \"<object>\",\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7464af6f-dec9-42a4-911d-d8dd96e541e5",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links",
+                    ":linkId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-6BB7CA8DC7",
+                      "key": "linkId",
+                      "description": "(Required) Payment link ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": 1,\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 3,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"custom_data\": \"<object>\",\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "849b6b37-ac5b-43d1-a42a-40eff949f692",
+          "name": "Fetching Payment Links",
+          "request": {
+            "name": "Fetching Payment Links",
+            "description": {
+              "content": "Fetches all payment links for a given business<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00cfe135-d5b4-4266-a221-983debbd6469",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"Chocolate Box - Small\",\n      \"description\": \"12pcs Chocolate Box\",\n      \"capacity\": 1,\n      \"active\": true,\n      \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n      \"terms_and_conditions_url\": \"https://qIBSHpxkgK.hoemWZk6HcHE.FHp6eXZVduGzk\",\n      \"processing_fee_percentage\": 3,\n      \"amount\": 119.99,\n      \"amount_currency\": \"AED\",\n      \"link_type\": \"standalone\",\n      \"enable_tabby\": false,\n      \"enable_message\": false,\n      \"enable_tips\": false,\n      \"enable_customer_details\": false,\n      \"enable_quantity\": false,\n      \"enable_qr_code\": false,\n      \"send_customer_receipt\": false,\n      \"save_card\": \"off\",\n      \"rules\": {\n        \"allowed\": [\n          {\n            \"type\": \"bins\",\n            \"decline_message\": \"string\"\n          },\n          {\n            \"type\": \"bins\",\n            \"decline_message\": \"string\"\n          }\n        ]\n      },\n      \"subscription\": {\n        \"frequency\": \"weekly\",\n        \"frequency_interval\": 1673,\n        \"end_date\": \"3842/97/48\",\n        \"payment_quantity\": 9625\n      },\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"string\",\n      \"payouts_share\": {\n        \"recipient_id\": \"string\",\n        \"percentage_to_recipient\": 8739.2980201302,\n        \"recipient_pays_fees\": true\n      },\n      \"custom_data\": {},\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"platform\": \"string\",\n      \"prefilled_customer\": {},\n      \"external_id\": \"string\",\n      \"hold_and_charge_later\": true,\n      \"internal_note\": \"string\",\n      \"lang\": \"string\",\n      \"expiration_date\": \"string\",\n      \"is_widget\": true,\n      \"max_amount\": 9119.373308369284,\n      \"processing_fee_amount\": 1648.5358973362308,\n      \"payment_url\": \"string\"\n    },\n    {\n      \"name\": \"Chocolate Box - Small\",\n      \"description\": \"12pcs Chocolate Box\",\n      \"capacity\": 1,\n      \"active\": true,\n      \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n      \"terms_and_conditions_url\": \"http://JYywLE.qmZqC.GOpeQSmfHdaxhncg\",\n      \"processing_fee_percentage\": 3,\n      \"amount\": 119.99,\n      \"amount_currency\": \"AED\",\n      \"link_type\": \"standalone\",\n      \"enable_tabby\": false,\n      \"enable_message\": false,\n      \"enable_tips\": false,\n      \"enable_customer_details\": false,\n      \"enable_quantity\": false,\n      \"enable_qr_code\": false,\n      \"send_customer_receipt\": false,\n      \"save_card\": \"off\",\n      \"rules\": {\n        \"allowed\": [\n          {\n            \"type\": \"bins\",\n            \"decline_message\": \"string\"\n          },\n          {\n            \"type\": \"bins\",\n            \"decline_message\": \"string\"\n          }\n        ]\n      },\n      \"subscription\": {\n        \"frequency\": \"weekly\",\n        \"frequency_interval\": 7543,\n        \"end_date\": \"7454/66/32\",\n        \"payment_quantity\": 6375\n      },\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"email\": \"string\",\n      \"payouts_share\": {\n        \"recipient_id\": \"string\",\n        \"percentage_to_recipient\": 341.7119617230957,\n        \"recipient_pays_fees\": true\n      },\n      \"custom_data\": {},\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"platform\": \"string\",\n      \"prefilled_customer\": {},\n      \"external_id\": \"string\",\n      \"hold_and_charge_later\": true,\n      \"internal_note\": \"string\",\n      \"lang\": \"string\",\n      \"expiration_date\": \"string\",\n      \"is_widget\": true,\n      \"max_amount\": 3589.157726063845,\n      \"processing_fee_amount\": 6879.766153772594,\n      \"payment_url\": \"string\"\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": 1913.3274353358188,\n    \"per_page\": 1191.8066764373968,\n    \"total_pages\": 8407.99606194498,\n    \"next_page\": 2231.529915090059,\n    \"prev_page\": 3743.1549465648095,\n    \"from\": 5011.364534632486,\n    \"to\": 8283.086531204031,\n    \"total_count\": 7467.545691139557\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "041a46c0-11f5-40ff-bae1-66d4ce78140c",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd1ad24c-0de6-49d3-9e8c-23b5a3116ec8",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2269b33e-3354-481c-abaa-f264688a34d8",
+          "name": "Create Payment Link",
+          "request": {
+            "name": "Create Payment Link",
+            "description": {
+              "content": "API to generate vanilla and subscription payment links. <br> <h3>Payment Status</h3> Once your customer completes a payment, the redirect URL will be appended with the following params<br> - createdAt: The date the charge was captured at<br> - paymentLinkId: The payment link id<br> - status: indicates the payment status, whether captured or failed<br> - transactionId: The transaction / charge id related to the payment<br> <br> You may also get notified about a payment's status by setting up a webhook. Details [here](https://mamopay.readme.io/reference/post_webhooks)<br> <br> A third approach to check the transaction status is by calling our transaction info API [here](https://mamopay.readme.io/reference/get_charges-chargeid)<br> <br> **Sample redirect url after a successful payment**<br> https://www.mamopay.com/?createdAt=2023-08-09-16-42-35&paymentLinkId=MB-LINK-3216D27C9D&status=captured&transactionId=MPB-CHRG-BEE56990A9<br> <br>\n<h3>For Payment Testing</h3>\n<p>To make payments with different use cases on the test environment, you can use the card details below alongside the below CVV and expiry date.</p> - CVV: 123<br> - Expiry: 01/28\n<table> <thead> <tr> <th>Card Number</th> <th>Payment Status</th> <th>3DS</th> <th>Address Required</th> <th>Country</th> </tr> </thead> <tbody> <tr> <td>4659 1055 6905 1157</td> <td>Success</td> <td>X</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4242 4242 4242 4242</td> <td>Success</td> <td>✓</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4111 1111 1111 1111</td> <td>Success</td> <td>✓</td> <td>✓</td> <td>US</td> </tr> <tr> <td>4567 3613 2598 1788</td> <td>Fail</td> <td>X</td> <td>X</td> <td>GB</td> </tr> <tr> <td>4095 2548 0264 2505</td> <td>Fail</td> <td>X</td> <td>✓</td> <td>US</td> </tr> </tbody> </table>\n\n\n\n<br> <h3>3DS</h3> If prompted for a password, enter **Checkout1!**<br> <br> <h3>Subscriptions</h3> To create a subscription payment link, create the subscription first using the [Create Subscription](/reference/post_subscriptions) API, then pass its identifier as `subscription_id` below with `link_type` set to `inline`. The inline `subscription` object is a legacy, backwards-compatible alternative — when setting it up, if both end_date and payment_quantity were defined, end_date takes precedence.<br><br> ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d7d48405-f273-4359-8258-776d248e2e2a",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"capacity\": 2916,\n  \"active\": true,\n  \"return_url\": \"string\",\n  \"failure_return_url\": \"string\",\n  \"terms_and_conditions_url\": \"string\",\n  \"processing_fee_percentage\": 6830.860664271273,\n  \"link_type\": \"string\",\n  \"amount\": 4134.814528768627,\n  \"amount_currency\": \"string\",\n  \"send_customer_receipt\": true,\n  \"enable_tabby\": false,\n  \"enable_message\": true,\n  \"enable_tips\": false,\n  \"save_card\": \"string\",\n  \"enable_quantity\": true,\n  \"enable_customer_details\": false,\n  \"payment_url\": \"string\",\n  \"first_name\": \"string\",\n  \"last_name\": \"string\",\n  \"email\": \"string\",\n  \"custom_data\": {},\n  \"external_id\": \"string\",\n  \"rules\": {\n    \"allowed\": {\n      \"type\": \"bins\",\n      \"decline_message\": \"string\"\n    }\n  },\n  \"subscription\": {\n    \"identifier\": \"string\",\n    \"repeats_every\": \"string\",\n    \"frequency_interval\": 3701,\n    \"start_date\": \"string\",\n    \"end_date\": \"string\",\n    \"payment_quantity\": 391,\n    \"frequency\": \"string\"\n  },\n  \"platform\": \"string\",\n  \"prefilled_customer\": {},\n  \"hold_and_charge_later\": true,\n  \"internal_note\": \"string\",\n  \"lang\": \"string\",\n  \"expiration_date\": \"string\",\n  \"name\": \"string\",\n  \"is_widget\": false,\n  \"max_amount\": 517.8651214980989,\n  \"processing_fee_amount\": 1667.310569162943,\n  \"payouts_share\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76510533-23d9-4c1e-8d72-0fdd569fc1c3",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18e6f4f0-df08-4ed7-bd5c-e0ed1a353f77",
+              "name": "Invalid request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ce62b10-9052-4fd5-a1ab-e39b5adde9e2",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Title can't be blank\",\n    \"Title is too short (minimum is 1 character)\"\n  ],\n  \"error_code\": \"VALIDATION_FAILED\",\n  \"errors\": {\n    \"title\": [\n      \"can't be blank\",\n      \"is too short (minimum is 1 character)\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa799628-8909-4d14-8280-4c46cdf19ba4",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Chocolate Box - Small\",\n  \"description\": \"12pcs Chocolate Box\",\n  \"capacity\": \"<integer>\",\n  \"active\": true,\n  \"return_url\": \"https://myawesomewebsite.com/paymentSuccess\",\n  \"failure_return_url\": \"https://failureurl.com/paymentFailure\",\n  \"terms_and_conditions_url\": \"<uri>\",\n  \"processing_fee_percentage\": 0,\n  \"amount\": 119.99,\n  \"amount_currency\": \"AED\",\n  \"link_type\": \"standalone\",\n  \"enable_tabby\": false,\n  \"enable_message\": false,\n  \"enable_tips\": false,\n  \"save_card\": \"off\",\n  \"enable_customer_details\": false,\n  \"enable_quantity\": false,\n  \"enable_qr_code\": false,\n  \"send_customer_receipt\": false,\n  \"payment_methods\": \"<array>\",\n  \"rules\": {\n    \"allowed\": [\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      },\n      {\n        \"type\": \"<string>\",\n        \"list\": \"<array>\",\n        \"decline_message\": \"<string>\"\n      }\n    ]\n  },\n  \"subscription_id\": \"<string>\",\n  \"subscription\": {\n    \"frequency\": \"<string>\",\n    \"frequency_interval\": \"<integer>\",\n    \"start_date\": \"<string>\",\n    \"end_date\": \"<string>\",\n    \"payment_quantity\": \"<integer>\"\n  },\n  \"first_name\": \"<string>\",\n  \"last_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false,\n  \"payouts_share\": {\n    \"recipient_id\": \"<string>\",\n    \"percentage_to_recipient\": \"<number>\",\n    \"recipient_pays_fees\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://business.mamopay.com/manage_api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "584f6818-0526-4a5e-a645-34f3426f2565",
+    "name": "Mamo Business Business Details Payment Links API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+      "type": "text/plain"
+    }
+  }
+}

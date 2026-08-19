@@ -1,0 +1,132 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Webhooks API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Webhooks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Update Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/webhooks/:webhookId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "MPB-WH-FBA601A8DA",
+                "type": "path",
+                "description": "Webhook ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a user to update webhook details.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Delete Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://business.mamopay.com/manage_api/v1/webhooks/:webhookId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "webhookId",
+                "value": "MPB-WH-09B9214B61",
+                "type": "path",
+                "description": "Webhook ID"
+              }
+            ]
+          },
+          "docs": "Allows a user to delete a registered webhook.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Webhooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/webhooks",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ]
+          },
+          "docs": "Fetches all registered webhooks for a given business.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Create Webhook",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/webhooks",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Webhook registration for updates on one-off payment statuses and subscription payment statues.<br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

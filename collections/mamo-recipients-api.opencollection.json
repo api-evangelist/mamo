@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Recipients API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Recipients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/accounts/recipients/:recipientIdentifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "recipientIdentifier",
+                "value": "REP-6BB7CA8DC7",
+                "type": "path",
+                "description": "Recipient Identifier"
+              }
+            ]
+          },
+          "docs": "Allows a user to fetch recipient details.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Update Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/accounts/recipients/:recipientIdentifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "recipientIdentifier",
+                "value": "REP-6BB7CA8DC7",
+                "type": "path",
+                "description": "Recipient Identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a user to update recipient details.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Delete Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://business.mamopay.com/manage_api/v1/accounts/recipients/:recipientIdentifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "recipientIdentifier",
+                "value": "REP-6BB7CA8DC7",
+                "type": "path",
+                "description": "Recipient Identifier"
+              }
+            ]
+          },
+          "docs": "Allows a user to delete recipient.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Recipients",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/accounts/recipients",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ]
+          },
+          "docs": "Fetches all recipients for a given business.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Create Recipient",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/accounts/recipients",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a user to create recipient.<br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

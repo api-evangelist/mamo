@@ -1,0 +1,109 @@
+{
+  "item": [
+    {
+      "id": "23b6a6b7-defe-4867-ad74-be01fbd1cf27",
+      "name": "Getting Started",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c348383-ac16-46b7-8d0b-ee9239333ef0",
+          "name": "Quick start",
+          "request": {
+            "name": "Quick start",
+            "description": {
+              "content": "Get up and running with Mamo's APIs in less than 5 minutes.<br><br>In this example, we will use the Business Details endpoint to ensure we have the right permissions to interact with Mamo's APIs.<br><br><h2>How to Use Mamo's API Docs</h2>👈 To the left, you will find all documents, including individual endpoint reference docs. These will include information on various endpoints, their associated methods and the various responses that your code will need to handle.<br><br>👉 To the right, there's the search bar, language, base URL, code generator and a <em>try it from the browser</em> section.<br>- Use the <strong>language</strong> section to select the language that you plan on writing your code in.<br>- Use the <strong>base URL</strong> to select the environment you would like the docs to target. We would recommend that you would start with the sandbox environment while you build and test your app. And later on switch to the production URL once your flows are tested and are working as expected. Hint, you need a dedicated sandbox account and API Key, if you don't have one please reach out to us using the chat bubble 💬 on the bottom right.<br>- The <strong>code generator</strong> will automatically create a working code snippet based on the values that you provide on a given page. Feel free to copy and paste this straight into your code. You can also test this using the <em>Try It!</em> button below each section. Note that for production requests, you will be required to provide a valid API Key.<br><br><h2>Payment Link Generation</h2>To generate payment links, you can follow the guide on <a href=\"https://mamopay.readme.io/reference/post_links\">Create Payment Link</a>.<br><br>The simplest way to test your integration, is by creating a vanilla payment link that has no custom settings.<br><h2>Receive Payments On Your E-Commerce Website</h2>To make payments right on your page, code snipets can be downloaded from your dashboard<br><br><h2>FAQs</h2>- <a href=\"https://help.mamopay.com/en/articles/7234144-api-integrations\">API Integration FAQs</a><br>- <a href=\"https://help.mamopay.com/en/articles/7888469-woocommerce\">WooCommerce Integration Guide</a><br>- <a href=\"https://help.mamopay.com/en/articles/7991242-shopify\">Shopify Integration Guide</a><br>- <a href=\"https://help.mamopay.com/en/articles/9140223-inline-payments-integration\">Inline Payments Integration</a><br>\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fe5b8f1c-05ae-450b-b33f-bfd013d66d4e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://business.mamopay.com/manage_api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b24bb8c7-08e3-42ca-ad3f-9b28930800e8",
+    "name": "Mamo Business Business Details Getting Started API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+      "type": "text/plain"
+    }
+  }
+}

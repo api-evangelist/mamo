@@ -1,0 +1,86 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Receipts API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Receipts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Expense Receipt Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/expenses/receipts/:identifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "EXP-432E5A53FE",
+                "type": "path",
+                "description": "Expense identifier"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information for a specific expense receipt<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Expense Receipts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/expenses/receipts",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all expense receipts for a given business<br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

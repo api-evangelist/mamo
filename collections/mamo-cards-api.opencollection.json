@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Cards API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cards",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Partner Card Transaction Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards/:identifier/transactions/:transaction_identifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "CRD-5959837C07",
+                "type": "path",
+                "description": "Unique identifier of the partner card"
+              },
+              {
+                "name": "transaction_identifier",
+                "value": "CTX-1A95FEDE53",
+                "type": "path",
+                "description": "Unique identifier of the transaction"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific transaction for a partner card. This endpoint provides complete transaction details including merchant information, amounts, and status."
+        },
+        {
+          "info": {
+            "name": "Get Partner Card Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards/:identifier/transactions",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "CRD-5959837C07",
+                "type": "path",
+                "description": "Unique identifier of the partner card"
+              },
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of all transactions for a specific partner card. This endpoint provides detailed transaction history including purchase information, amounts, and status."
+        },
+        {
+          "info": {
+            "name": "Get Partner Card Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards/:identifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "CRD-5959837C07",
+                "type": "path",
+                "description": "Unique identifier of the partner card"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific partner card using its identifier. This endpoint provides complete card information including current status, spending details, and metadata."
+        },
+        {
+          "info": {
+            "name": "Update Partner Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards/:identifier",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "CRD-5959837C07",
+                "type": "path",
+                "description": "Unique identifier of the partner card to update"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the amount limit of an active partner card. This allows you to increase or decrease the spending limit on the card. Only active cards can be updated."
+        },
+        {
+          "info": {
+            "name": "Get Partner Cards List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "Retrieve a paginated list of all partner cards for the business. This endpoint allows you to view all issued partner cards with their current status and details."
+        },
+        {
+          "info": {
+            "name": "Create Partner Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a partner card for business transactions. This API allows you to issue virtual cards with specific limits and controls for your business partners. This API is available upon request for a tailored integration. Email us on api@mamopay.com to get started."
+        },
+        {
+          "info": {
+            "name": "Cancel Partner Card",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/partner_cards/:identifier/cancel",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "identifier",
+                "value": "CRD-5959837C07",
+                "type": "path",
+                "description": "Unique identifier of the partner card to cancel"
+              }
+            ]
+          },
+          "docs": "Cancel an active partner card. This action will terminate the card and prevent any further transactions. Only active cards can be cancelled."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,268 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Transactions API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Transaction Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/cards/transactions/:transactionId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "transactionId",
+                "value": "CTX-4584B3DEC9",
+                "type": "path",
+                "description": "Transaction ID"
+              }
+            ]
+          },
+          "docs": "Fetches detailed information for a specific card transaction<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Card Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/cards/transactions",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "100",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all transactions for cards<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetch Transaction Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/charges/:chargeId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "MPB-CHRG-E0CE93E071",
+                "type": "path",
+                "description": "Transaction ID / Charge ID"
+              }
+            ]
+          },
+          "docs": "This API enables you to retrieve detailed information about a specific charge by providing the charge ID.<br>It is designed to give you a comprehensive view of transaction details.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/charges",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "1",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "10",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Fetches all transactions for a given business<br><br>"
+        },
+        {
+          "info": {
+            "name": "Initiate Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/charges",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "API to initiate transactions by merchant. <br> <h3>About MIT (Merchant Initiated Transaction)</h3> Merchant Initiated Transactions (MIT) allows a business to use card details, that were stored during previous transactions, to charge their customers.<br> <br> <h3>How do MITs work?</h3> 1- You request a payment link with the option to save the card details.<br> 2- You save the charge ID.<br> 3- You get the charge details (redirect, GET /charge, or webhook) which will include the ID of the card use"
+        },
+        {
+          "info": {
+            "name": "Capture Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/charges/:chargeId/captures",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "CHG-D8B07FB8D7",
+                "type": "path",
+                "description": "Transaction ID / Charge ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "API to capture an \"On hold\" charge. <br><br>"
+        },
+        {
+          "info": {
+            "name": "Refund Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/charges/:chargeId/refunds",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "MB-LINK-D8B07FB8C7",
+                "type": "path",
+                "description": "Transaction ID / Charge ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "API to refund the charge. <br><br>"
+        },
+        {
+          "info": {
+            "name": "Reverse Payment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/charges/:chargeId/reverses",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "chargeId",
+                "value": "CHG-D8B07FB8D7",
+                "type": "path",
+                "description": "Transaction ID / Charge ID"
+              }
+            ]
+          },
+          "docs": "API to reverse an \"On hold\" charge. <br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

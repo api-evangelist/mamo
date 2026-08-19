@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Payment Links API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Links",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Payment Link Info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/links/:linkId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "linkId",
+                "value": "MB-LINK-6BB7CA8DC7",
+                "type": "path",
+                "description": "Payment link ID"
+              }
+            ]
+          },
+          "docs": "Allows a user to fetch payment link details<br><br>"
+        },
+        {
+          "info": {
+            "name": "Update Payment Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/links/:linkId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "linkId",
+                "value": "MB-LINK-6BB7CA8DC7",
+                "type": "path",
+                "description": "Payment link ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Allows a user to update payment link details<br><br>"
+        },
+        {
+          "info": {
+            "name": "Delete Payment Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://business.mamopay.com/manage_api/v1/links/:linkId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "linkId",
+                "value": "MB-LINK-6BB7CA8DC7",
+                "type": "path",
+                "description": "Payment link ID"
+              }
+            ]
+          },
+          "docs": "Allows a user to delete payment link<br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetching Payment Links",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/links",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ]
+          },
+          "docs": "Fetches all payment links for a given business<br><br>"
+        },
+        {
+          "info": {
+            "name": "Create Payment Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/links",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "API to generate vanilla and subscription payment links. <br> <h3>Payment Status</h3> Once your customer completes a payment, the redirect URL will be appended with the following params<br> - createdAt: The date the charge was captured at<br> - paymentLinkId: The payment link id<br> - status: indicates the payment status, whether captured or failed<br> - transactionId: The transaction / charge id related to the payment<br> <br> You may also get notified about a payment's status by setting up a we"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

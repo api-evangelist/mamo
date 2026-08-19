@@ -1,0 +1,2681 @@
+{
+  "item": [
+    {
+      "id": "133932e6-c1e3-4721-929b-e9a94ccf4fdc",
+      "name": "Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa0df94d-2544-4fc7-a402-f7c315761947",
+          "name": "Fetch Transaction Details",
+          "request": {
+            "name": "Fetch Transaction Details",
+            "description": {
+              "content": "Fetches detailed information for a specific card transaction<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "transactions",
+                ":transactionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "CTX-4584B3DEC9",
+                  "key": "transactionId",
+                  "description": "(Required) Transaction ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ec67474-a421-4a6c-a7b6-d5db12cd1ef7",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CTX-4584B3DEC9",
+                      "key": "transactionId",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"purchase\",\n  \"merchant_name_formatted\": \"ACQUIRER NAME\",\n  \"amount_currency\": \"USD\",\n  \"billing_amount_currency\": \"AED\",\n  \"status\": \"success\",\n  \"card_last4\": \"9315\",\n  \"merchant_name\": null,\n  \"amount\": 30,\n  \"billing_amount\": 114.05,\n  \"card_name\": \"Phu's card test2\",\n  \"card_holder_name\": \"MCS integration\",\n  \"created_at\": \"03 Mar 2025, 01:41PM\",\n  \"updated_at\": \"03 Mar 2025, 01:41PM\",\n  \"expense\": {\n    \"status\": \"incomplete\",\n    \"description\": null,\n    \"invoice_number\": null,\n    \"category\": null,\n    \"tax_code\": null,\n    \"payment_account\": null,\n    \"expense_account\": null,\n    \"vendor\": null,\n    \"receipt_uploaded\": false,\n    \"created_at\": \"03 Mar 2025, 01:41PM\",\n    \"updated_at\": \"03 Mar 2025, 01:41PM\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fad3fda7-3977-464b-a6b8-0d63afb765cf",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CTX-4584B3DEC9",
+                      "key": "transactionId",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "76269218-3ad9-436c-8eeb-9da2b1a9a174",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CTX-4584B3DEC9",
+                      "key": "transactionId",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Transaction not found\"\n  ],\n  \"error_code\": \"RECORD_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "86d99def-6d32-4b2b-b647-5c5669c3d832",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions",
+                    ":transactionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CTX-4584B3DEC9",
+                      "key": "transactionId",
+                      "description": "(Required) Transaction ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "749c1809-9587-4f46-882d-e377dcbb94dc",
+          "name": "Fetching Card Transactions",
+          "request": {
+            "name": "Fetching Card Transactions",
+            "description": {
+              "content": "Fetches all transactions for cards<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cards",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e5f04a0d-4a9f-4e90-af92-5ff2fb6cd9db",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"kind\": \"purchase\",\n      \"merchant_name_formatted\": \"ACQUIRER NAME\",\n      \"amount_currency\": \"AED\",\n      \"billing_amount_currency\": \"AED\",\n      \"status\": \"declined\",\n      \"card_last4\": \"7552\",\n      \"merchant_name\": null,\n      \"amount\": 5,\n      \"billing_amount\": 5,\n      \"card_name\": \"Block ATM card\",\n      \"card_holder_name\": \"MCS integration\",\n      \"created_at\": \"04 Aug 2025, 03:32PM\",\n      \"updated_at\": \"04 Aug 2025, 03:32PM\",\n      \"expense\": {\n        \"status\": \"incomplete\",\n        \"description\": null,\n        \"invoice_number\": null,\n        \"category\": null,\n        \"tax_code\": null,\n        \"payment_account\": null,\n        \"expense_account\": null,\n        \"vendor\": null,\n        \"receipt_uploaded\": false,\n        \"created_at\": \"03 Mar 2025, 01:41PM\",\n        \"updated_at\": \"03 Mar 2025, 01:41PM\"\n      }\n    },\n    {\n      \"kind\": \"purchase\",\n      \"merchant_name_formatted\": \"ACQUIRER NAME\",\n      \"amount_currency\": \"AED\",\n      \"billing_amount_currency\": \"AED\",\n      \"status\": \"declined\",\n      \"card_last4\": \"7552\",\n      \"merchant_name\": null,\n      \"amount\": 5,\n      \"billing_amount\": 5,\n      \"card_name\": \"Block ATM card\",\n      \"card_holder_name\": \"MCS integration\",\n      \"created_at\": \"04 Aug 2025, 03:31PM\",\n      \"updated_at\": \"04 Aug 2025, 03:31PM\",\n      \"expense\": {}\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": 1,\n    \"per_page\": 100,\n    \"total_pages\": 2,\n    \"next_page\": 2,\n    \"prev_page\": null,\n    \"from\": 1,\n    \"to\": 100,\n    \"total_count\": 148\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27bf8324-3469-41bc-9744-b8a29ef07fd0",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "09b56758-652a-45d9-9d7e-4f27235c3d26",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cards",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "554c8e23-bd06-46bc-a405-7d6332e04a3e",
+          "name": "Fetch Transaction Info",
+          "request": {
+            "name": "Fetch Transaction Info",
+            "description": {
+              "content": "This API enables you to retrieve detailed information about a specific charge by providing the charge ID.<br>It is designed to give you a comprehensive view of transaction details.<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges",
+                ":chargeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MPB-CHRG-E0CE93E071",
+                  "key": "chargeId",
+                  "description": "(Required) Transaction ID / Charge ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4ce9321b-f774-4f9e-97d0-09105d190e70",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-CHRG-E0CE93E071",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"captured\",\n  \"amount\": 100,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"Mamo*Merchant\",\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"created_date\": \"2023-05-31-11-18-57\",\n  \"subscription_id\": \"MPB-SUB-B764EDCBA2\",\n  \"next_payment_date\": \"05/06/2023\",\n  \"settlement_amount\": 356.42,\n  \"settlement_currency\": \"AED\",\n  \"settlement_date\": \"05/06/2023\",\n  \"customer_details\": {\n    \"name\": \"Mamo User\",\n    \"email\": \"email@mamopay.com\",\n    \"phone_number\": \"+971551234567\",\n    \"comment\": \"Dolore voluptate possimus et.\"\n  },\n  \"payment_method\": {\n    \"type\": \"CREDIT VISA\",\n    \"card_holder_name\": \"Mamo User\",\n    \"card_last4\": \"•••• 4242\",\n    \"origin\": \"UAE card\"\n  },\n  \"error_code\": \"generic\",\n  \"error_message\": \"Unknown reason - user should contact their bank to find out\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c60cb3fa-7f1e-4ef1-8b1a-64c559173810",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-CHRG-E0CE93E071",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e972430-24f6-4caa-8579-055e9c7ff50f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-CHRG-E0CE93E071",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Charge record was not found\"\n  ],\n  \"error_code\": \"RECORD_NOT_FOUND\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc860de0-f1cc-4f58-8a3f-0712fc883e91",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MPB-CHRG-E0CE93E071",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72170f54-d51b-42de-9005-75dbfb92ae89",
+          "name": "Fetching Transactions",
+          "request": {
+            "name": "Fetching Transactions",
+            "description": {
+              "content": "Fetches all transactions for a given business<br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3cd7fdc-7f40-42a3-9117-32967e28145b",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"MPB-CHRG-D8B07FB8D7\",\n      \"status\": \"captured\",\n      \"amount\": 122.87,\n      \"amount_currency\": \"AED\",\n      \"refund_amount\": 0,\n      \"refund_status\": \"No refund\",\n      \"billing_descriptor\": \"string\",\n      \"custom_data\": {},\n      \"created_date\": \"string\",\n      \"subscription_id\": \"string\",\n      \"next_payment_date\": \"string\",\n      \"settlement_amount\": 1781.1389839347614,\n      \"settlement_currency\": \"string\",\n      \"settlement_date\": \"string\",\n      \"customer_details\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"comment\": \"string\"\n      },\n      \"payment_method\": {\n        \"type\": \"string\",\n        \"card_holder_name\": \"string\",\n        \"card_last4\": \"string\",\n        \"origin\": \"string\"\n      },\n      \"settlement_fee\": \"string\",\n      \"settlement_vat\": \"string\",\n      \"payment_link_id\": \"string\",\n      \"payment_link_url\": \"string\",\n      \"error_code\": \"string\",\n      \"error_message\": \"string\"\n    },\n    {\n      \"id\": \"MPB-CHRG-D8B07FB8D7\",\n      \"status\": \"captured\",\n      \"amount\": 122.87,\n      \"amount_currency\": \"AED\",\n      \"refund_amount\": 0,\n      \"refund_status\": \"No refund\",\n      \"billing_descriptor\": \"string\",\n      \"custom_data\": {},\n      \"created_date\": \"string\",\n      \"subscription_id\": \"string\",\n      \"next_payment_date\": \"string\",\n      \"settlement_amount\": 4464.345224870511,\n      \"settlement_currency\": \"string\",\n      \"settlement_date\": \"string\",\n      \"customer_details\": {\n        \"name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"comment\": \"string\"\n      },\n      \"payment_method\": {\n        \"type\": \"string\",\n        \"card_holder_name\": \"string\",\n        \"card_last4\": \"string\",\n        \"origin\": \"string\"\n      },\n      \"settlement_fee\": \"string\",\n      \"settlement_vat\": \"string\",\n      \"payment_link_id\": \"string\",\n      \"payment_link_url\": \"string\",\n      \"error_code\": \"string\",\n      \"error_message\": \"string\"\n    }\n  ],\n  \"pagination_meta\": {\n    \"page\": 5911.47655838095,\n    \"per_page\": 3768.0663453384723,\n    \"total_pages\": 7725.22056973955,\n    \"next_page\": 3108.562337880105,\n    \"prev_page\": 9793.474461514545,\n    \"from\": 3365.301316082969,\n    \"to\": 7578.636806071953,\n    \"total_count\": 1214.4127905101775\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42814df1-e59f-42fd-b3d4-80cd5d3c8a33",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24276e41-0f0a-4cad-b587-89b212392f25",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bf546c7-8b56-453a-9acd-337b08e24b84",
+          "name": "Initiate Payment",
+          "request": {
+            "name": "Initiate Payment",
+            "description": {
+              "content": "API to initiate transactions by merchant. <br> <h3>About MIT (Merchant Initiated Transaction)</h3> Merchant Initiated Transactions (MIT) allows a business to use card details, that were stored during previous transactions, to charge their customers.<br> <br> <h3>How do MITs work?</h3> 1- You request a payment link with the option to save the card details.<br> 2- You save the charge ID.<br> 3- You get the charge details (redirect, GET /charge, or webhook) which will include the ID of the card used to make the payment, you can save either one of the IDs so you always have access to the card ID.<br> 4- You call the below API to initiate a transaction using the same card.<br> ",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"card_id\": \"<string>\",\n  \"amount\": 10,\n  \"currency\": \"AED\",\n  \"send_customer_receipt\": true,\n  \"custom_data\": \"<object>\",\n  \"external_id\": \"<string>\",\n  \"hold_and_charge_later\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d44fc288-b3ec-453d-9709-69b747ddfdfa",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"CARD-5DF50209F8\",\n  \"amount\": 10,\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"external_id\": \"ORDER-12345\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"captured\",\n  \"amount\": 100,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"Mamo*Merchant\",\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"created_date\": \"2023-05-31-11-18-57\",\n  \"subscription_id\": \"MPB-SUB-B764EDCBA2\",\n  \"next_payment_date\": \"05/06/2023\",\n  \"settlement_amount\": 356.42,\n  \"settlement_currency\": \"AED\",\n  \"settlement_date\": \"05/06/2023\",\n  \"customer_details\": {\n    \"name\": \"Mamo User\",\n    \"email\": \"email@mamopay.com\",\n    \"phone_number\": \"+971551234567\",\n    \"comment\": \"Dolore voluptate possimus et.\"\n  },\n  \"payment_method\": {\n    \"type\": \"CREDIT VISA\",\n    \"card_holder_name\": \"Mamo User\",\n    \"card_last4\": \"•••• 4242\",\n    \"origin\": \"UAE card\"\n  },\n  \"error_code\": \"generic\",\n  \"error_message\": \"Unknown reason - user should contact their bank to find out\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "456a71ac-0559-4db2-beb3-5ece524a3ed6",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"CARD-5DF50209F8\",\n  \"amount\": 10,\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"external_id\": \"ORDER-12345\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "26030cfd-2d84-4b33-947d-baab318c9411",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"CARD-5DF50209F8\",\n  \"amount\": 10,\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"external_id\": \"ORDER-12345\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7e4c9fd-3e78-46be-af55-dbd4ee79845a",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"CARD-5DF50209F8\",\n  \"amount\": 10,\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"external_id\": \"ORDER-12345\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Card does not exist\"\n  ],\n  \"error_code\": \"UNPROCESSABLE ENTITY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8f629b8-bdd6-45ca-855d-d3856a2117d2",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"card_id\": \"CARD-5DF50209F8\",\n  \"amount\": 10,\n  \"custom_data\": {\n    \"internal_customer_id\": \"0114120d-c394-4cce-9cdb-4ccbae605748\",\n    \"val1\": true,\n    \"val2\": \"custom value\"\n  },\n  \"external_id\": \"ORDER-12345\",\n  \"hold_and_charge_later\": false\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8a49494e-aa20-4dd7-a877-c831e53f3ba8",
+          "name": "Capture Payment",
+          "request": {
+            "name": "Capture Payment",
+            "description": {
+              "content": "API to capture an \"On hold\" charge. <br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges",
+                ":chargeId",
+                "captures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "CHG-D8B07FB8D7",
+                  "key": "chargeId",
+                  "description": "(Required) Transaction ID / Charge ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "184b32fa-40d0-40b8-8bdc-9a1cbb87f8d3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "captures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 122.87\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"CHG-D8B07FB8D7\",\n  \"status\": \"captured\",\n  \"amount\": 122.87,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"string\",\n  \"custom_data\": {},\n  \"created_date\": \"string\",\n  \"subscription_id\": \"string\",\n  \"next_payment_date\": \"string\",\n  \"settlement_amount\": 4323.263338807229,\n  \"settlement_currency\": \"string\",\n  \"settlement_date\": \"string\",\n  \"customer_details\": {\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"phone_number\": \"string\",\n    \"comment\": \"string\"\n  },\n  \"payment_method\": {\n    \"type\": \"string\",\n    \"card_holder_name\": \"string\",\n    \"card_last4\": \"string\",\n    \"origin\": \"string\"\n  },\n  \"settlement_fee\": \"string\",\n  \"settlement_vat\": \"string\",\n  \"payment_link_id\": \"string\",\n  \"payment_link_url\": \"string\",\n  \"error_code\": \"string\",\n  \"error_message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c49b2d3-8f4b-4584-a1cf-af00535d5fb4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "captures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 122.87\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c1fee18-93bc-4e6d-bcfa-f914fe2a5422",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "captures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 122.87\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08235177-d26e-4edd-8a32-44133f52fe56",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "captures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 122.87\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Can not capture this payment\"\n  ],\n  \"error_code\": \"UNPROCESSABLE ENTITY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38c5ed7a-d834-4f1e-90dc-607fc7822447",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "captures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 122.87\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b962aa1-c06b-429c-9c31-48258a11184f",
+          "name": "Refund Payment",
+          "request": {
+            "name": "Refund Payment",
+            "description": {
+              "content": "API to refund the charge. <br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges",
+                ":chargeId",
+                "refunds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "MB-LINK-D8B07FB8C7",
+                  "key": "chargeId",
+                  "description": "(Required) Transaction ID / Charge ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": 10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "da97d736-7e28-48c6-812c-a2fdea3f90fc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-D8B07FB8C7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"refund_amount\": 20,\n  \"refund_status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1f9da6f1-b231-4eba-9dff-f1cc0dcbbf96",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-D8B07FB8C7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb9f7329-3a23-4de6-8d0c-7b0d0f4a18d6",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-D8B07FB8C7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "194cba22-75bd-4784-971d-202ffc30df18",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-D8B07FB8C7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Can not refund this payment\"\n  ],\n  \"error_code\": \"UNPROCESSABLE ENTITY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acbf0613-5c83-44b9-9477-39b26f68b2ae",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "refunds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "MB-LINK-D8B07FB8C7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 10\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b0cbc6e3-f727-4d35-b048-55deb8ebfdb1",
+          "name": "Reverse Payment",
+          "request": {
+            "name": "Reverse Payment",
+            "description": {
+              "content": "API to reverse an \"On hold\" charge. <br><br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "charges",
+                ":chargeId",
+                "reverses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "CHG-D8B07FB8D7",
+                  "key": "chargeId",
+                  "description": "(Required) Transaction ID / Charge ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ad1b057-0bc4-4b86-839a-7b548ad4e286",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "reverses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"CHG-D8B07FB8D7\",\n  \"status\": \"voided\",\n  \"amount\": 122.87,\n  \"amount_currency\": \"AED\",\n  \"refund_amount\": 0,\n  \"refund_status\": \"No refund\",\n  \"billing_descriptor\": \"string\",\n  \"custom_data\": {},\n  \"created_date\": \"string\",\n  \"subscription_id\": \"string\",\n  \"next_payment_date\": \"string\",\n  \"settlement_amount\": 3451.058408419664,\n  \"settlement_currency\": \"string\",\n  \"settlement_date\": \"string\",\n  \"customer_details\": {\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"phone_number\": \"string\",\n    \"comment\": \"string\"\n  },\n  \"payment_method\": {\n    \"type\": \"string\",\n    \"card_holder_name\": \"string\",\n    \"card_last4\": \"string\",\n    \"origin\": \"string\"\n  },\n  \"settlement_fee\": \"string\",\n  \"settlement_vat\": \"string\",\n  \"payment_link_id\": \"string\",\n  \"payment_link_url\": \"string\",\n  \"error_code\": \"string\",\n  \"error_message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f24afa1a-6883-4bcd-9337-507ebfc44927",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "reverses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b0f5a48-d919-473e-886a-c4b58f44adfe",
+              "name": "Unauthorised",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "reverses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Unauthorized\"\n  ],\n  \"error_code\": \"UNAUTHORIZED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "725d273e-4915-40b8-aba4-cdaa468da360",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "reverses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    \"Can not reverse this payment\"\n  ],\n  \"error_code\": \"UNPROCESSABLE ENTITY\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd9d9aec-ea89-46c8-9746-9d8ef91ec2d3",
+              "name": "Unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "charges",
+                    ":chargeId",
+                    "reverses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "CHG-D8B07FB8D7",
+                      "key": "chargeId",
+                      "description": "(Required) Transaction ID / Charge ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "description": ""
+                  },
+                  {
+                    "disabled": false,
+                    "key": "Authorization",
+                    "value": "Bearer <your sandbox api key>",
+                    "description": ""
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 500,\n  \"error\": \"Internal Server Error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://business.mamopay.com/manage_api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bd26f04-3f62-4f11-a460-74dba72a9356",
+    "name": "Mamo Business Business Details Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.\n\nContact Support:\n Name: Mamo API Support\n Email: api@mamopay.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Subscriptions API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Unsubscribe subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions/:subscriptionId/subscribers/:subscriberId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "MPB-SUB-89F44540B6",
+                "type": "path",
+                "description": "Subscription ID"
+              },
+              {
+                "name": "subscriberId",
+                "value": "MPB-SUBSCRIBER-9164BF542E",
+                "type": "path",
+                "description": "Subscriber ID"
+              }
+            ]
+          },
+          "docs": "Unsubscribe subscription.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Cancel Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions/:subscriptionId",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "MPB-SUB-B764EDCBA2",
+                "type": "path",
+                "description": "Subscription ID"
+              }
+            ]
+          },
+          "docs": "Cancels an existing subscription. This is NOT to unsubscribe a customer from a subscription that they have subscribed to. This deletes a previously created subscription for a business. <br><br>"
+        },
+        {
+          "info": {
+            "name": "Fetch Subscription Payments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions/:subscriptionId/payments",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "MPB-SUB-B764EDCBA2",
+                "type": "path",
+                "description": "Subscription ID"
+              }
+            ]
+          },
+          "docs": "Fetches all subscription payments made against a Subscription item. Developers should use the customer's email address to filter out payments made by a single customer. The creation date can be used to decide whether a customer should be kept on the same plan or downgraded to a lower / free one. "
+        },
+        {
+          "info": {
+            "name": "Fetch Subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions/:subscriptionId/subscribers",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "MPB-SUBSCRIBER-4C26489D5C",
+                "type": "path",
+                "description": "Subscription ID"
+              }
+            ]
+          },
+          "docs": "Fetches all subscribers of subscription.<br><br>"
+        },
+        {
+          "info": {
+            "name": "Change Customer Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions/:subscriptionId/subscribers/:subscriberId/change_customer_subscription",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "MPB-SUB-89F44540B6",
+                "type": "path",
+                "description": "Subscription ID (the subscriber's current subscription)"
+              },
+              {
+                "name": "subscriberId",
+                "value": "MPB-SUBSCRIBER-9164BF542E",
+                "type": "path",
+                "description": "Subscriber ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Upgrades a subscriber from their current subscription to a target subscription, without requiring the customer to re-enter their card details.\n\nProrates and charges the difference (target plan's price minus the unused remainder of the current subscription's period) against the target plan's payment link, then activates the target subscriber and unsubscribes the current one.\n\n### Constraints (v1)\n\n- Only **upgrades** are supported — the target subscription's first payment amount must exceed the c"
+        },
+        {
+          "info": {
+            "name": "Create Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://business.mamopay.com/manage_api/v1/subscriptions",
+            "headers": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "name": "Authorization",
+                "value": "Bearer <your sandbox api key>"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a subscription object that defines a billing schedule (frequency, interval, start/end date, etc).<br><br> ⚠️ This API only creates the subscription object; it does not associate the subscription with a payment link. For the subscription to function correctly, the returned subscription identifier must be attached to a payment link using the `subscription_id` attribute on the [Create Payment Link](/reference/post_links) or [Update Payment Link](/reference/patch_links-linkid) APIs.<br><br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

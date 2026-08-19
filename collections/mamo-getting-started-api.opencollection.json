@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Mamo Business Business Details Getting Started API",
+    "version": "1.6"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Getting Started",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quick start",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://business.mamopay.com/manage_api/v1/"
+          },
+          "docs": "Get up and running with Mamo's APIs in less than 5 minutes.<br><br>In this example, we will use the Business Details endpoint to ensure we have the right permissions to interact with Mamo's APIs.<br><br><h2>How to Use Mamo's API Docs</h2>👈 To the left, you will find all documents, including individual endpoint reference docs. These will include information on various endpoints, their associated methods and the various responses that your code will need to handle.<br><br>👉 To the right, there's"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
