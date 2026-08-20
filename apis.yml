@@ -40,6 +40,17 @@ tags:
 - Payments
 - Fintech
 - Payment Links
+- Subscription
+- Corporate Cards
+- Payouts
+- Expense Management
+- UAE
+- Middle East
+tags_raw:
+- Company
+- Payments
+- Fintech
+- Payment Links
 - Subscriptions
 - Corporate Cards
 - Payouts
@@ -287,6 +298,8 @@ apis:
   humanURL: https://mamopay.readme.io/reference/get_
   baseURL: https://business.mamopay.com/manage_api/v1
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
@@ -313,6 +326,8 @@ apis:
   humanURL: https://mamopay.readme.io/reference/get_
   baseURL: https://business.mamopay.com/manage_api/v1
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -339,6 +354,8 @@ apis:
   humanURL: https://mamopay.readme.io/reference/get_
   baseURL: https://business.mamopay.com/manage_api/v1
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
