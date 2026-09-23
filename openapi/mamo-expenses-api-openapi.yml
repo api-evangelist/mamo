@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mamo Business Business Details Expenses API
+  title: Mamo Business Expenses API
   version: '1.6'
   description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
   contact:
@@ -97,15 +97,17 @@ paths:
                     type: string
                     description: Tax code
                   paymentAccount:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Payment account
                   expenseAccount:
                     type: string
                     description: Expense account
                   vendor:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: Vendor information
                   receiptUploaded:
                     type: boolean

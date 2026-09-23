@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mamo Business Business Details Webhooks API
+  title: Mamo Business Webhooks API
   version: '1.6'
   description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Webhooks
       summary: Delete Webhook
-      description: Allows a user to delete a registered webhook.<br><br>
+      description: Allows a user to delete a registered webhook.
       parameters:
       - in: path
         name: webhookId
@@ -79,7 +79,7 @@ paths:
       tags:
       - Webhooks
       summary: Update Webhook
-      description: Allows a user to update webhook details.<br><br>
+      description: Allows a user to update webhook details.
       parameters:
       - in: path
         name: webhookId
@@ -200,7 +200,7 @@ paths:
       tags:
       - Webhooks
       summary: Fetching Webhooks
-      description: Fetches all registered webhooks for a given business.<br><br>
+      description: Fetches all registered webhooks for a given business.
       parameters:
       - name: Content-Type
         in: header
@@ -273,7 +273,7 @@ paths:
       tags:
       - Webhooks
       summary: Create Webhook
-      description: Webhook registration for updates on one-off payment statuses and subscription payment statues.<br><br>
+      description: Webhook registration for updates on one-off payment statuses and subscription payment statues.
       requestBody:
         content:
           application/json:

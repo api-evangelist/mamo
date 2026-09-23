@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mamo Business Business Details Invoices API
+  title: Mamo Business Invoices API
   version: '1.6'
   description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
   contact:
@@ -101,13 +101,15 @@ paths:
                   type: string
                   description: An external reference ID of your choice to associate with this invoice.
                 processing_fee_percentage:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0
                   description: A processing fee percentage to be added on top of the invoice amount and charged to the customer.
                 processing_fee_amount:
-                  type: number
-                  nullable: true
+                  type:
+                  - number
+                  - 'null'
                   minimum: 0
                   description: A fixed processing fee amount to be added on top of the invoice amount and charged to the customer.
               required:
@@ -184,35 +186,42 @@ paths:
                     type: string
                     description: The additional details displayed on the invoice.
                   business_name:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The business name on the invoice, if applicable.
                   uae_tax_reference_number:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The UAE tax reference number, if applicable.
                   address:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The address associated with the invoice, if applicable.
                   city:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The city associated with the invoice, if applicable.
                   country:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The country associated with the invoice, if applicable.
                   payment_url:
                     type: string
                     description: The URL where the customer can complete payment for this invoice.
                   invoice_pdf_url:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The URL to download the invoice as a PDF, once generated.
                   paid_at:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                     description: The date and time the invoice was paid, if applicable.
                   created_at:
                     type: string

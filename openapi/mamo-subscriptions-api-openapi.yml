@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mamo Business Business Details Subscriptions API
+  title: Mamo Business Subscriptions API
   version: '1.6'
   description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Subscriptions
       summary: Unsubscribe subscription
-      description: Unsubscribe subscription.<br><br>
+      description: Unsubscribe subscription.
       parameters:
       - in: path
         name: subscriptionId
@@ -88,7 +88,7 @@ paths:
       tags:
       - Subscriptions
       summary: Cancel Subscription
-      description: Cancels an existing subscription. This is NOT to unsubscribe a customer from a subscription that they have subscribed to. This deletes a previously created subscription for a business. <br><br>
+      description: Cancels an existing subscription. This is NOT to unsubscribe a customer from a subscription that they have subscribed to. This deletes a previously created subscription for a business.
       parameters:
       - in: path
         name: subscriptionId
@@ -161,7 +161,7 @@ paths:
       tags:
       - Subscriptions
       summary: Fetch Subscription Payments
-      description: 'Fetches all subscription payments made against a Subscription item. Developers should use the customer''s email address to filter out payments made by a single customer. The creation date can be used to decide whether a customer should be kept on the same plan or downgraded to a lower / free one. '
+      description: Fetches all subscription payments made against a Subscription item. Developers should use the customer's email address to filter out payments made by a single customer. The creation date can be used to decide whether a customer should be kept on the same plan or downgraded to a lower / free one.
       parameters:
       - in: path
         name: subscriptionId
@@ -311,7 +311,7 @@ paths:
       tags:
       - Subscriptions
       summary: Fetch Subscribers
-      description: Fetches all subscribers of subscription.<br><br>
+      description: Fetches all subscribers of subscription.
       parameters:
       - in: path
         name: subscriptionId
@@ -452,9 +452,7 @@ paths:
 
         | `PRORATION_BELOW_MINIMUM` | The prorated charge difference is below the minimum chargeable amount (2 AED / 0.55 in other currencies) |
 
-        | `CHARGE_FAILED` | The proration charge was declined (includes a decline reason) |
-
-        '
+        | `CHARGE_FAILED` | The proration charge was declined (includes a decline reason) |'
       parameters:
       - in: path
         name: subscriptionId
@@ -599,7 +597,10 @@ paths:
       tags:
       - Subscriptions
       summary: Create Subscription
-      description: Creates a subscription object that defines a billing schedule (frequency, interval, start/end date, etc).<br><br> ⚠️ This API only creates the subscription object; it does not associate the subscription with a payment link. For the subscription to function correctly, the returned subscription identifier must be attached to a payment link using the `subscription_id` attribute on the [Create Payment Link](/reference/post_links) or [Update Payment Link](/reference/patch_links-linkid) APIs.<br><br>
+      description: 'Creates a subscription object that defines a billing schedule (frequency, interval, start/end date, etc).
+
+
+        ⚠️ This API only creates the subscription object; it does not associate the subscription with a payment link. For the subscription to function correctly, the returned subscription identifier must be attached to a payment link using the `subscription_id` attribute on the Create Payment Link or Update Payment Link APIs.'
       requestBody:
         content:
           application/json:

@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: Mamo Business Business Details Receipts API
+  title: Mamo Business Receipts API
   version: '1.6'
   description: Mamo Business API follows the REST model. Its purpose is to enable Mamo Business users to automate payment link generation, charges, subscriptions, disbursements, recipients, cards, expenses and webhooks. Accepts JSON request bodies and returns JSON responses.
   contact:
@@ -21,7 +21,7 @@ paths:
       tags:
       - Receipts
       summary: Fetch Expense Receipt Details
-      description: Fetches detailed information for a specific expense receipt<br><br>
+      description: Fetches detailed information for a specific expense receipt
       parameters:
       - name: identifier
         in: path
@@ -119,7 +119,7 @@ paths:
       tags:
       - Receipts
       summary: Fetching Expense Receipts
-      description: Fetches all expense receipts for a given business<br><br>
+      description: Fetches all expense receipts for a given business
       parameters:
       - name: Content-Type
         in: header
@@ -178,12 +178,14 @@ paths:
                         type: integer
                         description: Total number of pages
                       next_page:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Next page number
                       prev_page:
-                        type: integer
-                        nullable: true
+                        type:
+                        - integer
+                        - 'null'
                         description: Previous page number
                       from:
                         type: integer

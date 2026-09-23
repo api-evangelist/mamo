@@ -1,18 +1,7 @@
 {
   "provider": "mamo",
   "sources": [
-    "mamo-business-details-api-openapi.yml",
-    "mamo-cards-api-openapi.yml",
-    "mamo-expenses-api-openapi.yml",
-    "mamo-getting-started-api-openapi.yml",
-    "mamo-invoices-api-openapi.yml",
-    "mamo-payment-links-api-openapi.yml",
-    "mamo-payouts-api-openapi.yml",
-    "mamo-receipts-api-openapi.yml",
-    "mamo-recipients-api-openapi.yml",
-    "mamo-subscriptions-api-openapi.yml",
-    "mamo-transactions-api-openapi.yml",
-    "mamo-webhooks-api-openapi.yml"
+    "_original/mamo-openapi.yml"
   ],
   "outputs": [
     "mamo-business-details-api-openapi.yml",
@@ -31,6 +20,23 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "mamo-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "mamo-business-details-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-cards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-expenses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-getting-started-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-invoices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-payment-links-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-payouts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-receipts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-recipients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "mamo-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
