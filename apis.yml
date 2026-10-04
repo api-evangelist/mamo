@@ -49,6 +49,9 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 image: https://cdn.prod.website-files.com/62662ec945767b19355b5c00/695f9da901d5bfde3a81193b_Website%20thumbnail2.png
+x-docs-platform: readme
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-10-03
 tags:
 - Company
 - Payments
@@ -60,6 +63,7 @@ tags:
 - Expense Management
 - United Arab Emirates
 - Middle East
+- MENA
 tags_raw:
 - Company
 - Payments
@@ -71,6 +75,7 @@ tags_raw:
 - Expense Management
 - UAE
 - Middle East
+- MENA
 apis:
 - aid: mamo:mamo-business-details-api
   name: Mamo Business Details API
@@ -396,6 +401,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/mamo-capability-edges.yml
+  name: Mamo Business Capability Map
 - type: X-MCPServerCandidate
   url: mcp/mamo-mcp.yml
   note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'

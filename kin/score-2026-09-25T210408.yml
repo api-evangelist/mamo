@@ -1,21 +1,19 @@
-# Kin Score artifact — mamo — 2026-08-27T140727
+# Kin Score artifact — mamo — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: mamo
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
-  composite: 59.3
-  band: strong
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 53.8
+  band: developing
   facets:
-    discoverability: 81.5
-    contract_quality: 69.6
-    governance: 30.3
+    discoverability: 73.2
+    contract_quality: 63.0
+    contract_governance: 18.2
     operational_transparency: 28.9
-    developer_ergonomics: 45.8
-    commercial_clarity: 53.9
-    contract_governance: 30.3
+    developer_ergonomics: 42.3
     access_clarity: 53.9
   agent_readiness:
     score: 32.9
@@ -44,7 +42,7 @@ kin_score:
     applies: true
     regime: Payments
     regime_id: payments
-    score: 75.0
+    score: 42.9
     matched_via: tags
   provenance:
     mcp: derived
