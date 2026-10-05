@@ -1,0 +1,36 @@
+slug: mamo
+provider: Mamo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Subscriptions
+  spec_file: mamo-subscriptions-api-openapi.yml
+  capability_id: BC-4240
+  capability_id_l1: BC-4240
+  capability_name: Subscription Lifecycle Management
+  confidence: 0.78
+  evidence: '"POST /subscriptions Create Subscription", "DELETE /subscriptions/{subscriptionId} Cancel
+    Subscription", "Change Customer Subscription"'
+  reason: Operations cover creating, modifying, cancelling subscriptions and managing subscribers — the
+    recurring commercial subscription lifecycle. L2 left blank since the surface spans provisioning, modification
+    and cancellation.
+- tag: Invoices
+  spec_file: mamo-invoices-api-openapi.yml
+  capability_id: BC-200.30
+  capability_id_l1: BC-200
+  capability_name: Accounts Receivable Management
+  confidence: 0.7
+  evidence: POST /invoices  postInvoices  Create Invoice
+  reason: Creation of customer invoices for amounts owed to the business realises Accounts Receivable
+    Management (customer invoicing). Only one operation is exposed and the vendor also sells subscription
+    billing, so the AR-vs-subscription-invoicing split is somewhat ambiguous.
